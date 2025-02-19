@@ -4,7 +4,8 @@ import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import "react-native-reanimated";
-import "../global.css"
+import "../global.css";
+import RootProvider from "@/providers/provider";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -21,7 +22,7 @@ export default function RootLayout() {
     "Urbanist-SemiBold": require("../assets/fonts/Urbanist-SemiBold.ttf"),
     "Urbanist-Thin": require("../assets/fonts/Urbanist-Thin.ttf"),
   });
-  
+
   useEffect(() => {
     if (error) throw error;
   }, [error]);
@@ -38,11 +39,13 @@ export default function RootLayout() {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <Stack>
-        <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
+      <RootProvider>
+        <Stack>
+          <Stack.Screen name="index" options={{ headerShown: false }} />
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="+not-found" />
+        </Stack>
+      </RootProvider>
     </GestureHandlerRootView>
   );
 }
