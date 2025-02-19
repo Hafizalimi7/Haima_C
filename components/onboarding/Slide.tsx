@@ -29,10 +29,15 @@ const Slide: React.FC<SlideProp> = ({
 
   return (
     <>
-      <View style={{ width: width }} className="relative">
+      <View
+        testID={`slide-container-${slide.id}`}
+        style={{ width: width }}
+        className="relative"
+      >
         {currentSlideIndex != onBoardingDataSlides.length - 1 && (
           <View className="absolute z-10 right-5 top-5">
             <CustomButton
+              testID="skip-button"
               handlePress={handleSkip}
               className="bg-[#FFFFFF1A] px-6 py-1.5 min-h-7"
             >
@@ -79,6 +84,7 @@ const Slide: React.FC<SlideProp> = ({
               ) : (
                 <View className="w-full pt-10">
                   <CustomButton
+                    testID="continue-button"
                     handlePress={() => goToNextSlide()}
                     className="bg-secondary w-full px-3"
                   >

@@ -1,10 +1,15 @@
 import { icons } from "@/constants";
-import { TouchableOpacity, Image, View } from "react-native";
+import {
+  TouchableOpacity,
+  Image,
+  View,
+  GestureResponderEvent,
+  TouchableOpacityProps,
+} from "react-native";
 
-type CustomizeBtn = {
+type CustomizeBtn = TouchableOpacityProps & {
   children: React.ReactNode;
-  handlePress?: () => void;
-  className: string;
+  handlePress?: (event: GestureResponderEvent) => void;
   isLoading?: boolean;
   disabled?: boolean;
 };
@@ -12,9 +17,10 @@ type CustomizeBtn = {
 const CustomButton: React.FC<CustomizeBtn> = ({
   children,
   handlePress,
-  className,
+  className = "",
   isLoading,
   disabled,
+  ...props
 }) => {
   return (
     <TouchableOpacity
@@ -26,6 +32,7 @@ const CustomButton: React.FC<CustomizeBtn> = ({
         isLoading || disabled ? "opacity-90 cursor-not-allowed" : ""
       }`}
       disabled={disabled || isLoading}
+      {...props}
     >
       {isLoading && (
         <Image

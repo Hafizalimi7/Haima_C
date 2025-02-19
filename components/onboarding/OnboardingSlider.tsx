@@ -46,12 +46,14 @@ const OnboardingSlider: React.FC = () => {
       >
         <FlatList
           ref={ref}
+          testID="onboarding-slider"
           onMomentumScrollEnd={updateCurrentSlideIndex}
           contentContainerStyle={{ height: "100%" }}
           showsHorizontalScrollIndicator={false}
           horizontal
           data={onBoardingDataSlides}
           pagingEnabled
+          initialNumToRender={onBoardingDataSlides.length}
           renderItem={({ item }) => (
             <Slide
               currentSlideIndex={currentSlideIndex}
