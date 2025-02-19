@@ -32,7 +32,7 @@ const Slide: React.FC<SlideProp> = ({
       <View
         testID={`slide-container-${slide.id}`}
         style={{ width: width }}
-        className="relative"
+        className="relative bg-primary-800"
       >
         {currentSlideIndex != onBoardingDataSlides.length - 1 && (
           <View className="absolute z-10 right-5 top-5">

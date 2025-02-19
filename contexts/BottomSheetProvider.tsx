@@ -1,5 +1,6 @@
-import React, { createContext, useCallback, useContext, useRef } from "react";
+import React, { createContext, useCallback, useContext, useRef, useEffect } from "react";
 import { BottomSheetModal } from "@gorhom/bottom-sheet";
+import { usePathname } from "expo-router";
 
 interface BottomSheetContextType {
   openAuthSheet: () => void;
@@ -13,10 +14,20 @@ export const BottomSheetProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const bottomSheetRef = useRef<BottomSheetModal>(null);
+  const pathname = usePathname();
+
+  // Automatically close bottom sheet when navigating to auth routes
+  useEffect(() => {
+    if (pathname.includes("/auth/")) {
+      bottomSheetRef.current?.dismiss();
+    }
+  }, [pathname]);
 
   const openAuthSheet = useCallback(() => {
-    bottomSheetRef.current?.present();
-  }, []);
+    if (!pathname.includes("/auth/")) {
+      bottomSheetRef.current?.present();
+    }
+  }, [pathname]);
 
   const closeAuthSheet = useCallback(() => {
     bottomSheetRef.current?.dismiss();

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { FlatList, ScrollView, Dimensions } from "react-native";
+import { FlatList, ScrollView, Dimensions, NativeSyntheticEvent, NativeScrollEvent } from "react-native";
 import { onBoardingDataSlides } from "@/data/onboarding";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Slide from "./Slide";
@@ -10,7 +10,7 @@ const OnboardingSlider: React.FC = () => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState<number>(0);
   const ref = useRef<FlatList>(null);
 
-  const updateCurrentSlideIndex = (e: any) => {
+  const updateCurrentSlideIndex = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
     const contentOffsetX = e.nativeEvent.contentOffset.x;
     const currentIndex = Math.round(contentOffsetX / width);
     setCurrentSlideIndex(currentIndex);

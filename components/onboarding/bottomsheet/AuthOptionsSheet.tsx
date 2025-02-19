@@ -1,28 +1,41 @@
 import React from "react";
-import { Image, Text, View } from "react-native";
+import { Alert, Image, Text, View } from "react-native";
 import { BottomSheetModal, BottomSheetView } from "@gorhom/bottom-sheet";
 import { useBottomSheet } from "@/contexts/BottomSheetProvider";
 import { CustomButton } from "@/components/ui";
 import { icons } from "@/constants";
+import { useRouter } from "expo-router";
 
 interface AuthOptionSheetProps {}
 
 const AuthOptionSheet: React.FC<AuthOptionSheetProps> = () => {
-  const { bottomSheetRef } = useBottomSheet();
+  const { bottomSheetRef, closeAuthSheet } = useBottomSheet();
+  const { push } = useRouter();
 
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <BottomSheetModal ref={bottomSheetRef} snapPoints={["60%"]}>
         <BottomSheetView className="flex-1 p-5">
           <View className="w-full pb-2">
-            <CustomButton handlePress={() => {}} className="bg-primary w-full">
+            <CustomButton
+              handlePress={() => {
+                closeAuthSheet();
+
+                setTimeout(() => {
+                  push("/auth/sign-up");
+                }, 100);
+              }}
+              className="bg-primary w-full"
+            >
               <Text className="text-base font-semibold text-white">
                 Sign up
               </Text>
             </CustomButton>
           </View>
           <CustomButton
-            handlePress={() => {}}
+            handlePress={() => {
+              closeAuthSheet();
+            }}
             className="bg-white border border-primary w-full"
           >
             <Text className="text-base font-semibold text-primary">
@@ -35,7 +48,7 @@ const AuthOptionSheet: React.FC<AuthOptionSheetProps> = () => {
             <View className="w-[139px] h-[1px] bg-grey" />
           </View>
           <CustomButton
-            handlePress={() => {}}
+            handlePress={() => Alert.alert("Google", "Login with your Google")}
             className="bg-white border border-grey w-full"
           >
             <View className="flex-row items-center justify-center">
@@ -51,7 +64,9 @@ const AuthOptionSheet: React.FC<AuthOptionSheetProps> = () => {
           </CustomButton>
           <View className="w-full py-3">
             <CustomButton
-              handlePress={() => {}}
+              handlePress={() =>
+                Alert.alert("Facebook", "Login with your Facebook")
+              }
               className="bg-white border border-grey w-full"
             >
               <View className="flex-row items-center justify-center">
@@ -67,7 +82,9 @@ const AuthOptionSheet: React.FC<AuthOptionSheetProps> = () => {
             </CustomButton>
           </View>
           <CustomButton
-            handlePress={() => {}}
+            handlePress={() =>
+              Alert.alert("Apple Id", "Login with your Apple Id")
+            }
             className="bg-white border border-grey w-full"
           >
             <View className="flex-row items-center justify-center">
