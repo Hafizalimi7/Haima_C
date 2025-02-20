@@ -5,11 +5,21 @@ interface CheckboxProps {
   checked: boolean;
   onPress: () => void;
   className: string;
+  testID?: string;
 }
 
-const Checkbox: React.FC<CheckboxProps> = ({ checked, onPress, className }) => {
+const Checkbox: React.FC<CheckboxProps> = ({
+  checked,
+  onPress,
+  className,
+  testID,
+}) => {
   return (
-    <TouchableOpacity onPress={onPress} className={`${className}`}>
+    <TouchableOpacity
+      onPress={onPress}
+      className={`${className}`}
+      testID={testID}
+    >
       {checked ? (
         <Image
           source={icons.checkboxIcon}
