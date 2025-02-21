@@ -55,15 +55,16 @@ const SignInForm: React.FC = () => {
                   placeholder="Enter your e-mail"
                   keyboardType="email-address"
                   containerClassName=""
+                  className="pl-10"
                   errorClass={`${
                     getError("email") ? "border-danger" : "border-grey"
                   }`}
                 />
-                <View className="flex-row items-center justify-start absolute top-[15%] left-[20px]">
+                <View className="flex-row items-center justify-start absolute top-[13px] left-[20px]">
                   <Image
                     source={icons.emailIcon}
                     resizeMode="contain"
-                    className="w-5 h-5"
+                    className="w-5 h-5 object-contain"
                   />
                 </View>
               </View>
@@ -81,7 +82,7 @@ const SignInForm: React.FC = () => {
                     getError("password") ? "border-danger" : "border-grey"
                   }`}
                 />
-                <View className="flex-row items-center justify-start absolute top-[15%] left-[20px]">
+                <View className="flex-row items-center justify-start absolute top-[13px] left-[20px]">
                   <Image
                     source={icons.lockIcon}
                     resizeMode="contain"

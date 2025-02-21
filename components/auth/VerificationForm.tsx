@@ -42,6 +42,7 @@ const VerificationForm: React.FC<VerificationFormProps> = ({
   };
 
   const handleSubmit = (values: VerificationFormValue) => {
+    console.log("🚀 ~ handleSubmit ~ values:", values)
     try {
       if (type === "reset-password") {
         push("/auth/reset-password");

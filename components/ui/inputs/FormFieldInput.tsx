@@ -80,7 +80,7 @@ const FormFieldInput: React.FC<FormType> = ({
           >
             <Image
               source={!showPassword ? icons.eyeIcon : icons.eyeIcon}
-              className="w-4 h-4"
+              className="w-5 h-5"
               resizeMode="contain"
               tintColor="#000000"
               testID="password-icon"

@@ -75,7 +75,7 @@ const CreateProfileForm: React.FC = () => {
                     getError("first_name") ? "border-danger" : "border-grey"
                   }`}
                 />
-                <View className="flex-row items-center justify-start absolute top-[28%] left-[20px]">
+                <View className="flex-row items-center justify-start absolute top-[13px] left-[20px]">
                   <Image
                     source={icons.userIcon}
                     resizeMode="contain"
@@ -96,7 +96,7 @@ const CreateProfileForm: React.FC = () => {
                     getError("last_name") ? "border-danger" : "border-grey"
                   }`}
                 />
-                <View className="flex-row items-center justify-start absolute top-[28%] left-[20px]">
+                <View className="flex-row items-center justify-start absolute top-[13px] left-[20px]">
                   <Image
                     source={icons.userIcon}
                     resizeMode="contain"
@@ -117,7 +117,7 @@ const CreateProfileForm: React.FC = () => {
                     getError("username") ? "border-danger" : "border-grey"
                   }`}
                 />
-                <View className="flex-row items-center justify-start absolute top-[28%] left-[20px]">
+                <View className="flex-row items-center justify-start absolute top-[13px] left-[20px]">
                   <Image
                     source={icons.userIcon}
                     resizeMode="contain"
@@ -139,7 +139,7 @@ const CreateProfileForm: React.FC = () => {
                     getError("password") ? "border-danger" : "border-grey"
                   }`}
                 />
-                <View className="flex-row items-center justify-start absolute top-[15%] left-[20px]">
+                <View className="flex-row items-center justify-start absolute top-[13px] left-[20px]">
                   <Image
                     source={icons.lockIcon}
                     resizeMode="contain"
