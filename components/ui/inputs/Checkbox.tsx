@@ -20,17 +20,17 @@ const Checkbox: React.FC<CheckboxProps> = ({
       className={`${className}`}
       testID={testID}
     >
-      {checked ? (
+      {!checked ? (
         <Image
           source={icons.checkboxIcon}
           resizeMode="contain"
-          className="w-4 h-4"
+          className="w-5 h-5"
         />
       ) : (
         <Image
           source={icons.checkedBoxIcon}
           resizeMode="contain"
-          className="w-4 h-4"
+          className="w-6 h-6"
         />
       )}
     </TouchableOpacity>

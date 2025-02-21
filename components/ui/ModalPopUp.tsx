@@ -1,6 +1,11 @@
 import React, { ReactNode, useEffect, useRef, useState } from "react";
-import { Modal } from "react-native";
-import { View, Animated } from "react-native";
+import { Modal, View } from "react-native";
+import Animated, {
+  useAnimatedStyle,
+  withSpring,
+  withTiming,
+  useSharedValue,
+} from "react-native-reanimated";
 
 interface ModalProp {
   visible: boolean;
@@ -9,35 +14,29 @@ interface ModalProp {
 }
 
 const ModalPopUp: React.FC<ModalProp> = ({ visible, children, className }) => {
-  const [showModal, setShowModal] = useState(visible);
-  const scaleValue = useRef(new Animated.Value(0)).current;
+  const scale = useSharedValue(0);
 
   useEffect(() => {
-    toggleModal();
+    if (visible) {
+      scale.value = withSpring(1);
+    } else {
+      scale.value = withTiming(0, { duration: 300 });
+    }
   }, [visible]);
 
-  const toggleModal = () => {
-    if (visible) {
-      setShowModal(true);
-      Animated.spring(scaleValue, {
-        toValue: 1,
-        useNativeDriver: true,
-      }).start();
-    } else {
-      setTimeout(() => setShowModal(false), 200);
-      Animated.timing(scaleValue, {
-        toValue: 0,
-        duration: 300,
-        useNativeDriver: true,
-      }).start();
-    }
-  };
+  const animatedStyle = useAnimatedStyle(() => {
+    return {
+      transform: [{ scale: scale.value }],
+    };
+  });
+
+  if (!visible) return null;
 
   return (
-    <Modal transparent visible={showModal}>
+    <Modal transparent visible={visible}>
       <View className="flex-1 bg-black/30 items-center justify-center">
         <Animated.View
-          style={[{ transform: [{ scale: scaleValue }] }]}
+          style={[animatedStyle]}
           className={`w-[347px] bg-white py-5 px-6 rounded-3xl ${className}`}
         >
           {children}

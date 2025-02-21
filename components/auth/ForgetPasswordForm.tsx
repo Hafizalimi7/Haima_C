@@ -1,13 +1,12 @@
 import { SignupSchema } from "@/schemas/auth.schema";
 import { SignUpFormValues } from "@/types/auth";
+import { useRouter } from "expo-router";
 import { Formik } from "formik";
-import { Text, View } from "react-native";
+import { View, Text } from "react-native";
 import { FormFieldInput } from "../ui/inputs";
 import { CustomButton } from "../ui";
-import { TouchableOpacity } from "react-native";
-import { useRouter } from "expo-router";
 
-const SignUpForm: React.FC = () => {
+const ForgetPasswordForm: React.FC = () => {
   const { push } = useRouter();
   const initialValues: SignUpFormValues = {
     email: "",
@@ -16,7 +15,10 @@ const SignUpForm: React.FC = () => {
   const handleSubmit = (values: SignUpFormValues) => {
     // Handle form submission here
     console.log("Form values:", values);
-    push(`/auth/verification/${values.email}`);
+    push({
+      pathname: "/auth/verification/[email]",
+      params: { email: values.email, type: "reset-password" },
+    });
   };
 
   return (
@@ -62,19 +64,9 @@ const SignUpForm: React.FC = () => {
                 disabled={!values.email || !!errors.email}
               >
                 <Text className="text-base text-white font-semibold group-disabled:text-grey-800">
-                  Sign Up
+                  Send OTP
                 </Text>
               </CustomButton>
-              <View className="flex-row items-center gap-x-2">
-                <Text className="text-base font-normal text-grey-800">
-                  Already have an account?
-                </Text>
-                <TouchableOpacity onPress={() => push("/auth/sign-in")}>
-                  <Text className="text-base font-semibold text-primary">
-                    Sign in here
-                  </Text>
-                </TouchableOpacity>
-              </View>
             </View>
           </View>
         );
@@ -83,4 +75,4 @@ const SignUpForm: React.FC = () => {
   );
 };
 
-export default SignUpForm;
+export default ForgetPasswordForm;

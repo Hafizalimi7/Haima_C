@@ -17,10 +17,10 @@ const SocialAuthOptions: React.FC = () => {
         <View className="flex-row items-center justify-center">
           <Image
             source={icons.googleIcon}
-            className="w-6 h-6"
+            className="w-6 h-6 object-contain"
             resizeMode="contain"
           />
-          <Text className="text-base font-medium text-primary w-[70%] text-center">
+          <Text className="text-base font-medium text-primary w-[70%] lg:w-[90%] text-center">
             Continue with Google
           </Text>
         </View>
@@ -35,10 +35,10 @@ const SocialAuthOptions: React.FC = () => {
           <View className="flex-row items-center justify-center">
             <Image
               source={icons.facebookIcon}
-              className="w-6 h-6"
+              className="w-6 h-6 object-contain"
               resizeMode="contain"
             />
-            <Text className="text-base font-medium text-primary w-[70%] text-center pl-5">
+            <Text className="text-base font-medium text-primary w-[70%] lg:w-[90%] text-center pl-5">
               Continue with Facebook
             </Text>
           </View>
@@ -51,10 +51,10 @@ const SocialAuthOptions: React.FC = () => {
         <View className="flex-row items-center justify-center">
           <Image
             source={icons.appleIcon}
-            className="w-6 h-6"
+            className="w-6 h-6 object-contain"
             resizeMode="contain"
           />
-          <Text className="text-base font-medium text-primary  w-[70%] text-center">
+          <Text className="text-base font-medium text-primary  w-[70%] lg:w-[90%] text-center">
             Continue with Apple
           </Text>
         </View>

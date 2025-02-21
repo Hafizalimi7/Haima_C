@@ -5,8 +5,10 @@ import { View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function VerificationScreen() {
-  const { email } = useLocalSearchParams<{ email?: string }>();
-  
+  const { email, type } = useLocalSearchParams<{
+    email?: string;
+    type?: string;
+  }>();
   return (
     <SafeAreaView className="flex-1 bg-white">
       <ScrollView
@@ -22,7 +24,7 @@ export default function VerificationScreen() {
             title="Verify Account"
             subtitle="Enter the 4-digit code sent to your email address"
           />
-          <VerificationForm email={email} />
+          <VerificationForm email={email} type={type} />
         </View>
       </ScrollView>
     </SafeAreaView>

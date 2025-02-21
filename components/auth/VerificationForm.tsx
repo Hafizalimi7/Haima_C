@@ -2,7 +2,7 @@ import { VerificationSchema } from "@/schemas/auth.schema";
 import { VerificationFormValue } from "@/types/auth";
 import { useRouter } from "expo-router";
 import { Formik } from "formik";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, Alert } from "react-native";
 import { CustomButton, ModalPopUp } from "../ui";
 import useBooleanControl from "@/hooks/useBooleanControl";
 import React, { useEffect, useState } from "react";
@@ -18,11 +18,15 @@ import { icons } from "@/constants";
 
 interface VerificationFormProps {
   email: string | undefined;
+  type: string | undefined;
 }
 
 const CELL_COUNT = 4;
 
-const VerificationForm: React.FC<VerificationFormProps> = ({ email }) => {
+const VerificationForm: React.FC<VerificationFormProps> = ({
+  email,
+  type = "verification",
+}) => {
   const { push } = useRouter();
   const [resendCountdown, setResendCountdown] = useState(60);
   const { state: resendEnabled, setState: setResendEnabled } =
@@ -38,9 +42,21 @@ const VerificationForm: React.FC<VerificationFormProps> = ({ email }) => {
   };
 
   const handleSubmit = (values: VerificationFormValue) => {
-    // Handle form submission here
-    console.log("Form values:", values);
-    setSuccessModalTrue();
+    console.log("Form submitted with values:", values); // Debug log
+
+    try {
+      if (type === "reset-password") {
+        console.log("Navigating to reset password"); // Debug log
+        push("/auth/reset-password");
+        return;
+      }
+
+      console.log("Setting success modal"); // Debug log
+      setSuccessModalTrue();
+    } catch (error) {
+      console.log("Error in submission:", error); // Debug log
+      Alert.alert("Error", "Something went wrong. Please try again.");
+    }
   };
 
   useEffect(() => {
@@ -76,7 +92,7 @@ const VerificationForm: React.FC<VerificationFormProps> = ({ email }) => {
         validationSchema={VerificationSchema}
         onSubmit={handleSubmit}
       >
-        {({ setFieldValue, handleSubmit, values, errors, touched }) => {
+        {({ setFieldValue, handleSubmit, values, errors }) => {
           const ref = useBlurOnFulfill({
             value: values.otp,
             cellCount: CELL_COUNT,
@@ -86,6 +102,7 @@ const VerificationForm: React.FC<VerificationFormProps> = ({ email }) => {
             value: values.otp,
             setValue: (code) => setFieldValue("otp", code),
           });
+
           return (
             <View className="w-full flex-grow gap-y-2 flex-col items-start justify-between">
               <View className="w-full flex-col gap-y-3">
@@ -110,9 +127,9 @@ const VerificationForm: React.FC<VerificationFormProps> = ({ email }) => {
                     )}
                   />
                 </View>
-                <View className="flex-row items-center justify-center space-x-1 py-3">
+                <View className="flex-row items-center justify-start gap-x-1 py-3">
                   <Text className="text-sm font-normal text-grey-800">
-                    Didn’t receive any code?
+                    Didn’t receive any code?{" "}
                   </Text>
                   <TouchableOpacity onPress={handleResendCode}>
                     <Text className="text-sm font-semibold text-secondary">
@@ -156,7 +173,8 @@ const VerificationForm: React.FC<VerificationFormProps> = ({ email }) => {
           <View className="w-full">
             <CustomButton
               handlePress={() => {
-                push("/");
+                push("/profile-setup/create-profile");
+                setSuccessModalFalse();
               }}
               className="w-full bg-primary"
             >
