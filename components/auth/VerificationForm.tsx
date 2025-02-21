@@ -42,19 +42,13 @@ const VerificationForm: React.FC<VerificationFormProps> = ({
   };
 
   const handleSubmit = (values: VerificationFormValue) => {
-    console.log("Form submitted with values:", values); // Debug log
-
     try {
       if (type === "reset-password") {
-        console.log("Navigating to reset password"); // Debug log
         push("/auth/reset-password");
         return;
       }
-
-      console.log("Setting success modal"); // Debug log
       setSuccessModalTrue();
     } catch (error) {
-      console.log("Error in submission:", error); // Debug log
       Alert.alert("Error", "Something went wrong. Please try again.");
     }
   };
