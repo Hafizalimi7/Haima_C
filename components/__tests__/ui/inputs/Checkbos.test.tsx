@@ -50,10 +50,10 @@ describe('Checkbox Component', () => {
       <Checkbox {...defaultProps} testID="checkbox" />
     );
 
-    const image = UNSAFE_getByProps({ source: icons.checkedBoxIcon });
+    const image = UNSAFE_getByProps({ source: icons.checkboxIcon });
     expect(image).toBeTruthy();
     expect(image.props.resizeMode).toBe('contain');
-    expect(image.props.className).toBe('w-4 h-4');
+    expect(image.props.className).toBe('w-5 h-5');
   });
 
   it('displays correct icon when checked', () => {
@@ -61,9 +61,9 @@ describe('Checkbox Component', () => {
       <Checkbox {...defaultProps} checked={true} testID="checkbox" />
     );
 
-    const image = UNSAFE_getByProps({ source: icons.checkboxIcon });
+    const image = UNSAFE_getByProps({ source: icons.checkedBoxIcon });
     expect(image).toBeTruthy();
     expect(image.props.resizeMode).toBe('contain');
-    expect(image.props.className).toBe('w-4 h-4');
+    expect(image.props.className).toBe('w-6 h-6');
   });
 });
