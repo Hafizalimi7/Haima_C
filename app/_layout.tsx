@@ -6,6 +6,7 @@ import { Stack } from "expo-router";
 import "react-native-reanimated";
 import "../global.css";
 import RootProvider from "@/providers/provider";
+import { AuthRedirect } from "@/components/auth";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -40,10 +41,17 @@ export default function RootLayout() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <RootProvider>
+        <AuthRedirect />
         <Stack>
           <Stack.Screen name="index" options={{ headerShown: false }} />
           <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-          <Stack.Screen name="(profilesetup)" options={{ headerShown: false }} />
+          <Stack.Screen name="(billing-info)" options={{ headerShown: false }} />
+          <Stack.Screen name="(category)" options={{ headerShown: false }} />
+          <Stack.Screen name="(details)" options={{ headerShown: false }} />
+          <Stack.Screen
+            name="(profilesetup)"
+            options={{ headerShown: false }}
+          />
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen name="+not-found" />
         </Stack>

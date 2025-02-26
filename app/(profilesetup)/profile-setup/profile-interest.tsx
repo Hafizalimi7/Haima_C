@@ -2,12 +2,15 @@ import { AuthHeader } from "@/components/auth";
 import { ChooseProductCategory } from "@/components/profile";
 import { CustomButton } from "@/components/ui";
 import { icons } from "@/constants";
+import { useAuth } from "@/contexts/AuthContext";
 import { useRouter } from "expo-router";
 import { View, Text, ScrollView, TouchableOpacity, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function ProfileInterestScreen() {
-  const { back } = useRouter();
+  const { back, push } = useRouter();
+  const { login } = useAuth();
+
   return (
     <SafeAreaView className="flex-1 bg-white">
       <ScrollView
@@ -28,7 +31,10 @@ export default function ProfileInterestScreen() {
           </TouchableOpacity>
           <CustomButton
             testID="skip-button"
-            handlePress={() => {}}
+            handlePress={() => {
+              push("/home");
+              login();
+            }}
             className="bg-lightGrey px-6 py-1.5 min-h-7"
           >
             <Text className="text-base font-semibold text-primary">Skip</Text>

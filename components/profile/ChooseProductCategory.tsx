@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { CustomButton } from "../ui";
+import { useRouter } from "expo-router";
+import { useAuth } from "@/contexts/AuthContext";
 
 const categories = [
   "Tops",
@@ -33,6 +35,8 @@ const brands = [
 ];
 
 const ChooseProductCategory: React.FC = () => {
+  const { push } = useRouter();
+  const { login } = useAuth();
   const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
 
   const toggleBrandSelection = (brand: string) => {
@@ -54,7 +58,13 @@ const ChooseProductCategory: React.FC = () => {
         />
       </View>
       <View className="w-full flex-col items-center justify-center gap-y-2">
-        <CustomButton handlePress={() => {}} className="w-full bg-primary">
+        <CustomButton
+          handlePress={() => {
+            push("/home");
+            login();
+          }}
+          className="w-full bg-primary"
+        >
           <Text className="text-base text-white font-semibold">Continue</Text>
         </CustomButton>
       </View>

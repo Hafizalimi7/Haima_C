@@ -8,9 +8,11 @@ import { CustomButton } from "../ui";
 import { TouchableOpacity } from "react-native";
 import { icons } from "@/constants";
 import SocialAuthOptions from "./SocialAuthOptions";
+import { useAuth } from "@/contexts/AuthContext";
 
 const SignInForm: React.FC = () => {
   const { push } = useRouter();
+  const { login } = useAuth();
 
   const initialValues: SignInFormValues = {
     email: "",
@@ -20,6 +22,8 @@ const SignInForm: React.FC = () => {
   const handleSubmit = (values: SignInFormValues) => {
     // Handle form submission here
     console.log("Form values:", values);
+    login();
+    push("/home");
   };
 
   return (

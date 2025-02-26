@@ -35,6 +35,10 @@ const AuthOptionSheet: React.FC<AuthOptionSheetProps> = () => {
           <CustomButton
             handlePress={() => {
               closeAuthSheet();
+              
+              setTimeout(() => {
+                push("/home");
+              }, 100);
             }}
             className="bg-white border border-primary w-full"
           >

@@ -13,18 +13,18 @@ export default function TabLayout() {
       <Tabs
         screenOptions={{
           tabBarShowLabel: false,
+          tabBarActiveTintColor: "#FFFFFF",
+          tabBarInactiveTintColor: "#FFFFFF",
           tabBarStyle: {
             backgroundColor: "#0F1225B2",
             borderWidth: 1,
             borderColor: "#FFFFFF4D",
             borderRadius: 64,
             height: 60,
-            backdropFilter: "blur(10px)",
-            shadowColor: "#10192812",
-            shadowOffset: { width: 0, height: -7 },
-            shadowOpacity: 0.3,
-            shadowRadius: 24.8,
-            elevation: 10,
+            paddingHorizontal: 25,
+            marginBottom: 14,
+            paddingBottom: 0,
+            paddingTop: 10,
           },
         }}
       >
@@ -38,6 +38,7 @@ export default function TabLayout() {
                 icon={signeduser.homeIcon}
                 color={color}
                 focused={focused}
+                className="w-6 h-6"
               />
             ),
           }}
@@ -52,6 +53,7 @@ export default function TabLayout() {
                 icon={signeduser.categoryIcon}
                 color={color}
                 focused={focused}
+                className="w-6 h-6"
               />
             ),
           }}
@@ -66,21 +68,30 @@ export default function TabLayout() {
                 icon={signeduser.sellIcon}
                 color={color}
                 focused={focused}
+                className="w-6 h-6"
               />
             ),
             tabBarButton: (props) => (
               <Pressable
                 {...props}
-                onPress={() => {
-                  linkTo("/(modal)/sellmodal");
+                onPress={(e) => {
+                  e.preventDefault();
+                  linkTo("/sell-an-item");
                 }}
                 style={{
-                  backgroundColor: "#D3AC2A",
-                  borderRadius: 9999,
-                  width: 36,
-                  height: 36,
+                  flex: 1,
+                  justifyContent: "center",
+                  alignItems: "center",
+                  marginBottom: 14,
                 }}
-              />
+              >
+                <NavigationTabIcon
+                  icon={signeduser.sellIcon}
+                  color={"#FFFFFF"}
+                  focused={false}
+                  className="w-12 h-12"
+                />
+              </Pressable>
             ),
           }}
         />
@@ -94,6 +105,7 @@ export default function TabLayout() {
                 icon={signeduser.messageIcon}
                 color={color}
                 focused={focused}
+                className="w-6 h-6"
               />
             ),
           }}
@@ -108,6 +120,7 @@ export default function TabLayout() {
                 icon={signeduser.profileIcon}
                 color={color}
                 focused={focused}
+                className="w-6 h-6"
               />
             ),
           }}
