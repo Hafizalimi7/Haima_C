@@ -5,7 +5,7 @@ export default function HaimaCategoryLayout() {
   return (
     <>
       <Stack>
-        <Stack.Screen name="search" options={{ headerShown: false }} />
+        <Stack.Screen name="search/index" options={{ headerShown: false }} />
         <Stack.Screen
           name="search/[searchTerm]"
           options={{ headerShown: false }}

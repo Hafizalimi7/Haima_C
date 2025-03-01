@@ -15,13 +15,16 @@ const NavigationTabIcon: React.FC<tabIconType> = ({
 }) => {
   return (
     <View
-      className={`flex-row items-center justify-center transition-all duration-300 w-12 h-12 rounded-full ${
-        focused ? "bg-[#FFFFFF40]" : "bg-transparent"
-      }`}
+      testID="icon-view"
+      style={{
+        backgroundColor: focused ? "#FFFFFF40" : "transparent",
+      }}
+      className={`flex-row items-center justify-center transition-all duration-300 w-12 h-12 rounded-full`}
     >
       <Image
         source={icon}
         resizeMode="contain"
+        testID="icon-image"
         className={`${className} object-contain`}
       />
     </View>
