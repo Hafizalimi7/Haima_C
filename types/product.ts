@@ -30,3 +30,17 @@ export interface ProductType {
   colour: string;
   brand: string;
 }
+
+export interface Review {
+  id: string;
+  rating: number;
+  comment: string;
+  userId: string;
+  userName: string;
+  createdAt: string;
+}
+
+export interface ReviewFormValues {
+  rating: number;
+  comment: string;
+}

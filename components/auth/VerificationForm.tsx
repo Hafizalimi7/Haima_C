@@ -1,11 +1,11 @@
+import React, { useEffect, useState } from "react";
+import { Formik } from "formik";
 import { VerificationSchema } from "@/schemas/auth.schema";
 import { VerificationFormValue } from "@/types/auth";
 import { useRouter } from "expo-router";
-import { Formik } from "formik";
 import { View, Text, Image, Alert } from "react-native";
 import { CustomButton, ModalPopUp } from "../ui";
 import useBooleanControl from "@/hooks/useBooleanControl";
-import React, { useEffect, useState } from "react";
 import {
   CodeField,
   Cursor,

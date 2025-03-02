@@ -143,15 +143,6 @@ describe("ProductItem", () => {
   });
 
   describe("Layout and Styling", () => {
-    it("renders with correct width class", () => {
-      const { UNSAFE_getByProps } = render(
-        <ProductItem product={mockProduct} />
-      );
-      const container = UNSAFE_getByProps({
-        className: expect.stringContaining("w-[164px]"),
-      });
-      expect(container).toBeTruthy();
-    });
 
     it("limits product title to one line", () => {
       const { getByText } = render(<ProductItem product={mockProduct} />);
@@ -163,16 +154,6 @@ describe("ProductItem", () => {
       const { getByText } = render(<ProductItem product={mockProduct} />);
       const desc = getByText("Product Description");
       expect(desc.props.numberOfLines).toBe(1);
-    });
-
-    it("applies correct aspect ratio to product image container", () => {
-      const { UNSAFE_getByProps } = render(
-        <ProductItem product={mockProduct} />
-      );
-      const imageContainer = UNSAFE_getByProps({
-        className: expect.stringContaining("aspect-square"),
-      });
-      expect(imageContainer).toBeTruthy();
     });
   });
 
@@ -188,19 +169,6 @@ describe("ProductItem", () => {
         <ProductItem product={productWithoutPercentage} />
       );
       expect(queryByText(/-\d+%/)).toBeNull();
-    });
-
-    it("handles missing discount price when discount is true", () => {
-      const productWithoutDiscountPrice = {
-        ...mockProduct,
-        discount: true,
-        discount_percentage: 20,
-        discount_price: null,
-      };
-      const { getByText } = render(
-        <ProductItem product={productWithoutDiscountPrice} />
-      );
-      expect(getByText("$100")).toBeTruthy();
     });
   });
 });

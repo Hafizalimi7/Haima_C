@@ -1,3 +1,4 @@
+import NotAuthenticatedUser from "./NotAuthenticatedUser";
 import OnboardingSlider from "./OnboardingSlider";
 
-export { OnboardingSlider };
+export { NotAuthenticatedUser, OnboardingSlider };

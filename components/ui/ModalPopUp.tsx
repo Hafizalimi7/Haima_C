@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useRef, useState } from "react";
+import React, { ReactNode, useEffect } from "react";
 import { Modal, View } from "react-native";
 import Animated, {
   useAnimatedStyle,
@@ -13,7 +13,11 @@ interface ModalProp {
   className?: string;
 }
 
-const ModalPopUp: React.FC<ModalProp> = ({ visible, children, className }) => {
+const ModalPopUp: React.FC<ModalProp> = ({
+  visible,
+  children,
+  className = "py-5 px-6",
+}) => {
   const scale = useSharedValue(0);
 
   useEffect(() => {
@@ -37,7 +41,7 @@ const ModalPopUp: React.FC<ModalProp> = ({ visible, children, className }) => {
       <View className="flex-1 bg-black/30 items-center justify-center">
         <Animated.View
           style={[animatedStyle]}
-          className={`w-[347px] bg-white py-5 px-6 rounded-3xl ${className}`}
+          className={`w-[347px] bg-white rounded-3xl ${className}`}
         >
           {children}
         </Animated.View>

@@ -1,4 +1,4 @@
-import { ProductType } from "@/types/product";
+import { ProductType, Review } from "@/types/product";
 
 export const products: ProductType[] = [
   {
@@ -18,7 +18,7 @@ export const products: ProductType[] = [
     preposition: "£37.23 Incl. buyer p...",
     review: 4.5,
     category: "Accessories",
-    colour: "brown",
+    colour: "Brown",
     brand: "Other",
   },
   {
@@ -160,5 +160,16 @@ export const products: ProductType[] = [
     category: "Footwear",
     colour: "grey",
     brand: "Other",
+  },
+];
+
+export const sampleReviews: Review[] = [
+  {
+    id: "1",
+    rating: 4,
+    comment: "Great product! Very satisfied with the quality.",
+    userId: "user1",
+    userName: "John Doe",
+    createdAt: "2025-03-01T12:00:00Z",
   },
 ];
