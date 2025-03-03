@@ -8,16 +8,20 @@ import signeduser from "@/constants/icons/signeduser";
 interface DetailHeaderProps {
   title: string;
   showShareIcon?: boolean;
+  className?: string;
 }
 
 const DetailHeader: React.FC<DetailHeaderProps> = ({
   title,
   showShareIcon = false,
+  className = "py-4",
 }) => {
   const { back } = useRouter();
 
   return (
-    <View className="flex-row items-center justify-between w-full px-4 py-4">
+    <View
+      className={`flex-row items-center justify-between w-full px-4 ${className}`}
+    >
       <TouchableOpacity onPress={() => back()}>
         <Image
           source={icons.backarrowIcon}

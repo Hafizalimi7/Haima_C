@@ -12,6 +12,7 @@ const googleIcon = require("@/assets/icons/google.png");
 const infoIcon = require("@/assets/icons/info.png");
 const lockIcon = require("@/assets/icons/lock.png");
 const offerIcon = require("@/assets/icons/offer.png");
+const searchCloseIcon = require("@/assets/icons/searchClose.png");
 const successIcon = require("@/assets/icons/success.png");
 const uploadIcon = require("@/assets/icons/upload.png");
 const userIcon = require("@/assets/icons/user.png");
@@ -32,6 +33,7 @@ export default {
   infoIcon,
   lockIcon,
   offerIcon,
+  searchCloseIcon,
   successIcon,
   uploadIcon,
   userIcon,

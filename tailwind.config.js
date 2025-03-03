@@ -94,6 +94,7 @@ module.exports = {
           900: "#575757",
         },
         lightGrey: "#E7E7E7",
+        lightGrey2: "#F3F3F3",
         textCursor: "#122688",
       },
     },

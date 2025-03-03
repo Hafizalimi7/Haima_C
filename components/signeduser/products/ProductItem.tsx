@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TouchableOpacity, Image } from "react-native";
+import { View, Text, TouchableOpacity, Image, StyleProp, ViewStyle } from "react-native";
 import { ProductType } from "@/types/product";
 import { useRouter } from "expo-router";
 import { formatCurrency } from "@/helpers/currency";
@@ -7,13 +7,19 @@ import signeduser from "@/constants/icons/signeduser";
 
 interface ProductItemProps {
   product: ProductType;
+  className?: string;
+  style?: StyleProp<ViewStyle>;
 }
 
-const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
+const ProductItem: React.FC<ProductItemProps> = ({
+  product,
+  className = "first:ml-4 mx-2 pb-3 w-[164px]",
+  style,
+}) => {
   const { push } = useRouter();
 
   return (
-    <View className="first:ml-4 mx-2 pb-3 w-[164px]">
+    <View className={`${className}`} style={style}>
       <TouchableOpacity
         accessible={true}
         accessibilityRole="button"
