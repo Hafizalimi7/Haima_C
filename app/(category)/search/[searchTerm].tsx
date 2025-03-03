@@ -9,6 +9,7 @@ import {
 } from "@/components/signeduser/categories/search";
 import { useSearch } from "@/contexts/SearchProvider";
 import { ProductItem } from "@/components/signeduser/products";
+import { NoRecentSearch } from "@/components/signeduser/categories/emptyUi";
 
 const { width } = Dimensions.get("window");
 const COLUMN_GAP = 10;
@@ -36,7 +37,11 @@ export default function SearchResultScreen() {
         data={searchResults}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <ProductItem product={item} style={{ width: ITEM_WIDTH }} className="mx-0 mb-4" />
+          <ProductItem
+            product={item}
+            style={{ width: ITEM_WIDTH }}
+            className="mx-0 mb-4"
+          />
         )}
         numColumns={2}
         contentContainerStyle={{
@@ -60,6 +65,11 @@ export default function SearchResultScreen() {
             </>
           );
         }}
+        ListEmptyComponent={() => (
+          <NoRecentSearch
+            content={`No recent search found for ("${searchTerm}")`}
+          />
+        )}
         showsVerticalScrollIndicator={false}
       />
     </SafeAreaView>

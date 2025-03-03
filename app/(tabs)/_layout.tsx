@@ -51,12 +51,19 @@ export default function TabLayout() {
             title: "Categories",
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
-              <NavigationTabIcon
-                icon={signeduser.categoryIcon}
-                color={color}
-                focused={focused}
-                className="w-6 h-6"
-              />
+              <Pressable
+                onPress={(e) => {
+                  e.preventDefault();
+                  linkTo("/categories?tab=categories");
+                }}
+              >
+                <NavigationTabIcon
+                  icon={signeduser.categoryIcon}
+                  color={color}
+                  focused={focused}
+                  className="w-6 h-6"
+                />
+              </Pressable>
             ),
           }}
         />

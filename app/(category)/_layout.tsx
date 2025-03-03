@@ -11,6 +11,10 @@ export default function HaimaCategoryLayout() {
           name="search/[searchTerm]"
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="categroy/[query]"
+          options={{ headerShown: false }}
+        />
       </Stack>
       <StatusBar backgroundColor="#FFFFFF" style="dark" />
     </SearchProvider>

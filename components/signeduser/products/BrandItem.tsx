@@ -1,17 +1,30 @@
-import { View, Text, TouchableOpacity, Image } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  StyleProp,
+  ViewStyle,
+} from "react-native";
 import React from "react";
 import { BrandItemType } from "@/types/product";
 import { useRouter } from "expo-router";
 
 interface BrandItemProps {
   brand: BrandItemType;
+  className?: string;
+  style?: StyleProp<ViewStyle>;
 }
 
-const BrandItem: React.FC<BrandItemProps> = ({ brand }) => {
+const BrandItem: React.FC<BrandItemProps> = ({
+  brand,
+  className = "first:ml-6 mx-2 pb-3",
+  style,
+}) => {
   const { push } = useRouter();
 
   return (
-    <View className="first:ml-6 mx-2 pb-3">
+    <View className={`${className}`} style={style}>
       <TouchableOpacity
         accessible={true}
         accessibilityRole="button"

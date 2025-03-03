@@ -15,7 +15,7 @@ const CategoryItem: React.FC<CategoryItemProps> = ({ category }) => {
         accessible={true}
         accessibilityRole="button"
         accessibilityLabel={`Navigate to ${category.title} search`}
-        onPress={() => push(`/search/${category.title}`)}
+        onPress={() => push(`/category/${encodeURIComponent(category.title)}`)}
         className="flex flex-col items-center justify-center gap-y-2"
       >
         <View className="bg-[#F5F5F5] w-16 h-16 rounded-full flex-row items-center justify-center">

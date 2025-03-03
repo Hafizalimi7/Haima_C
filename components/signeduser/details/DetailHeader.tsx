@@ -9,12 +9,20 @@ interface DetailHeaderProps {
   title: string;
   showShareIcon?: boolean;
   className?: string;
+  renderIcon?: React.ReactNode;
 }
 
 const DetailHeader: React.FC<DetailHeaderProps> = ({
   title,
   showShareIcon = false,
   className = "py-4",
+  renderIcon = (
+    <Image
+      source={signeduser.forwardIcon}
+      resizeMode="contain"
+      className="w-6 h-6"
+    />
+  ),
 }) => {
   const { back } = useRouter();
 
@@ -31,15 +39,7 @@ const DetailHeader: React.FC<DetailHeaderProps> = ({
         />
       </TouchableOpacity>
       <Text className="text-lg font-medium text-primary">{title}</Text>
-      <View>
-        {showShareIcon && (
-          <Image
-            source={signeduser.forwardIcon}
-            resizeMode="contain"
-            className="w-6 h-6"
-          />
-        )}
-      </View>
+      <View>{showShareIcon && <>{renderIcon}</>}</View>
     </View>
   );
 };

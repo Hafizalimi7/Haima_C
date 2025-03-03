@@ -3,7 +3,13 @@ import signeduser from "@/constants/icons/signeduser";
 import { Image } from "react-native";
 import { View, Text } from "react-native";
 
-const NoRecentSearch: React.FC = () => {
+interface NoRecentSearchProps {
+  content?: string;
+}
+
+const NoRecentSearch: React.FC<NoRecentSearchProps> = ({
+  content = "No recent search found",
+}) => {
   return (
     <View className="w-full py-20 flex-col items-center justify-center gap-y-5">
       <View className="flex-row items-center justify-center w-16 h-16 bg-primary-50 rounded-full">
@@ -14,7 +20,7 @@ const NoRecentSearch: React.FC = () => {
         />
       </View>
       <Text className="text-base font-normal text-center text-grey-800">
-        No recent search found
+        {content}
       </Text>
     </View>
   );

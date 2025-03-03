@@ -11,7 +11,10 @@ const BrandFollowed: React.FC = () => {
         <Text className="text-base font-semibold text-primary">
           Brands you follow
         </Text>
-        <Link href="/categories" className="text-sm font-normal text-grey-800">
+        <Link
+          href="/categories?tab=brands"
+          className="text-sm font-normal text-grey-800"
+        >
           See All
         </Link>
       </View>
