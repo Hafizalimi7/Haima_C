@@ -13,7 +13,7 @@ const AllCategories: React.FC = () => {
         renderItem={({ item }) => (
           <TouchableOpacity
             onPress={() =>
-              push(`/category/${encodeURIComponent(category.title)}`)
+              push(`/category/${encodeURIComponent(item.title)}`)
             }
             className="w-full"
           >

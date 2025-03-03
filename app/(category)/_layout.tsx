@@ -12,7 +12,7 @@ export default function HaimaCategoryLayout() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="categroy/[query]"
+          name="category/[query]"
           options={{ headerShown: false }}
         />
       </Stack>
