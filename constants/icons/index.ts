@@ -14,6 +14,7 @@ const lockIcon = require("@/assets/icons/lock.png");
 const offerIcon = require("@/assets/icons/offer.png");
 const searchCloseIcon = require("@/assets/icons/searchClose.png");
 const successIcon = require("@/assets/icons/success.png");
+const tickIcon = require("@/assets/icons/tick.png");
 const uploadIcon = require("@/assets/icons/upload.png");
 const userIcon = require("@/assets/icons/user.png");
 const whiteLoadingIcon = require("@/assets/icons/whiteLoader.gif");
@@ -35,6 +36,7 @@ export default {
   offerIcon,
   searchCloseIcon,
   successIcon,
+  tickIcon,
   uploadIcon,
   userIcon,
   whiteLoadingIcon,

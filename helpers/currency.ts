@@ -16,5 +16,6 @@ export const formatCurrency = (amount: number): string => {
   }).format(amount);
 };
 
-
 export const Fee = 2;
+
+export const CurrencySymbol = "£";

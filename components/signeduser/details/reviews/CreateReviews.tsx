@@ -110,7 +110,7 @@ const CreateReviewForm: React.FC<CreateReviewFormProps> = ({
           </View>
           <View className="w-full flex-col items-start justify-start gap-y-2">
             <TextInput
-              className="border border-grey rounded-xl p-3 h-36 text-base font-normal w-full"
+              className="border border-grey rounded-xl p-3 h-36 text-base font-normal w-full focus:border-primary"
               multiline
               placeholder="Write your review here (optional)"
               value={values.comment}
