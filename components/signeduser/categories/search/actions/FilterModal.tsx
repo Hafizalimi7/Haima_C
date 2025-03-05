@@ -14,6 +14,9 @@ import { PriceFilterSection } from "./PriceFilterSection";
 import ResetFilterState from "./ResetFilterState";
 import { ConditionsFilterSection } from "./ConditionsFilterSection";
 import { CurrencySymbol } from "@/helpers/currency";
+import SizeFilterSection from "./SizeFilterSection";
+import ColourFilterSection from "./ColourFilterSection";
+import RatingFilterSection from "./RatingFilterSection";
 
 interface FilterModalProps {
   isVisible: boolean;
@@ -88,7 +91,9 @@ export const FilterModal: React.FC<FilterModalProps> = ({
                 <View className="flex-row items-center justify-end gap-x-3">
                   {filters.price.min === 0 ? null : (
                     <Text className="text-sm font-bold text-secondary">
-                      {CurrencySymbol}{filters.price.min} - {CurrencySymbol}{filters.price.max}
+                      {CurrencySymbol}
+                      {filters.price.min} - {CurrencySymbol}
+                      {filters.price.max}
                     </Text>
                   )}
                   <Image
@@ -110,7 +115,7 @@ export const FilterModal: React.FC<FilterModalProps> = ({
                       ? ` ${filters.conditions
                           .slice(0, 3)
                           .join(", ")
-                          .slice(0, 48)}...`
+                          .slice(0, 38)}...`
                       : ""}
                   </Text>
                   <Image
@@ -126,8 +131,13 @@ export const FilterModal: React.FC<FilterModalProps> = ({
               >
                 <Text className="text-base">Size</Text>
                 <View className="flex-row items-center justify-end gap-x-3">
-                  <Text className="text-sm font-bold text-secondary truncate w-[150px]">
-                    {filters.sizes.length ? filters.sizes : ""}
+                  <Text className="text-sm font-bold text-secondary truncate">
+                    {filters.sizes.length
+                      ? ` ${filters.sizes
+                          .slice(0, 3)
+                          .join(", ")
+                          .slice(0, 10)}...`
+                      : ""}
                   </Text>
                   <Image
                     source={signeduser.chevronarrowIcon}
@@ -142,7 +152,7 @@ export const FilterModal: React.FC<FilterModalProps> = ({
               >
                 <Text className="text-base">Colour</Text>
                 <View className="flex-row items-center justify-end gap-x-3">
-                  <Text className="text-sm font-bold text-secondary truncate w-[150px]">
+                  <Text className="text-sm font-bold text-secondary truncate">
                     {filters.colors.length ? filters.colors : ""}
                   </Text>
                   <Image
@@ -158,8 +168,10 @@ export const FilterModal: React.FC<FilterModalProps> = ({
               >
                 <Text className="text-base">Rating</Text>
                 <View className="flex-row items-center justify-end gap-x-3">
-                  <Text className="text-sm font-bold text-secondary truncate w-[150px]">
-                    {filters.ratings.length ? filters.ratings : ""}
+                  <Text className="text-sm font-bold text-secondary">
+                    {filters.rating !== 0
+                      ? `${filters.rating.toFixed(1)} and above`
+                      : ""}
                   </Text>
                   <Image
                     source={signeduser.chevronarrowIcon}
@@ -180,7 +192,15 @@ export const FilterModal: React.FC<FilterModalProps> = ({
                   onClose={() => setActiveSection(null)}
                 />
               )}
-              
+              {activeSection === "Size" && (
+                <SizeFilterSection onClose={() => setActiveSection(null)} />
+              )}
+              {activeSection === "Colour" && (
+                <ColourFilterSection onClose={() => setActiveSection(null)} />
+              )}
+              {activeSection === "Rating" && (
+                <RatingFilterSection onClose={() => setActiveSection(null)} />
+              )}
             </View>
           )}
         </ScrollView>

@@ -12,9 +12,7 @@ const AllCategories: React.FC = () => {
         keyExtractor={(category) => category.id}
         renderItem={({ item }) => (
           <TouchableOpacity
-            onPress={() =>
-              push(`/category/${encodeURIComponent(item.title)}`)
-            }
+            onPress={() => push(`/category/${encodeURIComponent(item.title)}`)}
             className="w-full"
           >
             <View className="w-full bg-[#F5F5F5] flex-row items-center justify-between h-24 rounded-xl mb-5 px-6">
@@ -32,7 +30,7 @@ const AllCategories: React.FC = () => {
           </TouchableOpacity>
         )}
         contentContainerStyle={{
-          paddingBottom: 65,
+          paddingBottom: 185,
         }}
       />
     </View>

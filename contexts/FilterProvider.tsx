@@ -10,7 +10,7 @@ export interface FilterState {
   conditions: string[];
   sizes: string[];
   colors: string[];
-  ratings: number[];
+  rating: number;
 }
 
 interface FilterContextType {
@@ -22,7 +22,7 @@ interface FilterContextType {
   updateConditions: (conditions: string[]) => void;
   updateSizes: (sizes: string[]) => void;
   updateColors: (colors: string[]) => void;
-  updateRatings: (ratings: number[]) => void;
+  updateRating: (rating: number) => void;
 }
 
 const initialFilters: FilterState = {
@@ -30,7 +30,7 @@ const initialFilters: FilterState = {
   conditions: [],
   sizes: [],
   colors: [],
-  ratings: [],
+  rating: 0,
 };
 
 const FilterContext = createContext<FilterContextType | undefined>(undefined);
@@ -46,7 +46,7 @@ export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({
     if (filters.conditions.length) count++;
     if (filters.sizes.length) count++;
     if (filters.colors.length) count++;
-    if (filters.ratings.length) count++;
+    if (filters.rating) count++;
     return count;
   };
 
@@ -63,8 +63,8 @@ export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({
       setFilters((prev) => ({ ...prev, sizes })),
     updateColors: (colors: string[]) =>
       setFilters((prev) => ({ ...prev, colors })),
-    updateRatings: (ratings: number[]) =>
-      setFilters((prev) => ({ ...prev, ratings })),
+    updateRating: (rating: number) =>
+      setFilters((prev) => ({ ...prev, rating })),
   };
 
   return (

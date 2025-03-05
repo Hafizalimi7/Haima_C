@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, TouchableOpacity, Image, ScrollView } from "react-native";
+import { View, Text, TouchableOpacity, Image, Dimensions } from "react-native";
 import { icons } from "@/constants";
 import { useFilter } from "@/contexts/FilterProvider";
 
@@ -15,6 +15,8 @@ interface ConditionsFilterSectionProps {
   onClose: () => void;
 }
 
+const { height } = Dimensions.get("window");
+
 export const ConditionsFilterSection: React.FC<
   ConditionsFilterSectionProps
 > = ({ onClose }) => {
@@ -28,12 +30,14 @@ export const ConditionsFilterSection: React.FC<
   }, [filters.conditions]);
 
   const toggleCondition = (condition: string) => {
-    setSelectedConditions((prev) =>
-      prev.includes(condition)
+    setSelectedConditions((prev) => {
+      const updatedConditions = prev.includes(condition)
         ? prev.filter((c) => c !== condition)
-        : [...prev, condition]
-    );
-    updateConditions(selectedConditions);
+        : [...prev, condition];
+
+      updateConditions(updatedConditions);
+      return updatedConditions;
+    });
   };
 
   const handleSave = () => {
@@ -42,7 +46,10 @@ export const ConditionsFilterSection: React.FC<
   };
 
   return (
-    <View className="h-full flex-col items-start justify-between">
+    <View
+      className="flex-col items-start justify-between pb-4"
+      style={{ height: height / 1.1 }}
+    >
       <View className="pb-24 w-full">
         {CONDITIONS.map((condition) => (
           <TouchableOpacity

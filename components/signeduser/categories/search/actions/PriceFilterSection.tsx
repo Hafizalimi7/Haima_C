@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useFilter } from "@/contexts/FilterProvider";
-import { View, Text, TouchableOpacity, TextInput } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  TextInput,
+  Dimensions,
+} from "react-native";
 import RangeSlider from "./RangeSlider";
 import { CurrencySymbol } from "@/helpers/currency";
 
 interface PriceFilterSectionProps {
   onClose: () => void;
 }
+
+const { height } = Dimensions.get("window");
 
 export const PriceFilterSection: React.FC<PriceFilterSectionProps> = ({
   onClose,
@@ -65,7 +73,10 @@ export const PriceFilterSection: React.FC<PriceFilterSectionProps> = ({
   };
 
   return (
-    <View className="h-full flex-col items-start justify-between">
+    <View
+      className="flex-col items-start justify-between pb-4"
+      style={{ height: height / 1.1 }}
+    >
       <View className="flex-col items-start justify-start gap-y-5 w-full">
         <RangeSlider
           sliderWidth={300}

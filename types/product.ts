@@ -44,3 +44,15 @@ export interface ReviewFormValues {
   rating: number;
   comment: string;
 }
+
+export type SortOption =
+  | "Recommended"
+  | "Recently added"
+  | "Best rating"
+  | "Lowest to highest price"
+  | "Highest to lowest price";
+
+export interface ShippingFormValue {
+  first_name: string;
+  phoneNumber: string;
+}

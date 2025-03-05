@@ -1,12 +1,16 @@
-import React, { useEffect } from "react";
-import { GestureDetector, Gesture } from "react-native-gesture-handler";
+import React, { useEffect, useRef } from "react";
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withSpring,
   runOnJS,
 } from "react-native-reanimated";
-import { View, StyleSheet } from "react-native";
+import {
+  View,
+  StyleSheet,
+  PanResponder,
+  PanResponderGestureState,
+} from "react-native";
 
 interface RangeSliderProps {
   sliderWidth: number;
@@ -25,6 +29,7 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
   initialValues,
   onValueChange,
 }) => {
+  const activeThumb = useRef<"left" | "right" | null>(null);
   const getXForValue = (value: number) => {
     return ((value - min) / (max - min)) * sliderWidth;
   };
@@ -54,31 +59,67 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
     onValueChange({ min: minValue, max: maxValue });
   };
 
-  const leftThumbGesture = Gesture.Pan()
-    .onStart(() => {
-      "worklet";
-    })
-    .onUpdate((event) => {
+  // const leftThumbGesture = Gesture.Pan()
+  //   .onStart(() => {
+  //     "worklet";
+  //   })
+  //   .onUpdate((event) => {
+  //     const newPosition = Math.min(
+  //       Math.max(0, leftPosition.value + event.translationX),
+  //       rightPosition.value - step
+  //     );
+  //     leftPosition.value = newPosition;
+  //     runOnJS(updateValues)();
+  //   });
+
+  // const rightThumbGesture = Gesture.Pan()
+  //   .onStart(() => {
+  //     "worklet";
+  //   })
+  //   .onUpdate((event) => {
+  //     const newPosition = Math.max(
+  //       Math.min(sliderWidth, rightPosition.value + event.translationX),
+  //       leftPosition.value + step
+  //     );
+  //     rightPosition.value = newPosition;
+  //     runOnJS(updateValues)();
+  //   });
+
+  const handleMove = (gestureState: PanResponderGestureState) => {
+    "worklet";
+    if (activeThumb.current === "left") {
       const newPosition = Math.min(
-        Math.max(0, leftPosition.value + event.translationX),
+        Math.max(0, leftPosition.value + gestureState.dx),
         rightPosition.value - step
       );
       leftPosition.value = newPosition;
-      runOnJS(updateValues)();
-    });
-
-  const rightThumbGesture = Gesture.Pan()
-    .onStart(() => {
-      "worklet";
-    })
-    .onUpdate((event) => {
+    } else if (activeThumb.current === "right") {
       const newPosition = Math.max(
-        Math.min(sliderWidth, rightPosition.value + event.translationX),
+        Math.min(sliderWidth, rightPosition.value + gestureState.dx),
         leftPosition.value + step
       );
       rightPosition.value = newPosition;
+    }
+    runOnJS(updateValues)();
+  };
+
+  const panResponder = PanResponder.create({
+    onStartShouldSetPanResponder: () => true,
+    onMoveShouldSetPanResponder: () => true,
+    onPanResponderGrant: (evt) => {
+      const touchX = evt.nativeEvent.locationX;
+      const leftDist = Math.abs(touchX - leftPosition.value);
+      const rightDist = Math.abs(touchX - rightPosition.value);
+      activeThumb.current = leftDist < rightDist ? "left" : "right";
+    },
+    onPanResponderMove: (_, gestureState) => {
+      handleMove(gestureState);
+    },
+    onPanResponderRelease: () => {
+      activeThumb.current = null;
       runOnJS(updateValues)();
-    });
+    },
+  });
 
   const leftThumbStyle = useAnimatedStyle(() => ({
     transform: [{ translateX: leftPosition.value }],
@@ -95,7 +136,7 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
 
   return (
     <View style={styles.container}>
-      <View style={styles.trackContainer}>
+      <View style={styles.trackContainer} {...panResponder.panHandlers}>
         {/* Background track */}
         <View style={styles.track} />
 
@@ -103,13 +144,9 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
         <Animated.View style={[styles.activeTrack, activeLineStyle]} />
 
         {/* Thumbs */}
-        <GestureDetector gesture={leftThumbGesture}>
-          <Animated.View style={[styles.thumb, leftThumbStyle]} />
-        </GestureDetector>
-
-        <GestureDetector gesture={rightThumbGesture}>
-          <Animated.View style={[styles.thumb, rightThumbStyle]} />
-        </GestureDetector>
+        {/* Thumbs */}
+        <Animated.View style={[styles.thumb, leftThumbStyle]} />
+        <Animated.View style={[styles.thumb, rightThumbStyle]} />
       </View>
     </View>
   );

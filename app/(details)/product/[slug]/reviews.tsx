@@ -38,21 +38,15 @@ export default function ReviewsScreen() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-white">
-      <ScrollView
-        contentContainerStyle={{
-          paddingBottom: 15,
-        }}
-      >
-        <DetailHeader title="Reviews" showShareIcon={false} />
-        <CreateReviews data={data} addReview={addReview} />
-        <ReviewRatings
-          data={data}
-          reviews={reviews}
-          averageRating={calculateAverageRating()}
-        />
-        <ReviewComments data={data} reviews={reviews} />
-      </ScrollView>
+    <SafeAreaView className="flex-1 bg-white pb-10">
+      <DetailHeader title="Reviews" showShareIcon={false} />
+      <CreateReviews data={data} addReview={addReview} />
+      <ReviewRatings
+        data={data}
+        reviews={reviews}
+        averageRating={calculateAverageRating()}
+      />
+      <ReviewComments data={data} reviews={reviews} />
     </SafeAreaView>
   );
 }
