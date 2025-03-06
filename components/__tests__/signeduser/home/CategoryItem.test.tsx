@@ -35,9 +35,14 @@ describe("CategoryItem", () => {
     expect(image.props.source).toBe(mockCategory.catgoryImage);
   });
 
-  it("navigates to search page when pressed", () => {
+  it("has correct accessibility label", () => {
+    const { getByLabelText } = render(<CategoryItem category={mockCategory} />);
+    expect(getByLabelText("Navigate to Test Category search")).toBeTruthy();
+  });
+
+  it("navigates to encoded category path when pressed", () => {
     const { getByRole } = render(<CategoryItem category={mockCategory} />);
     fireEvent.press(getByRole("button"));
-    expect(mockPush).toHaveBeenCalledWith("/search/Test Category");
+    expect(mockPush).toHaveBeenCalledWith("/category/Test%20Category");
   });
 });

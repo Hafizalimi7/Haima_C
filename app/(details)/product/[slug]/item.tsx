@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useLocalSearchParams } from "expo-router";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import { products } from "@/data/products";
 import {
   ContactSeller,
@@ -19,6 +19,7 @@ import { icons } from "@/constants";
 
 export default function ProductItemScreen() {
   const { slug } = useLocalSearchParams<{ slug?: string }>();
+  const { push } = useRouter();
   const data = products.find((item) => item.id === slug);
 
   if (!data) return;
@@ -68,7 +69,7 @@ export default function ProductItemScreen() {
             </View>
           </CustomButton>
           <CustomButton
-            handlePress={() => {}}
+            handlePress={() => push("/shipping-detail/info")}
             className="w-[160px] bg-primary border border-primary"
           >
             <View className="w-full flex-row items-center justify-center gap-x-3">

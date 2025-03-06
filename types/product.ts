@@ -51,8 +51,3 @@ export type SortOption =
   | "Best rating"
   | "Lowest to highest price"
   | "Highest to lowest price";
-
-export interface ShippingFormValue {
-  first_name: string;
-  phoneNumber: string;
-}

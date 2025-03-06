@@ -10,8 +10,10 @@ const emailIcon = require("@/assets/icons/email.png");
 const facebookIcon = require("@/assets/icons/facebook.png");
 const googleIcon = require("@/assets/icons/google.png");
 const infoIcon = require("@/assets/icons/info.png");
+const locationIcon = require("@/assets/icons/location.png");
 const lockIcon = require("@/assets/icons/lock.png");
 const offerIcon = require("@/assets/icons/offer.png");
+const phoneIcon = require("@/assets/icons/phone.png");
 const searchCloseIcon = require("@/assets/icons/searchClose.png");
 const successIcon = require("@/assets/icons/success.png");
 const tickIcon = require("@/assets/icons/tick.png");
@@ -32,8 +34,10 @@ export default {
   facebookIcon,
   googleIcon,
   infoIcon,
+  locationIcon,
   lockIcon,
   offerIcon,
+  phoneIcon,
   searchCloseIcon,
   successIcon,
   tickIcon,
