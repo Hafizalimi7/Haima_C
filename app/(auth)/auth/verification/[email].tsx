@@ -9,6 +9,7 @@ export default function VerificationScreen() {
     email?: string;
     type?: string;
   }>();
+  
   return (
     <SafeAreaView className="flex-1 bg-white">
       <ScrollView

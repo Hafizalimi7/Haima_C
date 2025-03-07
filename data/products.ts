@@ -173,3 +173,26 @@ export const sampleReviews: Review[] = [
     createdAt: "2025-03-01T12:00:00Z",
   },
 ];
+
+export const deliveryOption = [
+  {
+    id: "01",
+    deliveryImage: require("@/assets/images/signeduser/billings/evri.png"),
+    title: "Evri Home Delivery",
+  },
+  {
+    id: "02",
+    deliveryImage: require("@/assets/images/signeduser/billings/royal.png"),
+    title: "Royal Mail",
+  },
+  {
+    id: "03",
+    deliveryImage: require("@/assets/images/signeduser/billings/inpost.png"),
+    title: "Inpost Home Delivey",
+  },
+  {
+    id: "04",
+    deliveryImage: require("@/assets/images/signeduser/billings/yodel.png"),
+    title: "Yodel Store to Door",
+  },
+];

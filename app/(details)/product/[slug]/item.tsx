@@ -69,7 +69,12 @@ export default function ProductItemScreen() {
             </View>
           </CustomButton>
           <CustomButton
-            handlePress={() => push("/shipping-detail/info")}
+            handlePress={() =>
+              push({
+                pathname: "/shipping-detail/info",
+                params: { productId: slug },
+              })
+            }
             className="w-[160px] bg-primary border border-primary"
           >
             <View className="w-full flex-row items-center justify-center gap-x-3">

@@ -1,6 +1,6 @@
 import React from "react";
 import { useShipping } from "@/contexts/ShippingProvider";
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import { CustomButton } from "@/components/ui";
 import { RadioButton } from "@/components/ui/inputs";
 
@@ -22,11 +22,12 @@ const ShippingMethod: React.FC = () => {
       <Text className="text-base font-medium text-primary">
         Choose shipping method
       </Text>
-      <View className="flex-col items-start justify-start gap-y-3 w-full">
+      <View className="flex-col items-start justify-start gap-y-4 w-full">
         {OPTIONS.map((option) => (
-          <CustomButton
-            handlePress={() => setSelectedMethod(option.id)}
-            className="w-full"
+          <TouchableOpacity
+            key={option.id}
+            onPress={() => setSelectedMethod(option.id)}
+            className="w-full flex flex-row items-start justify-start"
           >
             <View className="flex-row items-center justify-start gap-x-2">
               <RadioButton selected={selectedMethod === option.id} />
@@ -34,7 +35,7 @@ const ShippingMethod: React.FC = () => {
                 {option.label}
               </Text>
             </View>
-          </CustomButton>
+          </TouchableOpacity>
         ))}
       </View>
     </View>

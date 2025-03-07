@@ -1,13 +1,13 @@
+import React from "react";
+import { Formik } from "formik";
+import * as Yup from "yup";
 import { CustomButton } from "@/components/ui";
 import { Checkbox, FormFieldInput } from "@/components/ui/inputs";
 import { icons } from "@/constants";
 import { useShipping } from "@/contexts/ShippingProvider";
 import { ShippingFormValue } from "@/types/billing";
 import { useRouter } from "expo-router";
-import { Formik } from "formik";
-import React from "react";
 import { View, Text, Image } from "react-native";
-import * as Yup from "yup";
 import { CountrySelector } from "./CountrySelector";
 
 const validationSchema = Yup.object().shape({
@@ -67,7 +67,7 @@ const CreateShippingAddressForm: React.FC = () => {
             : undefined;
         };
         return (
-          <View className="w-full flex-grow gap-y-2 flex-col items-start justify-between">
+          <View className="w-full flex-grow gap-y-2 flex-col items-start justify-between pb-4">
             <View className="gap-y-3 flex-col items-start w-full">
               <View className="w-full relative">
                 <FormFieldInput
@@ -112,12 +112,19 @@ const CreateShippingAddressForm: React.FC = () => {
                 </View>
               </View>
 
-              <View className="w-full">
+              <View className="w-full relative">
                 <CountrySelector
                   value={values.country}
                   onChange={(country) => setFieldValue("country", country)}
-                  error={errors.country}
+                  error={ getError("country")}
                 />
+                <View className="flex-row items-center justify-start absolute top-[18px] left-[20px]">
+                  <Image
+                    source={icons.locationIcon}
+                    resizeMode="contain"
+                    className="w-5 h-5 object-contain"
+                  />
+                </View>
               </View>
               <View className="w-full relative">
                 <FormFieldInput
@@ -203,7 +210,7 @@ const CreateShippingAddressForm: React.FC = () => {
                   />
                 </View>
               </View>
-              <View className="flex-row items-start justify-start gap-x-2 w-full pt-4">
+              <View className="flex-row items-start justify-start gap-x-2 w-full pt-4 px-2">
                 <Checkbox
                   className=""
                   checked={values.setDefault}
@@ -226,7 +233,7 @@ const CreateShippingAddressForm: React.FC = () => {
                 disabled={isSubmitting}
               >
                 <Text className="text-base text-white font-semibold group-disabled:text-grey-800">
-                  Add Address
+                  {addressToEdit ? "Update Address" : "Add Address"}
                 </Text>
               </CustomButton>
             </View>

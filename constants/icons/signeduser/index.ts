@@ -1,6 +1,8 @@
 const bellIcon = require("@/assets/icons/signeduser/bell.png");
+const bikeIcon = require("@/assets/images/signeduser/billings/bike.png");
 const categoryIcon = require("@/assets/icons/signeduser/category.png");
 const chevronarrowIcon = require("@/assets/icons/signeduser/chevronarrow.png");
+const cvvIcon = require("@/assets/icons/signeduser/cvv.png");
 const forwardIcon = require("@/assets/icons/signeduser/forward.png");
 const filterIcon = require("@/assets/icons/signeduser/filter.png");
 const heartIcon = require("@/assets/icons/signeduser/heart.png");
@@ -15,8 +17,10 @@ const shieldIcon = require("@/assets/icons/signeduser/shield.png");
 
 export default {
   bellIcon,
+  bikeIcon,
   categoryIcon,
   chevronarrowIcon,
+  cvvIcon,
   filterIcon,
   forwardIcon,
   heartIcon,

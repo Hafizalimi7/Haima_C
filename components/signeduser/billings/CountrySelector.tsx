@@ -1,7 +1,8 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { Image, View } from "react-native";
 import { SelectList } from "react-native-dropdown-select-list";
 import { countries } from "@/data/countries";
+import signeduser from "@/constants/icons/signeduser";
 
 interface CountrySelectorProps {
   value: string;
@@ -15,7 +16,7 @@ export function CountrySelector({
   error,
 }: CountrySelectorProps) {
   return (
-    <View>
+    <View className="relative">
       <SelectList
         setSelected={(val: string) => onChange(val)}
         data={countries}
@@ -23,7 +24,7 @@ export function CountrySelector({
         defaultOption={{ key: value, value: value }}
         search={true}
         boxStyles={{
-          borderRadius: 8,
+          borderRadius: 60,
           borderWidth: 1,
           borderColor: error ? "#EF4444" : "#D1D5DB",
           paddingVertical: 12,
@@ -31,8 +32,9 @@ export function CountrySelector({
           marginTop: 4,
         }}
         inputStyles={{
-          fontSize: 16,
-          color: "#000",
+          fontSize: 14,
+          color: "#717171",
+          paddingLeft: 32,
         }}
         dropdownStyles={{
           borderRadius: 8,
@@ -45,13 +47,20 @@ export function CountrySelector({
           paddingHorizontal: 16,
         }}
         dropdownTextStyles={{
-          fontSize: 16,
-          color: "#000",
+          fontSize: 14,
+          color: "#717171",
         }}
         searchPlaceholder="Search countries..."
+        searchicon={
+          <Image
+            source={signeduser.searchIcon}
+            className="w-5 h-6 pr-4"
+            resizeMode="contain"
+          />
+        }
         placeholder="Country"
       />
-      {error && <Text className="text-red-500 text-sm mt-1">{error}</Text>}
+      {/* {error && <Text className="text-red-500 text-sm mt-1">{error}</Text>} */}
     </View>
   );
 }

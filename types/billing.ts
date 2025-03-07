@@ -24,3 +24,25 @@ export interface ShippingContextType {
   setDefaultAddress: (id: string) => void;
   editAddress: (address: ShippingFormValue) => void;
 }
+
+export interface PaymentCard {
+  id?: string;
+  cardHolderName: string;
+  cardNumber: string;
+  maskedCardNumber?: string;
+  expiryDate: string;
+  cvv: string;
+  setDefault: boolean;
+}
+
+export interface PaymentContextType {
+  cards: PaymentCard[];
+  selectedCardId?: string;
+  cardToEdit: PaymentCard | null;
+  addCard: (card: PaymentCard) => Promise<void>;
+  removeCard: (id: string) => Promise<void>;
+  setDefaultCard: (id: string) => Promise<void>;
+  editCard: (card: PaymentCard) => void;
+  setSelectedCardId: (id: string) => void;
+  maskCardNumber: (cardNumber: string) => string;
+}
