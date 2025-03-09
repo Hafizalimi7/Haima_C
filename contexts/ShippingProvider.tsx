@@ -8,6 +8,7 @@ import {
 
 const SHIPPING_STORAGE_KEY = "@shipping_addresses";
 const SELECTED_METHOD_KEY = "@selected_method";
+const SELECTED_METHOD_DELIEVRY_KEY = "@selected_key";
 const SELECTED_ADDRESS_KEY = "@selected_address";
 
 const ShippingContext = createContext<ShippingContextType | undefined>(
@@ -23,6 +24,8 @@ export const ShippingProvider: React.FC<{ children: React.ReactNode }> = ({
     ShippingFormValue[]
   >([]);
   const [selectedAddressId, setSelectedAddressId] = useState<string>();
+  const [selectedDelievryAddressId, setSelectedDelievryAddressId] =
+    useState<string>();
   const [addressToEdit, setAddressToEdit] = useState<ShippingFormValue | null>(
     null
   );
@@ -87,6 +90,19 @@ export const ShippingProvider: React.FC<{ children: React.ReactNode }> = ({
     setAddressToEdit(address);
   };
 
+  const handleHomeDeliverySelect = async (id: string) => {
+    setSelectedDelievryAddressId(id);
+    try {
+      await AsyncStorage.setItem(SELECTED_METHOD_DELIEVRY_KEY, id);
+    } catch (error) {
+      console.error("Error saving selected method:", error);
+    }
+  };
+
+  const resetAddressState = () => {
+    setAddressToEdit(null);
+  };
+
   const removeShippingAddress = async (id: string) => {
     const newAddresses = shippingAddresses.filter((addr) => addr.id !== id);
     setShippingAddresses(newAddresses);
@@ -148,6 +164,9 @@ export const ShippingProvider: React.FC<{ children: React.ReactNode }> = ({
         setSelectedAddressId,
         setDefaultAddress,
         editAddress,
+        resetAddressState,
+        selectedDelievryAddressId,
+        handleHomeDeliverySelect
       }}
     >
       {children}

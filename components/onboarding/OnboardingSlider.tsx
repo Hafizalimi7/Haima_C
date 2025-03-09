@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
-import { FlatList, ScrollView, Dimensions, NativeSyntheticEvent, NativeScrollEvent } from "react-native";
+import { FlatList, ScrollView, Dimensions, NativeSyntheticEvent, NativeScrollEvent, View } from "react-native";
 import { onBoardingDataSlides } from "@/data/onboarding";
-import { SafeAreaView } from "react-native-safe-area-context";
 import Slide from "./Slide";
 
 const { width } = Dimensions.get("window");
@@ -37,7 +36,7 @@ const OnboardingSlider: React.FC = () => {
   };
 
   return (
-    <SafeAreaView className="bg-primary flex-1">
+    <View className="bg-primary flex-1">
       <ScrollView
         contentContainerStyle={{
           width: "100%",
@@ -64,7 +63,7 @@ const OnboardingSlider: React.FC = () => {
           )}
         />
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 };
 export default OnboardingSlider;

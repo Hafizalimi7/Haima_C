@@ -16,6 +16,7 @@ const HomeDelivery: React.FC = () => {
     selectedAddressId,
     removeShippingAddress,
     editAddress,
+    resetAddressState,
   } = useShipping();
 
   const handleEdit = (address: ShippingFormValue) => {
@@ -31,7 +32,10 @@ const HomeDelivery: React.FC = () => {
             Shipping Address
           </Text>
           <TouchableOpacity
-            onPress={() => push("/shipping-detail/create-shipping-address")}
+            onPress={() => {
+              push("/shipping-detail/create-shipping-address");
+              resetAddressState();
+            }}
           >
             <Text className="text-secondary text-base font-bold">Add New</Text>
           </TouchableOpacity>
@@ -92,7 +96,7 @@ const HomeDelivery: React.FC = () => {
 };
 
 const HomeDeliveryOption: React.FC = () => {
-  const { selectedAddressId, setSelectedAddressId } = useShipping();
+  const { selectedDelievryAddressId, handleHomeDeliverySelect } = useShipping();
 
   return (
     <View className="w-full bg-lightGrey2 p-4 rounded-xl flex-col items-start gap-y-4">
@@ -101,7 +105,10 @@ const HomeDeliveryOption: React.FC = () => {
       </Text>
       <View className="w-full">
         {deliveryOption.map((option) => (
-          <View key={option.id} className="w-full border-b py-5 border-grey flex-row items-center justify-between">
+          <View
+            key={option.id}
+            className="w-full border-b py-5 border-grey flex-row items-center justify-between"
+          >
             <View className="fle-col items-start justify-start gap-y-3">
               <View className="flex-row items-center justify-start gap-x-4">
                 <Image
@@ -130,8 +137,8 @@ const HomeDeliveryOption: React.FC = () => {
                 </Text>
               </View>
             </View>
-            <TouchableOpacity onPress={() => setSelectedAddressId(option.id)}>
-              <RadioButton selected={selectedAddressId === option.id} />
+            <TouchableOpacity onPress={() => handleHomeDeliverySelect(option.id)}>
+              <RadioButton selected={selectedDelievryAddressId === option.id} />
             </TouchableOpacity>
           </View>
         ))}

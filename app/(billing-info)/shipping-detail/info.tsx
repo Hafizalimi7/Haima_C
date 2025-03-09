@@ -12,7 +12,8 @@ import {
 } from "@/components/signeduser/billings/info";
 
 export default function ShippingInfoScreen() {
-  const { selectedMethod, selectedAddressId } = useShipping();
+  const { selectedMethod, selectedAddressId, selectedDelievryAddressId } =
+    useShipping();
   const { productId } = useLocalSearchParams<{
     productId?: string;
   }>();
@@ -51,7 +52,7 @@ export default function ShippingInfoScreen() {
         <CustomButton
           handlePress={handleContinue}
           className="bg-primary w-full disabled:bg-grey group"
-          disabled={selectedAddressId === Date.now().toString()}
+          disabled={!selectedDelievryAddressId}
         >
           <Text className="text-white text-center text-base font-semibold group-disabled:text-grey-800">
             Continue

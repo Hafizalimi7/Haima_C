@@ -23,6 +23,9 @@ export interface ShippingContextType {
   setSelectedAddressId: (id: string) => void;
   setDefaultAddress: (id: string) => void;
   editAddress: (address: ShippingFormValue) => void;
+  resetAddressState: () => void;
+  selectedDelievryAddressId?: string;
+  handleHomeDeliverySelect: (id: string) => void;
 }
 
 export interface PaymentCard {
