@@ -9,7 +9,7 @@ import {
 } from "@/components/signeduser/categories/search";
 import { useSearch } from "@/contexts/SearchProvider";
 import { ProductItem } from "@/components/signeduser/products";
-import { NoRecentSearch } from "@/components/signeduser/categories/emptyUi";
+import { NoRecentSearch } from "@/components/ui/emptyUi";
 
 const { width } = Dimensions.get("window");
 const COLUMN_GAP = 10;

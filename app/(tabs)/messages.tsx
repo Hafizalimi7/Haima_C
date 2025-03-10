@@ -4,7 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function MessagesTab() {
   return (
-    <SafeAreaView>
+    <SafeAreaView className="flex-1 bg-white">
       <Text>MessagesTab</Text>
     </SafeAreaView>
   );

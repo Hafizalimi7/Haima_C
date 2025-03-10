@@ -1,3 +1,4 @@
+const acceptOfferIcon = require("@/assets/icons/signeduser/acceptOffer.png");
 const bellIcon = require("@/assets/icons/signeduser/bell.png");
 const bikeIcon = require("@/assets/images/signeduser/billings/bike.png");
 const categoryIcon = require("@/assets/icons/signeduser/category.png");
@@ -9,13 +10,17 @@ const heartIcon = require("@/assets/icons/signeduser/heart.png");
 const homeIcon = require("@/assets/icons/signeduser/home.png");
 const messageIcon = require("@/assets/icons/signeduser/message.png");
 const profileIcon = require("@/assets/icons/signeduser/profile.png");
+const pendingOfferIcon = require("@/assets/icons/signeduser/pendingOffer.png");
 const searchIcon = require("@/assets/icons/signeduser/search.png");
 const starIcon = require("@/assets/icons/signeduser/star.png");
 const sellIcon = require("@/assets/icons/signeduser/sell.png");
+const shopIcon = require("@/assets/icons/signeduser/shop.png");
+const soldIcon = require("@/assets/icons/signeduser/sold.png");
 const sortIcon = require("@/assets/icons/signeduser/sort.png");
 const shieldIcon = require("@/assets/icons/signeduser/shield.png");
 
 export default {
+  acceptOfferIcon,
   bellIcon,
   bikeIcon,
   categoryIcon,
@@ -27,9 +32,12 @@ export default {
   homeIcon,
   messageIcon,
   profileIcon,
+  pendingOfferIcon,
   starIcon,
   searchIcon,
   sellIcon,
   sortIcon,
+  shopIcon,
+  soldIcon,
   shieldIcon,
 };

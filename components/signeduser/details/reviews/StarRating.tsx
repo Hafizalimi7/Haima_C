@@ -1,6 +1,6 @@
 import React from "react";
+import { images } from "@/constants";
 import { View, TouchableOpacity, Image } from "react-native";
-import signeduser from "@/constants/icons/signeduser";
 
 interface StarRatingProps {
   rating: number;
@@ -8,6 +8,7 @@ interface StarRatingProps {
   className?: string;
   onRatingChange?: (rating: number) => void;
   readonly?: boolean;
+  containerClassName?: string;
 }
 
 export const StarRating: React.FC<StarRatingProps> = ({
@@ -16,9 +17,10 @@ export const StarRating: React.FC<StarRatingProps> = ({
   className = "w-4 h-4",
   onRatingChange,
   readonly = false,
+  containerClassName,
 }) => {
   return (
-    <View className="flex-row">
+    <View className={`flex-row ${containerClassName}`}>
       {[...Array(maxRating)].map((_, index) => (
         <TouchableOpacity
           key={index}
@@ -27,7 +29,7 @@ export const StarRating: React.FC<StarRatingProps> = ({
           className="mr-1"
         >
           <Image
-            source={signeduser.starIcon}
+            source={images.largeStarImage}
             resizeMode="contain"
             className={`${className}`}
             tintColor={index < rating ? "#D3AC2A" : "#E7E7E7"}

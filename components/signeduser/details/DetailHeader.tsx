@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
-import { useRouter } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import { Image } from "react-native";
 import { icons } from "@/constants";
 import signeduser from "@/constants/icons/signeduser";
@@ -17,11 +17,13 @@ const DetailHeader: React.FC<DetailHeaderProps> = ({
   showShareIcon = false,
   className = "py-4",
   renderIcon = (
-    <Image
-      source={signeduser.forwardIcon}
-      resizeMode="contain"
-      className="w-6 h-6"
-    />
+    <Link href="/messages">
+      <Image
+        source={signeduser.forwardIcon}
+        resizeMode="contain"
+        className="w-6 h-6"
+      />
+    </Link>
   ),
 }) => {
   const { back } = useRouter();

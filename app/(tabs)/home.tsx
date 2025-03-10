@@ -9,7 +9,7 @@ import {
 } from "@/components/signeduser/home";
 import { ScrollView, Platform, Text, View, FlatList } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Link, useRouter } from "expo-router";
+import { Link } from "expo-router";
 import { productCategories } from "@/data/categories";
 import { SearchComponent } from "@/components/signeduser/categories/search";
 

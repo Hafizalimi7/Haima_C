@@ -3,7 +3,7 @@ import { icons } from "@/constants";
 import { useSearch } from "@/contexts/SearchProvider";
 import { Alert, FlatList, Image, TouchableOpacity } from "react-native";
 import { View, Text } from "react-native";
-import { NoRecentSearch } from "../emptyUi";
+import { NoRecentSearch } from "@/components/ui/emptyUi";
 
 const RecentSearches: React.FC = () => {
   const { setSearchQuery, recentSearches, removeSearchTerm, clearAllSearches } =

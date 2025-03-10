@@ -1,7 +1,10 @@
 import signeduser from "@/constants/icons/signeduser";
+import { useRouter } from "expo-router";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 
 const HomeInfoHeading: React.FC = () => {
+  const { push } = useRouter();
+
   return (
     <View className="w-full flex-row items-center justify-between px-4">
       <View className="flex-col items-start justify-start gap-y-1">
@@ -20,7 +23,7 @@ const HomeInfoHeading: React.FC = () => {
             className="w-6 h-6"
           />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => push("/notifications")}>
           <Image
             source={signeduser.bellIcon}
             resizeMode="contain"
