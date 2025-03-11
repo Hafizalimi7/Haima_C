@@ -17,7 +17,7 @@ const DetailHeader: React.FC<DetailHeaderProps> = ({
   showShareIcon = false,
   className = "py-4",
   renderIcon = (
-    <Link href="/messages">
+    <Link href="/(modal)/messages">
       <Image
         source={signeduser.forwardIcon}
         resizeMode="contain"

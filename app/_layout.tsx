@@ -44,9 +44,13 @@ export default function RootLayout() {
         <Stack>
           <Stack.Screen name="index" options={{ headerShown: false }} />
           <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-          <Stack.Screen name="(billing-info)" options={{ headerShown: false }} />
+          <Stack.Screen
+            name="(billing-info)"
+            options={{ headerShown: false }}
+          />
           <Stack.Screen name="(category)" options={{ headerShown: false }} />
           <Stack.Screen name="(details)" options={{ headerShown: false }} />
+          <Stack.Screen name="(modal)" options={{ headerShown: false }} />
           <Stack.Screen
             name="(profilesetup)"
             options={{ headerShown: false }}

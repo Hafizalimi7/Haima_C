@@ -9,9 +9,11 @@ const filterIcon = require("@/assets/icons/signeduser/filter.png");
 const heartIcon = require("@/assets/icons/signeduser/heart.png");
 const homeIcon = require("@/assets/icons/signeduser/home.png");
 const messageIcon = require("@/assets/icons/signeduser/message.png");
+const newMessageIcon = require("@/assets/icons/signeduser/newMessage.png");
 const profileIcon = require("@/assets/icons/signeduser/profile.png");
 const pendingOfferIcon = require("@/assets/icons/signeduser/pendingOffer.png");
 const searchIcon = require("@/assets/icons/signeduser/search.png");
+const sendIcon = require("@/assets/icons/signeduser/send.png");
 const starIcon = require("@/assets/icons/signeduser/star.png");
 const sellIcon = require("@/assets/icons/signeduser/sell.png");
 const shopIcon = require("@/assets/icons/signeduser/shop.png");
@@ -31,10 +33,12 @@ export default {
   heartIcon,
   homeIcon,
   messageIcon,
+  newMessageIcon,
   profileIcon,
   pendingOfferIcon,
   starIcon,
   searchIcon,
+  sendIcon,
   sellIcon,
   sortIcon,
   shopIcon,

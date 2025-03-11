@@ -85,7 +85,7 @@ export default function TabLayout() {
                 {...props}
                 onPress={(e) => {
                   e.preventDefault();
-                  linkTo("/sell-an-item");
+                  linkTo("/(modal)/sellmodal");
                 }}
                 style={{
                   flex: 1,
@@ -110,12 +110,19 @@ export default function TabLayout() {
             title: "Messages",
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
-              <NavigationTabIcon
-                icon={signeduser.messageIcon}
-                color={color}
-                focused={focused}
-                className="w-6 h-6"
-              />
+              <Pressable
+                onPress={(e) => {
+                  e.preventDefault();
+                  linkTo("/(modal)/messages");
+                }}
+              >
+                <NavigationTabIcon
+                  icon={signeduser.messageIcon}
+                  color={color}
+                  focused={focused}
+                  className="w-6 h-6"
+                />
+              </Pressable>
             ),
           }}
         />

@@ -54,3 +54,21 @@ export const formatTime = (date: Date): string => {
     hour12: true,
   });
 };
+
+export const getRelativeTime = (date: Date) => {
+  const now = new Date();
+  const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+  const diffInMinutes = Math.floor(diffInSeconds / 60);
+  const diffInHours = Math.floor(diffInMinutes / 60);
+
+  if (diffInSeconds < 30) {
+    return "Just now";
+  } else if (diffInMinutes < 60) {
+    return `${diffInMinutes} ${diffInMinutes === 1 ? "min" : "mins"} ago`;
+  } else if (diffInHours < 24) {
+    return `${diffInHours} ${diffInHours === 1 ? "hr" : "hrs"} ago`;
+  } else {
+    return date.toLocaleDateString();
+  }
+};
+

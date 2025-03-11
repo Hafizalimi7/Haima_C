@@ -49,13 +49,16 @@ const FormFieldInput: React.FC<FormType> = ({
   style,
 }) => {
   const { state: showPassword, toggle: togglePassword } = useBooleanControl();
+  const { state: isFocused, setState: setIsFocused } = useBooleanControl();
 
   return (
     <View className={`space-y-2 ${containerClassName}`} testID="form-field">
       {labelShow === true && <View className="w-full">{label}</View>}
 
       <View
-        className={`w-full h-12 px-4 bg-white rounded-full border focus:border-primary items-center flex-row transition-all duration-300 ${errorClass}`}
+        className={`w-full h-12 px-4 bg-white rounded-full border items-center flex-row transition-all duration-300 ${errorClass} ${
+          isFocused ? "border-primary" : "border-grey"
+        }`}
         testID="input-container"
       >
         <TextInput
@@ -72,6 +75,7 @@ const FormFieldInput: React.FC<FormType> = ({
           maxLength={maxLength}
           testID="text-input"
           style={style}
+          onFocus={() => setIsFocused(true)}
         />
         {type === "Password" && (
           <TouchableOpacity

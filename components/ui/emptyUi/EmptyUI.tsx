@@ -16,7 +16,7 @@ const EmptyUI: React.FC<EmptyUIProps> = ({
   return (
     <View className="w-full py-20 flex-col items-center justify-center gap-y-5">
       <View className="flex-row items-center justify-center w-16 h-16 bg-primary-50 rounded-full">
-        <Image source={iconSource} resizeMode="contain" className="w-8 h-8" />
+        <Image source={iconSource} resizeMode="contain" className="w-8 h-8" tintColor="#000000" />
       </View>
       <Text className="text-base font-normal text-center text-grey-800">
         {content}
