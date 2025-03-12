@@ -11,23 +11,12 @@ interface ReviewsProps {
 }
 
 const Reviews: React.FC<ReviewsProps> = ({ data }) => {
-  const { openAuthSheet } = useBottomSheet();
-  const { isAuthenticated } = useAuth();
   const { push } = useRouter();
-
-  const handleReview = () => {
-    if (isAuthenticated) {
-      push(`/product/${data.id}/reviews`);
-    }
-    if (!isAuthenticated) {
-      openAuthSheet();
-    }
-  };
 
   return (
     <View className="px-4 w-full">
       <TouchableOpacity
-        onPress={handleReview}
+        onPress={() => push(`/product/${data.id}/reviews`)}
         className="flex flex-row items-center justify-between w-full border border-grey rounded-xl p-4"
       >
         <View className="flex-col items-start justify-start gap-y-2">

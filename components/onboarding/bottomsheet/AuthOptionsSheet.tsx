@@ -16,49 +16,58 @@ const AuthOptionSheet: React.FC<AuthOptionSheetProps> = () => {
   const { isAuthenticated } = useAuth();
   const { push } = useRouter();
   const pathname = usePathname();
-  
+
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <BottomSheetModal ref={bottomSheetRef} snapPoints={["60%"]}>
-        <BottomSheetView className="flex-1 p-5">
-          {pathname !== "/" && !isAuthenticated && <NotAuthenticatedUser />}
-          <View className="w-full pt-4 pb-2">
-            <CustomButton
-              handlePress={() => {
-                closeAuthSheet();
+    <BottomSheetModal
+      ref={bottomSheetRef}
+      snapPoints={["60%"]}
+      style={{
+        backgroundColor: "white",
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.3,
+        shadowRadius: 4,
+        elevation: 6,
+      }}
+    >
+      <BottomSheetView className="flex-1 p-5">
+        {pathname !== "/" && !isAuthenticated && <NotAuthenticatedUser />}
+        <View className="w-full pt-4 pb-2">
+          <CustomButton
+            handlePress={() => {
+              closeAuthSheet();
 
-                setTimeout(() => {
-                  push("/auth/sign-up");
-                }, 100);
-              }}
-              className="bg-primary w-full"
-            >
-              <Text className="text-base font-semibold text-white">
-                Sign up
-              </Text>
-            </CustomButton>
-          </View>
-          {pathname === "/" && !isAuthenticated && (
-            <CustomButton
-              handlePress={() => {
-                closeAuthSheet();
+              setTimeout(() => {
+                push("/auth/sign-up");
+              }, 100);
+            }}
+            className="bg-primary w-full"
+          >
+            <Text className="text-base font-semibold text-white">Sign up</Text>
+          </CustomButton>
+        </View>
+        {pathname === "/" && !isAuthenticated && (
+          <CustomButton
+            handlePress={() => {
+              closeAuthSheet();
 
-                setTimeout(() => {
-                  push("/home");
-                }, 100);
-              }}
-              className="bg-white border border-primary w-full"
-            >
-              <Text className="text-base font-semibold text-primary">
-                Continue as Guest
-              </Text>
-            </CustomButton>
-          )}
+              setTimeout(() => {
+                push("/home");
+              }, 100);
+            }}
+            className="bg-white border border-primary w-full"
+          >
+            <Text className="text-base font-semibold text-primary">
+              Continue as Guest
+            </Text>
+          </CustomButton>
+        )}
 
-          <SocialAuthOptions />
-        </BottomSheetView>
-      </BottomSheetModal>
-    </View>
+        <SocialAuthOptions />
+      </BottomSheetView>
+    </BottomSheetModal>
   );
 };
 

@@ -1,5 +1,8 @@
+import { AuthOptionsSheet } from "@/components/onboarding/bottomsheet";
 import { NavigationTabIcon } from "@/components/signeduser/navigations";
 import signeduser from "@/constants/icons/signeduser";
+import { useAuth } from "@/contexts/AuthContext";
+import { useBottomSheet } from "@/contexts/BottomSheetProvider";
 import { useLinkTo } from "@react-navigation/native";
 import { Tabs } from "expo-router";
 import { StatusBar } from "expo-status-bar";
@@ -7,6 +10,8 @@ import { Pressable } from "react-native";
 
 export default function TabLayout() {
   const linkTo = useLinkTo();
+  const { openAuthSheet } = useBottomSheet();
+  const { isAuthenticated } = useAuth();
 
   return (
     <>
@@ -85,7 +90,12 @@ export default function TabLayout() {
                 {...props}
                 onPress={(e) => {
                   e.preventDefault();
-                  linkTo("/(modal)/sellmodal");
+                  if (isAuthenticated) {
+                    linkTo("/(modal)/sellmodal");
+                  }
+                  if (!isAuthenticated) {
+                    openAuthSheet();
+                  }
                 }}
                 style={{
                   flex: 1,
@@ -113,7 +123,12 @@ export default function TabLayout() {
               <Pressable
                 onPress={(e) => {
                   e.preventDefault();
-                  linkTo("/(modal)/messages");
+                  if (isAuthenticated) {
+                    linkTo("/(modal)/messages");
+                  }
+                  if (!isAuthenticated) {
+                    openAuthSheet();
+                  }
                 }}
               >
                 <NavigationTabIcon
@@ -132,17 +147,30 @@ export default function TabLayout() {
             title: "Profile",
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
-              <NavigationTabIcon
-                icon={signeduser.profileIcon}
-                color={color}
-                focused={focused}
-                className="w-6 h-6"
-              />
+              <Pressable
+                onPress={(e) => {
+                  e.preventDefault();
+                  if (isAuthenticated) {
+                    linkTo("/profile");
+                  }
+                  if (!isAuthenticated) {
+                    openAuthSheet();
+                  }
+                }}
+              >
+                <NavigationTabIcon
+                  icon={signeduser.profileIcon}
+                  color={color}
+                  focused={focused}
+                  className="w-6 h-6"
+                />
+              </Pressable>
             ),
           }}
         />
       </Tabs>
       <StatusBar backgroundColor="#FFFFFF" style="dark" />
+      <AuthOptionsSheet />
     </>
   );
 }

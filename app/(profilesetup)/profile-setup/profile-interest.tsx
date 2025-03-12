@@ -33,7 +33,7 @@ export default function ProfileInterestScreen() {
             testID="skip-button"
             handlePress={() => {
               push("/home");
-              login();
+              // login();
             }}
             className="bg-lightGrey px-6 py-1.5 min-h-7"
           >

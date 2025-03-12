@@ -1,51 +1,89 @@
-import React, { ReactNode, useEffect } from "react";
-import { Modal, View } from "react-native";
-import Animated, {
-  useAnimatedStyle,
-  withSpring,
-  withTiming,
-  useSharedValue,
-} from "react-native-reanimated";
+import React, { ReactNode, useEffect, useRef, useState } from "react";
+import {
+  KeyboardAvoidingView,
+  Modal,
+  Platform,
+  View,
+  TouchableWithoutFeedback,
+  Keyboard,
+  Animated,
+  Easing,
+} from "react-native";
 
 interface ModalProp {
   visible: boolean;
   children: ReactNode;
   className?: string;
+  onClose?: () => void;
 }
 
 const ModalPopUp: React.FC<ModalProp> = ({
   visible,
   children,
   className = "py-5 px-6",
+  onClose,
 }) => {
-  const scale = useSharedValue(0);
+  const translateY = useRef(new Animated.Value(-300)).current;
+  const [modalVisible, setModalVisible] = useState(visible);
 
   useEffect(() => {
     if (visible) {
-      scale.value = withSpring(1);
+      setModalVisible(true);
+      Animated.spring(translateY, {
+        toValue: 0,
+        friction: 8,
+        tension: 40,
+        useNativeDriver: true, // Important for performance
+      }).start();
     } else {
-      scale.value = withTiming(0, { duration: 300 });
+      Animated.timing(translateY, {
+        toValue: -300,
+        duration: 300,
+        easing: Easing.ease,
+        useNativeDriver: true,
+      }).start(() => {
+        setModalVisible(false);
+      });
     }
   }, [visible]);
 
-  const animatedStyle = useAnimatedStyle(() => {
-    return {
-      transform: [{ scale: scale.value }],
-    };
-  });
-
-  if (!visible) return null;
+  if (!modalVisible && !visible) return null;
 
   return (
-    <Modal transparent visible={visible}>
-      <View className="flex-1 bg-black/30 items-center justify-center">
-        <Animated.View
-          style={[animatedStyle]}
-          className={`w-[347px] bg-white rounded-3xl ${className}`}
+    <Modal
+      transparent
+      visible={modalVisible}
+      animationType="none"
+      statusBarTranslucent
+      onRequestClose={onClose}
+    >
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={{ flex: 1 }}
+        keyboardVerticalOffset={Platform.OS === "ios" ? 40 : 0}
+      >
+        <TouchableWithoutFeedback
+          onPress={() => {
+            Keyboard.dismiss();
+            if (onClose) onClose();
+          }}
         >
-          {children}
-        </Animated.View>
-      </View>
+          <View className="flex-1 bg-black/30 items-center justify-center">
+            <TouchableWithoutFeedback onPress={(e) => e.stopPropagation()}>
+              <Animated.View
+                style={[
+                  {
+                    transform: [{ translateY: translateY }],
+                  },
+                ]}
+                className={`w-[347px] bg-white rounded-3xl ${className}`}
+              >
+                {children}
+              </Animated.View>
+            </TouchableWithoutFeedback>
+          </View>
+        </TouchableWithoutFeedback>
+      </KeyboardAvoidingView>
     </Modal>
   );
 };

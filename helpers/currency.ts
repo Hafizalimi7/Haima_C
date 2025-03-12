@@ -19,7 +19,7 @@ export const formatCurrency = (amount: number): string => {
 export const Fee = 2;
 
 export const CurrencySymbol = "£";
-
+export const PROTECTION_FEE_PERCENTAGE = 0.05;
 
 export function cardNumberFormatter(
   oldValue: string,

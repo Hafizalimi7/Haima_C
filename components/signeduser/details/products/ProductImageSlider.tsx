@@ -1,7 +1,7 @@
+import React, { useRef, useState } from "react";
 import signeduser from "@/constants/icons/signeduser";
 import { ProductType } from "@/types/product";
-import React, { useRef, useState } from "react";
-import { View, Text, FlatList, Dimensions, Image } from "react-native";
+import { View, FlatList, Dimensions, Image } from "react-native";
 
 interface ProductImageSliderProps {
   data: ProductType;

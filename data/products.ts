@@ -2,7 +2,7 @@ import { ProductType, Review } from "@/types/product";
 
 export const products: ProductType[] = [
   {
-    id: "01",
+    id: "1",
     title: "Classic Brown Bag",
     desc: "This classic brown bag women's single shoulder indentation women's bag single room square bag. The fabric is made of PU leather, which is durable.",
     price: 40,

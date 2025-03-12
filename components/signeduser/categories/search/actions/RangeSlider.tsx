@@ -59,32 +59,6 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
     onValueChange({ min: minValue, max: maxValue });
   };
 
-  // const leftThumbGesture = Gesture.Pan()
-  //   .onStart(() => {
-  //     "worklet";
-  //   })
-  //   .onUpdate((event) => {
-  //     const newPosition = Math.min(
-  //       Math.max(0, leftPosition.value + event.translationX),
-  //       rightPosition.value - step
-  //     );
-  //     leftPosition.value = newPosition;
-  //     runOnJS(updateValues)();
-  //   });
-
-  // const rightThumbGesture = Gesture.Pan()
-  //   .onStart(() => {
-  //     "worklet";
-  //   })
-  //   .onUpdate((event) => {
-  //     const newPosition = Math.max(
-  //       Math.min(sliderWidth, rightPosition.value + event.translationX),
-  //       leftPosition.value + step
-  //     );
-  //     rightPosition.value = newPosition;
-  //     runOnJS(updateValues)();
-  //   });
-
   const handleMove = (gestureState: PanResponderGestureState) => {
     "worklet";
     if (activeThumb.current === "left") {

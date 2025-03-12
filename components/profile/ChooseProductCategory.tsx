@@ -61,7 +61,7 @@ const ChooseProductCategory: React.FC = () => {
         <CustomButton
           handlePress={() => {
             push("/home");
-            login();
+            // login();
           }}
           className="w-full bg-primary"
         >

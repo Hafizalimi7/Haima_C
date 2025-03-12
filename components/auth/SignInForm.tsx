@@ -9,21 +9,52 @@ import { TouchableOpacity } from "react-native";
 import { icons } from "@/constants";
 import SocialAuthOptions from "./SocialAuthOptions";
 import { useAuth } from "@/contexts/AuthContext";
+import { useState } from "react";
+import { DUMMY_USERS } from "@/data/auth";
 
 const SignInForm: React.FC = () => {
   const { push } = useRouter();
   const { login } = useAuth();
+  const [error, setError] = useState<string>("");
 
   const initialValues: SignInFormValues = {
     email: "",
     password: "",
   };
 
-  const handleSubmit = (values: SignInFormValues) => {
-    // Handle form submission here
-    console.log("Form values:", values);
-    login();
-    push("/home");
+  const handleSubmit = async (values: SignInFormValues) => {
+    try {
+      // Simulate API call with dummy data
+      const user = DUMMY_USERS[values.email as keyof typeof DUMMY_USERS];
+
+      if (!user || user.password !== values.password) {
+        setError("Invalid email or password");
+        return;
+      }
+
+      // Login with the user's role
+      await login(user.role);
+
+      // Store the current timestamp
+      const currentTime = new Date("2025-03-11T23:43:56");
+
+      // Log successful login
+      console.log({
+        timestamp: currentTime.toISOString(),
+        user: {
+          id: user.id,
+          username: user.username,
+          role: user.role,
+        },
+        loginSuccess: true,
+      });
+
+      // Navigate to home screen
+      push("/home");
+    } catch (error) {
+      setError("An error occurred during sign in");
+      console.error("Login error:", error);
+    }
   };
 
   return (
@@ -50,6 +81,9 @@ const SignInForm: React.FC = () => {
         return (
           <View className="w-full flex-grow gap-y-2 flex-col items-start justify-between">
             <View className="gap-y-3 flex-col items-start w-full">
+              {error && (
+                <Text className="text-red-500 mb-4 text-center">{error}</Text>
+              )}
               <View className="w-full relative">
                 <FormFieldInput
                   labelShow={false}

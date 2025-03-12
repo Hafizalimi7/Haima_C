@@ -6,6 +6,8 @@ import useBooleanControl from "@/hooks/useBooleanControl";
 import { ModalPopUp } from "@/components/ui";
 import { icons } from "@/constants";
 import CreateReviewForm from "./CreateReviewForm";
+import { useBottomSheet } from "@/contexts/BottomSheetProvider";
+import { useAuth } from "@/contexts/AuthContext";
 
 interface CreateReviewsProps {
   data: ProductType;
@@ -13,16 +15,26 @@ interface CreateReviewsProps {
 }
 
 const CreateReviews: React.FC<CreateReviewsProps> = ({ addReview }) => {
+  const { openAuthSheet } = useBottomSheet();
+  const { isAuthenticated } = useAuth();
   const {
     state: showCreateReview,
     setTrue: setShowCreateReviewTrue,
     setFalse: setShowCreateReviewFalse,
   } = useBooleanControl();
 
+  const handleReview = () => {
+    if (isAuthenticated) {
+      setShowCreateReviewTrue();
+    }
+    if (!isAuthenticated) {
+      openAuthSheet();
+    }
+  };
   return (
     <View className="px-4 w-full my-4">
       <TouchableOpacity
-        onPress={setShowCreateReviewTrue}
+        onPress={handleReview}
         className="w-full bg-grey-100 border border-grey px-4 py-4 rounded-full flex-row items-center justify-between"
       >
         <Text className="text-base font-semibold text-grey-800">

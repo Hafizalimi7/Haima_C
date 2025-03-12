@@ -10,6 +10,7 @@ import {
   ReviewRatings,
 } from "@/components/signeduser/details/reviews";
 import { Review, ReviewFormValues } from "@/types/product";
+import { AuthOptionsSheet } from "@/components/onboarding/bottomsheet";
 
 export default function ReviewsScreen() {
   const { slug } = useLocalSearchParams<{ slug?: string }>();
@@ -38,15 +39,18 @@ export default function ReviewsScreen() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-white pb-10">
-      <DetailHeader title="Reviews" showShareIcon={false} />
-      <CreateReviews data={data} addReview={addReview} />
-      <ReviewRatings
-        data={data}
-        reviews={reviews}
-        averageRating={calculateAverageRating()}
-      />
-      <ReviewComments data={data} reviews={reviews} />
-    </SafeAreaView>
+    <React.Fragment>
+      <SafeAreaView className="flex-1 bg-white pb-10">
+        <DetailHeader title="Reviews" showShareIcon={false} />
+        <CreateReviews data={data} addReview={addReview} />
+        <ReviewRatings
+          data={data}
+          reviews={reviews}
+          averageRating={calculateAverageRating()}
+        />
+        <ReviewComments data={data} reviews={reviews} />
+      </SafeAreaView>
+      <AuthOptionsSheet />
+    </React.Fragment>
   );
 }

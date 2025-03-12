@@ -3,8 +3,9 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import { ProductOffer } from "@/types/message";
 import { format } from "date-fns";
 import { formatCurrency } from "@/helpers/currency";
-import { formatStatus } from "@/helpers/string";
+import { formatStatus, isValidUrl } from "@/helpers/string";
 import { CustomButton } from "@/components/ui";
+import { products } from "@/data/products";
 
 interface OfferBubbleProps {
   offer: ProductOffer;

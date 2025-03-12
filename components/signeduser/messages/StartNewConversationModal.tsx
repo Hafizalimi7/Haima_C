@@ -58,7 +58,12 @@ const StartNewConversationModal: React.FC<StartNewConversationModalProps> = ({
     <ModalPopUp visible={show} className="!px-0 !py-0">
       <View className="w-full flex-row items-center justify-between px-3 py-3 border-b border-grey">
         <Text className="text-base font-medium text-primary">New Message</Text>
-        <TouchableOpacity onPress={onClose}>
+        <TouchableOpacity
+          onPress={() => {
+            onClose();
+            setIsFocused(false);
+          }}
+        >
           <Image
             source={icons.closeIcon}
             resizeMode="contain"
@@ -67,7 +72,7 @@ const StartNewConversationModal: React.FC<StartNewConversationModalProps> = ({
         </TouchableOpacity>
       </View>
       <View
-        className={`flex-1 border rounded-full min-h-12 px-5 flex-row items-center gap-x-3 my-5 overflow-hidden ${
+        className={`flex-1 border rounded-full min-h-12 px-5 flex-row items-center gap-x-3 my-5 overflow-hidden mx-4 ${
           isFocused ? "border-primary" : "border-grey"
         }`}
       >

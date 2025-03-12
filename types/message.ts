@@ -1,3 +1,5 @@
+import { ImageType } from "./product";
+
 export interface User {
   id: string;
   username: string;
@@ -37,6 +39,15 @@ export interface ProductOffer {
   status: "OFFER_SENT" | "OFFER_UPDATED" | "OFFER_ACCEPTED" | "OFFER_REJECTED";
 }
 
+export interface OfferData {
+  senderId: string;
+  receiverId: string;
+  senderName: string;
+  receiverName: string;
+  conversationId: string;
+  content: MessageContent; 
+}
+
 export interface MessageContent {
   type: MessageContentType;
   text?: string; // For simple text messages
@@ -50,3 +61,7 @@ export interface ChatMessage {
   senderId: string;
   timestamp: Date;
 }
+
+export type ChatMessagesState = {
+  [conversationId: string]: ChatMessage[];
+};

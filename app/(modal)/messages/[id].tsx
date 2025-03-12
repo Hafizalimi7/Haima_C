@@ -11,15 +11,18 @@ import {
   DateSeparator,
   MessageInput,
 } from "@/components/signeduser/messages";
-import { currentUser } from "@/data/messages";
+import { useMessages } from "@/contexts/MessageProvider";
+import { useAuth } from "@/contexts/AuthContext";
 
 export default function MessagedetailScreen() {
   const { back } = useRouter();
   const { id, participantUsername } = useLocalSearchParams();
   const flatListRef = useRef<FlatList>(null);
-  const [messagesList, setMessagesList] = useState<ChatMessage[]>([]);
+  const { getMessagesForChat, addMessage, conversations } = useMessages();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const { currentUser } = useAuth();
 
+  const messagesList = getMessagesForChat(id as string);
   const removeSelectedImage = () => {
     setSelectedImage(null);
   };
@@ -65,16 +68,27 @@ export default function MessagedetailScreen() {
   };
 
   const handleSend = (content: MessageContent) => {
-    // Create new message
-    const newMessage: ChatMessage = {
-      id: Date.now().toString(),
+    if (!currentUser || !id) return;
+
+    // Get the other participant's ID based on the conversation
+    const otherParticipant = conversations
+      .find((c) => c.id === id)
+      ?.participants.find((p) => p.id !== currentUser.id);
+
+    if (!otherParticipant) return;
+
+    // Create message data with all required information
+    const messageData = {
+      senderId: currentUser.id,
+      receiverId: otherParticipant.id,
+      senderName: currentUser.username,
+      receiverName: otherParticipant.username,
+      conversationId: id as string,
       content,
-      senderId: currentUser,
-      timestamp: new Date(),
     };
 
-    // Update messages list with new message
-    setMessagesList((prevMessages) => [...prevMessages, newMessage]);
+    // Add message for both users
+    addMessage(messageData);
 
     // Scroll to bottom after sending
     setTimeout(() => {
@@ -100,8 +114,8 @@ export default function MessagedetailScreen() {
           key={msg.id}
           content={msg.content}
           timestamp={msg.timestamp}
-          isSender={msg.senderId === currentUser}
-          userRole="BUYER"
+          isSender={msg.senderId === currentUser?.id}
+          userRole={currentUser?.role || "BUYER"}
           onNegotiate={() => handleNegotiate(msg.id)}
           onAccept={() => handleAcceptOffer(msg.id)}
         />

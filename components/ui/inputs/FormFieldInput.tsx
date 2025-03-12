@@ -8,7 +8,6 @@ import {
   KeyboardTypeOptions,
   StyleProp,
   TextStyle,
-  ViewStyle,
   NativeSyntheticEvent,
   TextInputFocusEventData,
 } from "react-native";
@@ -49,20 +48,20 @@ const FormFieldInput: React.FC<FormType> = ({
   style,
 }) => {
   const { state: showPassword, toggle: togglePassword } = useBooleanControl();
-  const { state: isFocused, setState: setIsFocused } = useBooleanControl();
 
   return (
-    <View className={`space-y-2 ${containerClassName}`} testID="form-field">
+    <View
+      className={`space-y-2 group ${containerClassName}`}
+      testID="form-field"
+    >
       {labelShow === true && <View className="w-full">{label}</View>}
 
       <View
-        className={`w-full h-12 px-4 bg-white rounded-full border items-center flex-row transition-all duration-300 ${errorClass} ${
-          isFocused ? "border-primary" : "border-grey"
-        }`}
+        className={`w-full h-12 px-4 bg-white rounded-full border items-center flex-row transition-all duration-300 border-grey group-focus:border-primary ${errorClass}`}
         testID="input-container"
       >
         <TextInput
-          className={`flex-1 text-primary font-normal text-sm h-full w-full ${className}`}
+          className={`flex-1 text-primary font-normal text-sm h-full w-full group-focus ${className}`}
           value={value}
           placeholder={placeholder}
           placeholderTextColor="#717171"
@@ -75,7 +74,6 @@ const FormFieldInput: React.FC<FormType> = ({
           maxLength={maxLength}
           testID="text-input"
           style={style}
-          onFocus={() => setIsFocused(true)}
         />
         {type === "Password" && (
           <TouchableOpacity

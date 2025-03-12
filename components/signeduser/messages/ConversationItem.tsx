@@ -1,11 +1,12 @@
 import React from "react";
-import { View, Text, TouchableOpacity, Pressable } from "react-native";
+import { View, Text, Pressable } from "react-native";
 import { Conversation } from "@/types/message";
 import { useRouter } from "expo-router";
 import { useMessages } from "@/contexts/MessageProvider";
 import { getInitials } from "@/helpers/string";
 import { getRelativeTime } from "@/helpers/date";
 import { Checkbox } from "@/components/ui/inputs";
+import { useAuth } from "@/contexts/AuthContext";
 
 interface ConversationItemProps {
   conversation: Conversation;
@@ -21,10 +22,14 @@ export const ConversationItem: React.FC<ConversationItemProps> = ({
     toggleConversationSelection,
     startSelectionMode,
   } = useMessages();
+  const { currentUser } = useAuth();
+  
+  if (!currentUser) return null;
 
   const otherParticipant = conversation.participants.find(
-    (p) => p.username !== "gift56"
+    (p) => p.id !== currentUser.id
   );
+
   const initials = getInitials(otherParticipant?.username || "");
 
   const handlePress = () => {
@@ -33,7 +38,10 @@ export const ConversationItem: React.FC<ConversationItemProps> = ({
     } else if (otherParticipant) {
       push({
         pathname: "/messages/[id]",
-        params: { id: conversation.id, participantUsername: otherParticipant.username },
+        params: {
+          id: conversation.id,
+          participantUsername: otherParticipant.username,
+        },
       });
     }
   };
