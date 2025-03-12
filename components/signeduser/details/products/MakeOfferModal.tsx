@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CustomButton, ModalPopUp } from "@/components/ui";
 import { icons } from "@/constants";
 import {
@@ -7,8 +7,7 @@ import {
   formatCurrency,
   PROTECTION_FEE_PERCENTAGE,
 } from "@/helpers/currency";
-import { MessageContent } from "@/types/message";
-import { ProductType } from "@/types/product";
+import { MessageContent, ProductOffer } from "@/types/message";
 import {
   View,
   Text,
@@ -21,8 +20,17 @@ import {
 interface MakeOfferModalProps {
   show: boolean;
   onClose: () => void;
-  product: ProductType;
+  product: {
+    id: string;
+    title: string;
+    price: number;
+    productImage: string;
+    offerPrice: number;
+    sellerId: string;
+  };
   onSendOffer: (offer: MessageContent) => void;
+  existingOffer?: ProductOffer;
+  mode?: "new" | "counter";
 }
 
 const MakeOfferModal: React.FC<MakeOfferModalProps> = ({
@@ -30,11 +38,19 @@ const MakeOfferModal: React.FC<MakeOfferModalProps> = ({
   onClose,
   product,
   onSendOffer,
+  existingOffer,
+  mode = "new",
 }) => {
   const [offerAmount, setOfferAmount] = useState("");
   const protectionFee =
     parseFloat(offerAmount) * PROTECTION_FEE_PERCENTAGE || 0;
   const totalAmount = parseFloat(offerAmount) + protectionFee || 0;
+
+  useEffect(() => {
+    if (mode === "counter" && existingOffer) {
+      setOfferAmount(existingOffer.offerPrice.toString());
+    }
+  }, [mode, existingOffer]);
 
   const handleSendOffer = () => {
     if (!offerAmount || parseFloat(offerAmount) <= 0) {
@@ -49,20 +65,44 @@ const MakeOfferModal: React.FC<MakeOfferModalProps> = ({
       );
       return;
     }
+    // For counter-offers, validate against the previous offer
+    if (mode === "counter" && existingOffer) {
+      const currentOffer = parseFloat(offerAmount);
+      const previousOffer = existingOffer.offerPrice;
+
+      // If seller is countering, offer should be lower than buyer's
+      // If buyer is countering, offer should be higher than seller's last offer
+      const isValidCounter =
+        existingOffer.status === "OFFER_SENT"
+          ? currentOffer < previousOffer
+          : currentOffer > previousOffer;
+
+      if (!isValidCounter) {
+        Alert.alert(
+          "Invalid Counter Offer",
+          existingOffer.status === "OFFER_SENT"
+            ? "Counter offer must be lower than the buyer's offer"
+            : "Counter offer must be higher than the seller's last offer"
+        );
+        return;
+      }
+    }
 
     const offerMessage: MessageContent = {
       type: "offer",
       offer: {
         productId: product.id,
         productName: product.title,
-        productImage: "",
+        productImage: product.productImage,
         originalPrice: product.price,
         offerPrice: parseFloat(offerAmount),
-        status: "OFFER_SENT",
+        sellerId: "seller_1",
+        status: mode === "counter" ? "OFFER_UPDATED" : "OFFER_SENT",
       },
     };
 
     onSendOffer(offerMessage);
+    setOfferAmount("");
     onClose();
   };
 
@@ -83,7 +123,7 @@ const MakeOfferModal: React.FC<MakeOfferModalProps> = ({
       <View className="py-5 px-4 w-full flex-col items-center justify-start gap-y-5">
         <View className="flex-row items-start justify-start gap-x-3 w-full">
           <Image
-            source={product.productImage}
+            source={{ uri: product.productImage }}
             resizeMode="contain"
             className="w-24 h-24 rounded-xl"
           />

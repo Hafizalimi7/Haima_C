@@ -1,3 +1,4 @@
+const acceptIcon = require("@/assets/icons/accept.png");
 const appleIcon = require("@/assets/icons/apple.png");
 const backarrowIcon = require("@/assets/icons/backarrow.png");
 const buyIcon = require("@/assets/icons/buy.png");
@@ -25,6 +26,7 @@ const userIcon = require("@/assets/icons/user.png");
 const whiteLoadingIcon = require("@/assets/icons/whiteLoader.gif");
 
 export default {
+  acceptIcon,
   appleIcon,
   backarrowIcon,
   buyIcon,

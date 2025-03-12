@@ -3,8 +3,6 @@ import { View, Text, TouchableOpacity, Image } from "react-native";
 import signeduser from "@/constants/icons/signeduser";
 import { ProductType } from "@/types/product";
 import { useRouter } from "expo-router";
-import { useBottomSheet } from "@/contexts/BottomSheetProvider";
-import { useAuth } from "@/contexts/AuthContext";
 
 interface ReviewsProps {
   data: ProductType;

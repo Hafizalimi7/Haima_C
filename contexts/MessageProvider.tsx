@@ -8,6 +8,7 @@ import {
 } from "@/types/message";
 import { useAuth } from "./AuthContext";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Alert } from "react-native";
 
 const STORAGE_KEYS = {
   CONVERSATIONS: "conversations",
@@ -16,6 +17,7 @@ const STORAGE_KEYS = {
 
 interface MessageContextType {
   conversations: Conversation[];
+  setConversations: React.Dispatch<React.SetStateAction<Conversation[]>>;
   filteredConversations: Conversation[];
   selectedConversations: string[];
   isSelectionMode: boolean;
@@ -186,22 +188,122 @@ export const MessageProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   const deleteSelectedConversations = async () => {
+    if (!currentUser) return;
+
     try {
-      // Replace with your actual API call
+      // Get storage keys
+      const conversationsKey = `${STORAGE_KEYS.CONVERSATIONS}_${currentUser.id}`;
+      const messagesKey = `${STORAGE_KEYS.CHAT_MESSAGES}_${currentUser.id}`;
+
+      // Get current stored data
+      const [storedConversations, storedMessages] = await Promise.all([
+        AsyncStorage.getItem(conversationsKey).then((data) =>
+          JSON.parse(data || "[]")
+        ),
+        AsyncStorage.getItem(messagesKey).then((data) =>
+          JSON.parse(data || "{}")
+        ),
+      ]);
+
+      // Filter out selected conversations
+      const updatedConversations = storedConversations.filter(
+        (conv: Conversation) => !selectedConversations.includes(conv.id)
+      );
+
+      // Remove messages for deleted conversations
+      const updatedMessages = { ...storedMessages };
+      selectedConversations.forEach((convId) => {
+        delete updatedMessages[convId];
+      });
+
+      // Update AsyncStorage
+      await Promise.all([
+        AsyncStorage.setItem(
+          conversationsKey,
+          JSON.stringify(updatedConversations)
+        ),
+        AsyncStorage.setItem(messagesKey, JSON.stringify(updatedMessages)),
+      ]);
+
+      // Also delete from other participants' storage
       await Promise.all(
-        selectedConversations.map(async (id) => {
-          // Delete conversation API call would go here
+        selectedConversations.map(async (convId) => {
+          const conversation = conversations.find((c) => c.id === convId);
+          if (!conversation) return;
+
+          // Get other participant
+          const otherParticipant = conversation.participants.find(
+            (p) => p.id !== currentUser.id
+          );
+          if (!otherParticipant) return;
+
+          // Get other participant's storage keys
+          const otherConversationsKey = `${STORAGE_KEYS.CONVERSATIONS}_${otherParticipant.id}`;
+          const otherMessagesKey = `${STORAGE_KEYS.CHAT_MESSAGES}_${otherParticipant.id}`;
+
+          // Get their stored data
+          const [otherStoredConversations, otherStoredMessages] =
+            await Promise.all([
+              AsyncStorage.getItem(otherConversationsKey).then((data) =>
+                JSON.parse(data || "[]")
+              ),
+              AsyncStorage.getItem(otherMessagesKey).then((data) =>
+                JSON.parse(data || "{}")
+              ),
+            ]);
+
+          // Update their data
+          const updatedOtherConversations = otherStoredConversations.filter(
+            (conv: Conversation) => conv.id !== convId
+          );
+          const updatedOtherMessages = { ...otherStoredMessages };
+          delete updatedOtherMessages[convId];
+
+          // Save their updated data
+          await Promise.all([
+            AsyncStorage.setItem(
+              otherConversationsKey,
+              JSON.stringify(updatedOtherConversations)
+            ),
+            AsyncStorage.setItem(
+              otherMessagesKey,
+              JSON.stringify(updatedOtherMessages)
+            ),
+          ]);
         })
       );
 
+      // Update state
       setConversations((prev) =>
         prev.filter((conv) => !selectedConversations.includes(conv.id))
       );
+      setChatMessages((prev) => {
+        const updated = { ...prev };
+        selectedConversations.forEach((convId) => {
+          delete updated[convId];
+        });
+        return updated;
+      });
+
+      // Reset selection state
       setSelectedConversations([]);
       setIsSelectionMode(false);
+
+      // Optional: Show success message
+      Alert.alert("Success", "Selected conversations have been deleted", [
+        { text: "OK" },
+      ]);
     } catch (err) {
+      console.error("Error deleting conversations:", err);
       setError(
         err instanceof Error ? err.message : "Failed to delete conversations"
+      );
+
+      // Show error to user
+      Alert.alert(
+        "Error",
+        "Failed to delete conversations. Please try again.",
+        [{ text: "OK" }]
       );
     }
   };
@@ -250,11 +352,6 @@ export const MessageProvider: React.FC<{ children: React.ReactNode }> = ({
         timestamp,
       };
 
-      console.log("Adding new message:", {
-        conversationId,
-        message: newMessage,
-      });
-
       // Update messages in memory
       setChatMessages((prev) => {
         const updated = {
@@ -263,6 +360,25 @@ export const MessageProvider: React.FC<{ children: React.ReactNode }> = ({
         };
         return updated;
       });
+
+      // Create conversation message content based on user role and offer status
+      const getOfferMessageContent = (
+        content: MessageContent,
+        isSender: boolean
+      ) => {
+        if (content.type === "offer") {
+          if (content.offer?.status === "OFFER_UPDATED") {
+            return isSender ? "Updated the offer" : "Counter offer received";
+          } else if (content.offer?.status === "OFFER_SENT") {
+            return isSender ? "Sent an offer" : "Offer received";
+          } else if (content.offer?.status === "OFFER_ACCEPTED") {
+            return "Offer accepted";
+          } else if (content.offer?.status === "OFFER_REJECTED") {
+            return "Offer rejected";
+          }
+        }
+        return content.text || "";
+      };
 
       // Create conversation object
       const newConversation: Conversation = {
@@ -275,8 +391,7 @@ export const MessageProvider: React.FC<{ children: React.ReactNode }> = ({
           id: newMessage.id,
           senderId,
           receiverId,
-          content:
-            content.type === "offer" ? "Sent an offer" : content.text || "",
+          content: getOfferMessageContent(content, currentUser.id === senderId),
           timestamp,
           isRead: false,
         },
@@ -378,6 +493,7 @@ export const MessageProvider: React.FC<{ children: React.ReactNode }> = ({
     <MessageContext.Provider
       value={{
         conversations,
+        setConversations,
         filteredConversations,
         selectedConversations,
         isSelectionMode,

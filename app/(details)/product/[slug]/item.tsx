@@ -183,7 +183,14 @@ export default function ProductItemScreen() {
       <MakeOfferModal
         show={showOffer}
         onClose={setShowOfferFalse}
-        product={data}
+        product={{
+          id: data.id,
+          title: data.title,
+          price: data.price,
+          offerPrice: 0,
+          productImage: "",
+          sellerId: "seller_1",
+        }}
         onSendOffer={handleSendOffer}
       />
     </React.Fragment>

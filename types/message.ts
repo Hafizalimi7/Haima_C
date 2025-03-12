@@ -36,6 +36,7 @@ export interface ProductOffer {
   productImage: string;
   originalPrice: number;
   offerPrice: number;
+  sellerId: string;
   status: "OFFER_SENT" | "OFFER_UPDATED" | "OFFER_ACCEPTED" | "OFFER_REJECTED";
 }
 

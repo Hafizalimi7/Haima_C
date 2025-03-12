@@ -1,11 +1,9 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { View, Text, Image } from "react-native";
 import { ProductOffer } from "@/types/message";
 import { format } from "date-fns";
 import { formatCurrency } from "@/helpers/currency";
-import { formatStatus, isValidUrl } from "@/helpers/string";
 import { CustomButton } from "@/components/ui";
-import { products } from "@/data/products";
 
 interface OfferBubbleProps {
   offer: ProductOffer;
@@ -24,9 +22,40 @@ export const OfferBubble: React.FC<OfferBubbleProps> = ({
   onNegotiate,
   onAccept,
 }) => {
+  // Show actions for:
+  // 1. Seller when they receive an initial offer (OFFER_SENT)
+  // 2. Buyer when they receive a counter-offer (OFFER_UPDATED)
   const showActions =
     (userRole === "SELLER" && offer.status === "OFFER_SENT") ||
     (userRole === "BUYER" && offer.status === "OFFER_UPDATED");
+
+  // Show compact view only when:
+  // 1. The sender is updating an offer (OFFER_UPDATED)
+  // 2. The receiver has already seen the full offer
+  const showCompactView = offer.status === "OFFER_UPDATED" && isSender;
+
+  const getStatusText = (status: ProductOffer["status"]) => {
+    switch (status) {
+      case "OFFER_SENT":
+        return "New offer";
+      case "OFFER_UPDATED":
+        return "Negotiating offer";
+      case "OFFER_ACCEPTED":
+        return "Offer accepted";
+      case "OFFER_REJECTED":
+        return "Offer rejected";
+      default:
+        return status;
+    }
+  };
+
+  const getOfferLabel = () => {
+    if (userRole === "SELLER") {
+      return "Seller’s offer incl, buy protection fee";
+    } else {
+      return "Buyer's offer incl. buy protection fee";
+    }
+  };
 
   return (
     <View className="mb-3">
@@ -34,13 +63,15 @@ export const OfferBubble: React.FC<OfferBubbleProps> = ({
         className={`flex-row ${isSender ? "justify-end" : "justify-start"}`}
       >
         <View className="max-w-[80%] rounded-2xl">
-          {offer.status === "OFFER_UPDATED" ? (
-            <View className="bg-secondary w-fit px-4 py-2 rounded-lg text-center">
+          {showCompactView ? (
+            // Compact view for sender when updating offer
+            <View className="bg-secondary w-fit px-4 py-2 rounded-lg">
               <Text className="text-base font-normal text-primary">
-                Offer updated
+                Offer updated to {formatCurrency(offer.offerPrice)}
               </Text>
             </View>
           ) : (
+            // Full offer view
             <View className="flex-col items-start justify-start gap-y-4 w-full border border-primary-100 rounded-2xl pb-4">
               <Image
                 source={{ uri: offer.productImage }}
@@ -50,7 +81,7 @@ export const OfferBubble: React.FC<OfferBubbleProps> = ({
               <View className="px-3 flex-col items-start justify-start gap-y-2 w-full">
                 <View className="px-4 py-2 bg-[#D3AC2A33] rounded-full mb-2">
                   <Text className="font-medium text-base text-secondary-600">
-                    {formatStatus(offer.status)}
+                    {getStatusText(offer.status)}
                   </Text>
                 </View>
 
@@ -70,7 +101,7 @@ export const OfferBubble: React.FC<OfferBubbleProps> = ({
                     className="text-base font-bold text-primary w-[140px]"
                     numberOfLines={2}
                   >
-                    Buyer's offer incl. buy protection fee
+                    {getOfferLabel()}
                   </Text>
                   <Text className="text-base font-extrabold text-primary">
                     {formatCurrency(offer.offerPrice)}

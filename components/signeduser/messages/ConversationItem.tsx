@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, Pressable } from "react-native";
-import { Conversation } from "@/types/message";
+import { Conversation, Message } from "@/types/message";
 import { useRouter } from "expo-router";
 import { useMessages } from "@/contexts/MessageProvider";
 import { getInitials } from "@/helpers/string";
@@ -23,7 +23,7 @@ export const ConversationItem: React.FC<ConversationItemProps> = ({
     startSelectionMode,
   } = useMessages();
   const { currentUser } = useAuth();
-  
+
   if (!currentUser) return null;
 
   const otherParticipant = conversation.participants.find(
@@ -54,6 +54,23 @@ export const ConversationItem: React.FC<ConversationItemProps> = ({
   };
 
   const isSelected = selectedConversations.includes(conversation.id);
+
+  const getDisplayMessage = (message: Message) => {
+    const isSender = message.senderId === currentUser?.id;
+
+    if (message.content.includes("offer")) {
+      if (message.content.includes("Updated")) {
+        return isSender ? "Updated the offer" : "Counter offer received";
+      } else if (message.content.includes("Sent")) {
+        return isSender ? "Sent an offer" : "Offer received";
+      } else if (message.content.includes("accepted")) {
+        return "Offer accepted";
+      } else if (message.content.includes("rejected")) {
+        return "Offer rejected";
+      }
+    }
+    return message.content;
+  };
 
   return (
     <Pressable
@@ -92,7 +109,7 @@ export const ConversationItem: React.FC<ConversationItemProps> = ({
             className="text-[#999999] text-sm font-medium"
             numberOfLines={1}
           >
-            {conversation.lastMessage.content}
+            {getDisplayMessage(conversation.lastMessage)}
           </Text>
           {conversation.unreadCount > 0 && (
             <View className="bg-danger rounded-full w-5 h-5 flex-row justify-center items-center">

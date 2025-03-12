@@ -22,17 +22,11 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({
   onNegotiate,
   onAccept,
 }) => {
-  console.log("Rendering chat bubble:", {
-    type: content.type,
-    isSender,
-    timestamp: timestamp.toISOString(),
-  });
   const { currentUser } = useAuth();
 
   if (!currentUser) return null;
 
   if (content.type === "offer") {
-    console.log("Rendering offer bubble:", content.offer);
     return (
       <OfferBubble
         offer={content.offer!}
