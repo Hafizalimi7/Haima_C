@@ -1,4 +1,10 @@
-import { BrandItemType, CategoryItemType } from "@/types/product";
+import {
+  BrandItemType,
+  CategoryItemType,
+  ColourType,
+  ConditionItemType,
+  SizeItemType,
+} from "@/types/product";
 
 export const productCategories: CategoryItemType[] = [
   {
@@ -40,6 +46,33 @@ export const productCategories: CategoryItemType[] = [
     id: "08",
     title: "Coats and Jackets",
     catgoryImage: require("@/assets/images/signeduser/coat.png"),
+  },
+];
+
+export const subCats = [
+  {
+    keyword: "T-shirts",
+    text: "T-shirts",
+  },
+  {
+    keyword: "Hoodies",
+    text: "Hoodies",
+  },
+  {
+    keyword: "Jumpers",
+    text: "Jumpers",
+  },
+  {
+    keyword: "Cardigans",
+    text: "Cardigans",
+  },
+  {
+    keyword: "Blouses",
+    text: "Blouses",
+  },
+  {
+    keyword: "Shirts",
+    text: "Shirts",
   },
 ];
 
@@ -183,5 +216,95 @@ export const productBrands: BrandItemType[] = [
     id: "28",
     title: "Everlane",
     brandImage: require("@/assets/images/signeduser/brands/dior.png"),
+  },
+];
+
+export const colours: ColourType[] = [
+  { name: "Black", hex: "#000000" },
+  { name: "Grey", hex: "#CECECE" },
+  { name: "White", hex: "#FFFFFF" },
+  { name: "Red", hex: "#DB2121" },
+  { name: "Blue", hex: "#2C8ED9" },
+  { name: "Green", hex: "#1CB374" },
+  { name: "Yellow", hex: "#FCD668" },
+  { name: "Purple", hex: "#9747FF" },
+  { name: "Orange", hex: "#FB8C04" },
+  { name: "Pink", hex: "#FC1EAA" },
+];
+
+export const conditions: ConditionItemType[] = [
+  {
+    id: "01",
+    title: "Brand New",
+    description: "Unused with original packaging or tag",
+  },
+  {
+    id: "02",
+    title: "Like New",
+    description: "Mint condition pre-owned or new without tags",
+  },
+  {
+    id: "03",
+    title: "Used - Excellent",
+    description: "Lightly used but no noticeable flaws",
+  },
+  {
+    id: "04",
+    title: "Used - Good",
+    description:
+      "Minor flaws or signs of wear and tear to be noted in the description or photos",
+  },
+  {
+    id: "05",
+    title: "Used - Fair",
+    description:
+      "Obvious flaws or signs of wear ad tear, to be noted in the description or photos",
+  },
+];
+
+export const sizes: SizeItemType[] = [
+  {
+    text: "One size",
+    value: "One size",
+  },
+  {
+    text: "4",
+    value: "4",
+  },
+  {
+    text: "6",
+    value: "6",
+  },
+  {
+    text: "8",
+    value: "8",
+  },
+  {
+    text: "10",
+    value: "10",
+  },
+  {
+    text: "12",
+    value: "12",
+  },
+  {
+    text: "16",
+    value: "16",
+  },
+  {
+    text: "XXS",
+    value: "XXS",
+  },
+  {
+    text: "XS",
+    value: "XS",
+  },
+  {
+    text: "S",
+    value: "S",
+  },
+  {
+    text: "M",
+    value: "M",
   },
 ];

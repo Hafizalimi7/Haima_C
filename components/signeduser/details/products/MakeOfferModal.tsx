@@ -108,7 +108,7 @@ const MakeOfferModal: React.FC<MakeOfferModalProps> = ({
 
   return (
     <ModalPopUp visible={show} className="!px-0 !py-0">
-      <View className="w-full flex-row items-center justify-between px-3 py-3 border-b border-grey">
+      <View className="w-full flex-row items-center justify-between px-4 py-4 border-b border-grey">
         <Text className="text-base font-medium text-primary">
           Make your offer
         </Text>

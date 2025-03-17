@@ -51,3 +51,19 @@ export type SortOption =
   | "Best rating"
   | "Lowest to highest price"
   | "Highest to lowest price";
+
+export interface ColourType {
+  name: string;
+  hex: string;
+}
+
+export interface ConditionItemType {
+  id: string;
+  title: string;
+  description: string;
+}
+
+export interface SizeItemType {
+  text: string;
+  value: string;
+}

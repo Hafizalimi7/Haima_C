@@ -34,7 +34,7 @@ export default function SearchScreen() {
         <TouchableOpacity onPress={() => back()}>
           <Image
             source={icons.backarrowIcon}
-            alt="back icon logo"
+            alt="back icon"
             resizeMode="contain"
             className="w-8 h-8"
           />

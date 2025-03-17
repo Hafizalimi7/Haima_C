@@ -2,6 +2,7 @@ const cardImage = require("@/assets/images/signeduser/billings/payment/card.png"
 const productImage = require("@/assets/images/signeduser/products/bag.png");
 const mastercardImage = require("@/assets/images/signeduser/billings/payment/mastercard.png");
 const walletImage = require("@/assets/images/signeduser/billings/payment/wallet.png");
+const phototipImage = require("@/assets/images/signeduser/sell/phototip.png");
 const largeStarImage = require("@/assets/images/signeduser/largeStar.png");
 const splashImage = require("@/assets/splash.png");
 
@@ -11,5 +12,6 @@ export default {
   walletImage,
   splashImage,
   largeStarImage,
+  phototipImage,
   productImage,
 };

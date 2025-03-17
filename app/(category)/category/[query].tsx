@@ -5,37 +5,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { DetailHeader } from "@/components/signeduser/details";
 import { FlatList } from "react-native";
 import signeduser from "@/constants/icons/signeduser";
+import { subCats } from "@/data/categories";
 
-const subCats = [
-  {
-    keyword: "Tops",
-    text: "All",
-  },
-  {
-    keyword: "T-shirts",
-    text: "T-shirts",
-  },
-  {
-    keyword: "Hoodies",
-    text: "Hoodies",
-  },
-  {
-    keyword: "Jumpers",
-    text: "Jumpers",
-  },
-  {
-    keyword: "Cardigans",
-    text: "Cardigans",
-  },
-  {
-    keyword: "Blouses",
-    text: "Blouses",
-  },
-  {
-    keyword: "Shirts",
-    text: "Shirts",
-  },
-];
 
 export default function SubCategoryScreen() {
   const params = useLocalSearchParams<{ query?: string }>();

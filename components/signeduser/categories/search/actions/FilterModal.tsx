@@ -58,7 +58,7 @@ export const FilterModal: React.FC<FilterModalProps> = ({
               ) : (
                 <Image
                   source={icons.backarrowIcon}
-                  alt="back icon logo"
+                  alt="back icon"
                   resizeMode="contain"
                   className="w-8 h-8"
                 />
@@ -173,11 +173,7 @@ export const FilterModal: React.FC<FilterModalProps> = ({
                       ? `${filters.rating.toFixed(1)} and above`
                       : ""}
                   </Text>
-                  <Image
-                    source={signeduser.chevronarrowIcon}
-                    resizeMode="contain"
-                    className="w-6 h-6"
-                  />
+                  RenderSubCategory
                 </View>
               </TouchableOpacity>
             </View>

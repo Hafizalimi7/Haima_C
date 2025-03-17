@@ -20,6 +20,7 @@ const shopIcon = require("@/assets/icons/signeduser/shop.png");
 const soldIcon = require("@/assets/icons/signeduser/sold.png");
 const sortIcon = require("@/assets/icons/signeduser/sort.png");
 const shieldIcon = require("@/assets/icons/signeduser/shield.png");
+const warningIcon = require("@/assets/icons/signeduser/warning.png");
 
 export default {
   acceptOfferIcon,
@@ -44,4 +45,5 @@ export default {
   shopIcon,
   soldIcon,
   shieldIcon,
+  warningIcon,
 };
