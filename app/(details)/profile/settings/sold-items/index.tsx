@@ -1,10 +1,11 @@
-import { View, Text } from "react-native";
 import React from "react";
+import { View, Text } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function SoldItemsScreen() {
   return (
-    <View>
+    <SafeAreaView className="flex-1 bg-white">
       <Text>SoldItemsScreen</Text>
-    </View>
+    </SafeAreaView>
   );
 }

@@ -49,6 +49,10 @@ export default function HaimaDetailLayout() {
                 options={{ headerShown: false }}
               />
               <Stack.Screen
+                name="profile/settings/sold-items/index"
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
                 name="profile/settings/account-settings/update-password/index"
                 options={{ headerShown: false }}
               />
@@ -58,6 +62,14 @@ export default function HaimaDetailLayout() {
               />
               <Stack.Screen
                 name="profile/settings/edit-profile/index"
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="profile/settings/edit-profile/update"
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="profile/settings/edit-profile/verification"
                 options={{ headerShown: false }}
               />
               <Stack.Screen

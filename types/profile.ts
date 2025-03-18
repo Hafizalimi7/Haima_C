@@ -5,3 +5,11 @@ export interface CreateProfileFormValues {
   password: string;
   agreeToTerms: boolean;
 }
+
+export interface EditProfileFormValues {
+  first_name: string;
+  last_name: string;
+  username: string;
+  email: string;
+  date_of_birth: string;
+}
