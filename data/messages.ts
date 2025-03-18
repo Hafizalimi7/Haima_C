@@ -38,6 +38,7 @@ export const initialChatMessages: { [key: string]: ChatMessage[] } = {
           productImage: "https://placehold.co/600x400/1a1a1a/FFFFFF.png",
           originalPrice: 14.0,
           offerPrice: 10.0,
+          sellerId: "other_user",
           status: "OFFER_SENT",
         },
       },

@@ -95,6 +95,7 @@ module.exports = {
         },
         lightGrey: "#E7E7E7",
         lightGrey2: "#F3F3F3",
+        lightGrey3: "#F0E4FF",
         textCursor: "#122688",
       },
     },

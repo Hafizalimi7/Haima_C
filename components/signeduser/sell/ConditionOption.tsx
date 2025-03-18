@@ -59,62 +59,64 @@ const ConditionOption: React.FC<ConditionOptionProps> = ({
           />
         </View>
       </TouchableOpacity>
-      <Modal
-        visible={isConditionModalVisible}
-        animationType="slide"
-        transparent={true}
-        onRequestClose={setIsConditionModalVisibleFalse}
-        className="!px-0 !py-0"
-      >
-        <View className="flex-1 bg-black/50">
-          <View className="absolute bottom-0 w-full bg-white rounded-t-3xl">
-            <View className="w-full flex-row items-center justify-between px-4 py-4 border-b border-grey">
-              <Text className="text-base font-medium text-primary">
-                Conditions
-              </Text>
-              <TouchableOpacity onPress={setIsConditionModalVisibleFalse}>
-                <Image
-                  source={icons.closeIcon}
-                  resizeMode="contain"
-                  className="w-6 h-6"
-                />
-              </TouchableOpacity>
-            </View>
-            <ScrollView
-              style={{ maxHeight: 478 }}
-              contentContainerStyle={{
-                paddingBottom: 15,
-                paddingHorizontal: 15,
-              }}
-            >
-              {conditions.map((condition) => (
-                <TouchableOpacity
-                  key={condition.id}
-                  onPress={() => handleConditionSelect(condition.title)}
-                >
-                  <View className="flex-col items-start justify-start w-full py-4">
-                    <View className="w-full flex-row items-center justify-between">
-                      <Text className="text-base font-semibold text-grey-800">
-                        {condition.title}
-                      </Text>
-                      {values.condition === condition.title && (
-                        <Image
-                          source={icons.tickIcon}
-                          resizeMode="contain"
-                          className="w-6 h-6"
-                        />
-                      )}
-                    </View>
-                    <Text className="text-sm font-normal text-grey-800">
-                      {condition.description}
-                    </Text>
-                  </View>
+      {isConditionModalVisible && (
+        <Modal
+          visible={isConditionModalVisible}
+          animationType="slide"
+          transparent={true}
+          onRequestClose={setIsConditionModalVisibleFalse}
+          className="!px-0 !py-0"
+        >
+          <View className="flex-1 bg-black/50">
+            <View className="absolute bottom-0 w-full bg-white rounded-t-3xl">
+              <View className="w-full flex-row items-center justify-between px-4 py-4 border-b border-grey">
+                <Text className="text-base font-medium text-primary">
+                  Conditions
+                </Text>
+                <TouchableOpacity onPress={setIsConditionModalVisibleFalse}>
+                  <Image
+                    source={icons.closeIcon}
+                    resizeMode="contain"
+                    className="w-6 h-6"
+                  />
                 </TouchableOpacity>
-              ))}
-            </ScrollView>
+              </View>
+              <ScrollView
+                style={{ maxHeight: 478 }}
+                contentContainerStyle={{
+                  paddingBottom: 15,
+                  paddingHorizontal: 15,
+                }}
+              >
+                {conditions.map((condition) => (
+                  <TouchableOpacity
+                    key={condition.id}
+                    onPress={() => handleConditionSelect(condition.title)}
+                  >
+                    <View className="flex-col items-start justify-start w-full py-4">
+                      <View className="w-full flex-row items-center justify-between">
+                        <Text className="text-base font-semibold text-grey-800">
+                          {condition.title}
+                        </Text>
+                        {values.condition === condition.title && (
+                          <Image
+                            source={icons.tickIcon}
+                            resizeMode="contain"
+                            className="w-6 h-6"
+                          />
+                        )}
+                      </View>
+                      <Text className="text-sm font-normal text-grey-800">
+                        {condition.description}
+                      </Text>
+                    </View>
+                  </TouchableOpacity>
+                ))}
+              </ScrollView>
+            </View>
           </View>
-        </View>
-      </Modal>
+        </Modal>
+      )}
     </React.Fragment>
   );
 };

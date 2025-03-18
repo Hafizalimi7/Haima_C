@@ -7,9 +7,13 @@ import { View, Text, TouchableOpacity, Image } from "react-native";
 
 interface PaymentdetailProps {
   data: ProductType;
+  type?: "user" | "payment";
 }
 
-const Paymentdetail: React.FC<PaymentdetailProps> = ({ data }) => {
+const Paymentdetail: React.FC<PaymentdetailProps> = ({
+  data,
+  type = "payment",
+}) => {
   const { push } = useRouter();
   const { cards, selectedCardId } = usePayment();
 
@@ -24,16 +28,18 @@ const Paymentdetail: React.FC<PaymentdetailProps> = ({ data }) => {
         <Text className="text-base font-medium text-primary">
           Payment Details
         </Text>
-        <TouchableOpacity
-          onPress={() => {
-            push({
-              pathname: "/payments/payment-gateway",
-              params: { productId: data.id },
-            });
-          }}
-        >
-          <Text className="text-secondary text-base font-bold">Change</Text>
-        </TouchableOpacity>
+        {type === "payment" && (
+          <TouchableOpacity
+            onPress={() => {
+              push({
+                pathname: "/payments/payment-gateway",
+                params: { productId: data.id },
+              });
+            }}
+          >
+            <Text className="text-secondary text-base font-bold">Change</Text>
+          </TouchableOpacity>
+        )}
       </View>
       {selectedPayment && (
         <View className="w-full flex-row items-center justify-start bg-[#F6F6F6] rounded-xl px-4 py-3">

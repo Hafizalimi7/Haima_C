@@ -9,7 +9,7 @@ export default function CreateProfileScreen() {
       <ScrollView
         contentContainerStyle={{
           paddingHorizontal: 10,
-          paddingVertical: 4,
+          paddingVertical: 10,
           flex: 1,
         }}
       >

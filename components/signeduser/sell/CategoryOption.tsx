@@ -64,87 +64,89 @@ const CategoryOption: React.FC<CategoryOptionProps> = ({
           />
         </View>
       </TouchableOpacity>
-      <Modal
-        visible={isCategoryModalVisible}
-        animationType="slide"
-        transparent={true}
-        onRequestClose={setIsCategoryModalVisibleFalse}
-        className="!px-0 !py-0"
-      >
-        <View className="flex-1 bg-black/50">
-          <View className="absolute bottom-0 w-full bg-white rounded-t-3xl">
-            <View className="w-full flex-row items-center justify-between px-4 py-4 border-b border-grey">
-              {selectedCategory ? (
-                <TouchableOpacity onPress={() => setSelectedCategory(null)}>
-                  <View className="flex-row items-center justify-start gap-x-2">
-                    <Image
-                      source={icons.backarrowIcon}
-                      alt="back icon"
-                      resizeMode="contain"
-                      className="w-8 h-8"
-                    />
-                    <Text className="text-base font-medium text-primary">
-                      {selectedCategory}
-                    </Text>
-                  </View>
-                </TouchableOpacity>
-              ) : (
-                <Text className="text-base font-medium text-primary">
-                  Category
-                </Text>
-              )}
-              <TouchableOpacity onPress={setIsCategoryModalVisibleFalse}>
-                <Image
-                  source={icons.closeIcon}
-                  resizeMode="contain"
-                  className="w-6 h-6"
-                />
-              </TouchableOpacity>
-            </View>
-            <ScrollView
-              style={{ maxHeight: 478 }}
-              contentContainerStyle={{
-                paddingBottom: 15,
-                paddingHorizontal: 15,
-              }}
-            >
-              {selectedCategory ? (
-                <RenderSubCategory
-                  values={values}
-                  handleSubCategorySelect={handleSubCategorySelect}
-                  selectedCategory={selectedCategory}
-                />
-              ) : (
-                productCategories.map((category) => (
-                  <TouchableOpacity
-                    key={category.id}
-                    onPress={() => handleCategorySelect(category.title)}
-                  >
-                    <View className="flex-row items-center justify-between py-4">
-                      <Text className="text-sm font-normal text-grey-800">
-                        {category.title}
+      {isCategoryModalVisible && (
+        <Modal
+          visible={isCategoryModalVisible}
+          animationType="slide"
+          transparent={true}
+          onRequestClose={setIsCategoryModalVisibleFalse}
+          className="!px-0 !py-0"
+        >
+          <View className="flex-1 bg-black/50">
+            <View className="absolute bottom-0 w-full bg-white rounded-t-3xl">
+              <View className="w-full flex-row items-center justify-between px-4 py-4 border-b border-grey">
+                {selectedCategory ? (
+                  <TouchableOpacity onPress={() => setSelectedCategory(null)}>
+                    <View className="flex-row items-center justify-start gap-x-2">
+                      <Image
+                        source={icons.backarrowIcon}
+                        alt="back icon"
+                        resizeMode="contain"
+                        className="w-8 h-8"
+                      />
+                      <Text className="text-base font-medium text-primary">
+                        {selectedCategory}
                       </Text>
-                      {values.category?.startsWith(category.title) ? (
-                        <Image
-                          source={icons.tickIcon}
-                          resizeMode="contain"
-                          className="w-6 h-6"
-                        />
-                      ) : (
-                        <Image
-                          source={signeduser.chevronarrowIcon}
-                          resizeMode="contain"
-                          className="w-6 h-6"
-                        />
-                      )}
                     </View>
                   </TouchableOpacity>
-                ))
-              )}
-            </ScrollView>
+                ) : (
+                  <Text className="text-base font-medium text-primary">
+                    Category
+                  </Text>
+                )}
+                <TouchableOpacity onPress={setIsCategoryModalVisibleFalse}>
+                  <Image
+                    source={icons.closeIcon}
+                    resizeMode="contain"
+                    className="w-6 h-6"
+                  />
+                </TouchableOpacity>
+              </View>
+              <ScrollView
+                style={{ maxHeight: 478 }}
+                contentContainerStyle={{
+                  paddingBottom: 15,
+                  paddingHorizontal: 15,
+                }}
+              >
+                {selectedCategory ? (
+                  <RenderSubCategory
+                    values={values}
+                    handleSubCategorySelect={handleSubCategorySelect}
+                    selectedCategory={selectedCategory}
+                  />
+                ) : (
+                  productCategories.map((category) => (
+                    <TouchableOpacity
+                      key={category.id}
+                      onPress={() => handleCategorySelect(category.title)}
+                    >
+                      <View className="flex-row items-center justify-between py-4">
+                        <Text className="text-sm font-normal text-grey-800">
+                          {category.title}
+                        </Text>
+                        {values.category?.startsWith(category.title) ? (
+                          <Image
+                            source={icons.tickIcon}
+                            resizeMode="contain"
+                            className="w-6 h-6"
+                          />
+                        ) : (
+                          <Image
+                            source={signeduser.chevronarrowIcon}
+                            resizeMode="contain"
+                            className="w-6 h-6"
+                          />
+                        )}
+                      </View>
+                    </TouchableOpacity>
+                  ))
+                )}
+              </ScrollView>
+            </View>
           </View>
-        </View>
-      </Modal>
+        </Modal>
+      )}
     </React.Fragment>
   );
 };

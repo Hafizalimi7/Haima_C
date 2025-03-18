@@ -108,7 +108,10 @@ describe("ProductItem", () => {
     it("navigates to product details when pressed", () => {
       const { getByRole } = render(<ProductItem product={mockProduct} />);
       fireEvent.press(getByRole("button"));
-      expect(mockPush).toHaveBeenCalledWith("/product/1/item");
+      expect(mockPush).toHaveBeenCalledWith({
+        pathname: "/product/[slug]/item",
+        params: { slug: "1", type: "item" }
+      });
     });
 
     it("has correct accessibility label", () => {

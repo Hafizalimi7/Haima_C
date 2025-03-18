@@ -1,5 +1,3 @@
-import { ImageType } from "./product";
-
 export interface User {
   id: string;
   username: string;

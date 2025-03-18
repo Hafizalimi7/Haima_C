@@ -10,10 +10,15 @@ import {
 import { ScrollView, Platform, Text, View, FlatList } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Link } from "expo-router";
-import { productCategories } from "@/data/categories";
+import { productBrands, productCategories } from "@/data/categories";
 import { SearchComponent } from "@/components/signeduser/categories/search";
+import { products } from "@/data/products";
+import { EmptyUI } from "@/components/ui/emptyUi";
+import signeduser from "@/constants/icons/signeduser";
 
 export default function HomeTab() {
+  const isEmpty = products.length === 0 && productBrands.length === 0;
+
   return (
     <SafeAreaView className="bg-white flex-1 pt-3">
       <ScrollView
@@ -44,10 +49,21 @@ export default function HomeTab() {
             renderItem={({ item }) => <CategoryItem category={item} />}
           />
         </View>
-        <RecommendedProducts />
-        <BrandFollowed />
-        <TopBrands />
-        <PopularProducts />
+
+        {isEmpty ? (
+          <EmptyUI
+            iconSource={signeduser.giftIcon}
+            content="There is currently no item on the platform"
+            showButton={true}
+          />
+        ) : (
+          <React.Fragment>
+            <RecommendedProducts />
+            <BrandFollowed />
+            <TopBrands />
+            <PopularProducts />
+          </React.Fragment>
+        )}
       </ScrollView>
     </SafeAreaView>
   );

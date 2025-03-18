@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, ScrollView, TouchableOpacity } from "react-native";
+import { View, ScrollView, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { products } from "@/data/products";
@@ -13,19 +13,24 @@ import {
   Reviews,
 } from "@/components/signeduser/details/products";
 import { DetailHeader } from "@/components/signeduser/details";
-import { CustomButton } from "@/components/ui";
 import { AuthOptionsSheet } from "@/components/onboarding/bottomsheet";
 import { Image } from "react-native";
-import { icons } from "@/constants";
 import { useBottomSheet } from "@/contexts/BottomSheetProvider";
 import { useAuth } from "@/contexts/AuthContext";
 import useBooleanControl from "@/hooks/useBooleanControl";
 import { MessageContent } from "@/types/message";
 import { useMessages } from "@/contexts/MessageProvider";
 import signeduser from "@/constants/icons/signeduser";
+import {
+  EditAction,
+  MakeAnOfferAction,
+} from "@/components/signeduser/details/products/actions";
 
 export default function ProductItemScreen() {
-  const { slug } = useLocalSearchParams<{ slug?: string }>();
+  const { slug, type } = useLocalSearchParams<{
+    slug?: string;
+    type?: string;
+  }>();
   const { push } = useRouter();
   const { openAuthSheet } = useBottomSheet();
   const { isAuthenticated, currentUser } = useAuth();
@@ -129,8 +134,12 @@ export default function ProductItemScreen() {
           <ProductContentDetail data={data} />
           <ProtectFee />
           <Reviews data={data} />
-          <ContactSeller data={data} />
-          <RelatedItems />
+          {type === "item" && (
+            <>
+              <ContactSeller data={data} />
+              <RelatedItems />
+            </>
+          )}
         </ScrollView>
         <View
           className="w-full px-4 py-6 bg-white"
@@ -145,38 +154,14 @@ export default function ProductItemScreen() {
             elevation: 4,
           }}
         >
-          <View className="w-full flex-row items-center justify-start gap-x-3">
-            <CustomButton
-              handlePress={handleMakeOffer}
-              className="w-[160px] bg-transparent border border-primary"
-            >
-              <View className="w-full flex-row items-center justify-center gap-x-3">
-                <Image
-                  source={icons.offerIcon}
-                  resizeMode="contain"
-                  className="w-6 h-6"
-                />
-                <Text className="text-base text-primary font-semibold">
-                  Make Offer
-                </Text>
-              </View>
-            </CustomButton>
-            <CustomButton
-              handlePress={handleBuyNow}
-              className="w-[160px] bg-primary border border-primary"
-            >
-              <View className="w-full flex-row items-center justify-center gap-x-3">
-                <Image
-                  source={icons.buyIcon}
-                  resizeMode="contain"
-                  className="w-6 h-6"
-                />
-                <Text className="text-sm text-white font-semibold">
-                  Buy Now
-                </Text>
-              </View>
-            </CustomButton>
-          </View>
+          {type === "user" ? (
+            <EditAction data={data} />
+          ) : (
+            <MakeAnOfferAction
+              handleMakeOffer={handleMakeOffer}
+              handleBuyNow={handleBuyNow}
+            />
+          )}
         </View>
       </SafeAreaView>
       <AuthOptionsSheet />

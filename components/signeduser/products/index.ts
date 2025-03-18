@@ -1,4 +1,5 @@
 import BrandItem from "./BrandItem";
+import OrderItem from "./OrderItem";
 import ProductItem from "./ProductItem";
 
-export { BrandItem, ProductItem };
+export { BrandItem, OrderItem, ProductItem };

@@ -16,7 +16,7 @@ export default function ProfileInterestScreen() {
       <ScrollView
         contentContainerStyle={{
           paddingHorizontal: 10,
-          paddingVertical: 6,
+          paddingVertical: 10,
           flex: 1,
         }}
       >

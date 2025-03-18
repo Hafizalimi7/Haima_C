@@ -84,84 +84,88 @@ const ColourOption: React.FC<ColourOptionProps> = ({
           />
         </View>
       </TouchableOpacity>
-      <Modal
-        visible={isColourModalVisible}
-        animationType="slide"
-        transparent={true}
-        onRequestClose={setIsColourModalVisibleFalse}
-        className="!px-0 !py-0"
-      >
-        <View className="flex-1 bg-black/50">
-          <View className="absolute bottom-0 w-full bg-white rounded-t-3xl">
-            <View className="w-full flex-row items-center justify-between px-4 py-4 border-b border-grey">
-              <Text className="text-base font-medium text-primary">
-                Colours
-              </Text>
-              <TouchableOpacity onPress={setIsColourModalVisibleFalse}>
-                <Image
-                  source={icons.closeIcon}
-                  resizeMode="contain"
-                  className="w-6 h-6"
-                />
-              </TouchableOpacity>
-            </View>
-            <ScrollView
-              style={{ maxHeight: 600 }}
-              contentContainerStyle={{
-                paddingBottom: 15,
-                paddingHorizontal: 15,
-              }}
-            >
-              {colours.map((colour) => (
-                <TouchableOpacity
-                  key={colour.hex}
-                  onPress={() => handleColourSelect(colour)}
-                >
-                  <View className="flex-row items-center justify-between py-4">
-                    <View className="flex-row items-center gap-x-2">
-                      <View
-                        className="w-6 h-6 rounded-full"
-                        style={{ backgroundColor: colour.hex }}
-                      />
-                      <Text className="text-sm font-normal">{colour.name}</Text>
-                    </View>
-                    {values.colour.some((col) => col.hex === colour.hex) && (
-                      <Image
-                        source={icons.tickIcon}
-                        resizeMode="contain"
-                        className="w-6 h-6"
-                      />
-                    )}
-                  </View>
-                </TouchableOpacity>
-              ))}
-            </ScrollView>
-            <View
-              className="w-full px-4 py-6 bg-white"
-              style={{
-                shadowColor: "#000",
-                shadowOffset: {
-                  width: 0,
-                  height: -4,
-                },
-                shadowOpacity: 0.04,
-                shadowRadius: 3.7,
-                elevation: 4,
-              }}
-            >
-              <CustomButton
-                handlePress={handleDone}
-                disabled={values.colour.length === 0}
-                className="w-full bg-primary border border-primary group disabled:bg-grey disabled:border-grey"
-              >
-                <Text className="text-sm text-white font-semibold group-disabled:text-grey-800">
-                  Done
+      {isColourModalVisible && (
+        <Modal
+          visible={isColourModalVisible}
+          animationType="slide"
+          transparent={true}
+          onRequestClose={setIsColourModalVisibleFalse}
+          className="!px-0 !py-0"
+        >
+          <View className="flex-1 bg-black/50">
+            <View className="absolute bottom-0 w-full bg-white rounded-t-3xl">
+              <View className="w-full flex-row items-center justify-between px-4 py-4 border-b border-grey">
+                <Text className="text-base font-medium text-primary">
+                  Colours
                 </Text>
-              </CustomButton>
+                <TouchableOpacity onPress={setIsColourModalVisibleFalse}>
+                  <Image
+                    source={icons.closeIcon}
+                    resizeMode="contain"
+                    className="w-6 h-6"
+                  />
+                </TouchableOpacity>
+              </View>
+              <ScrollView
+                style={{ maxHeight: 600 }}
+                contentContainerStyle={{
+                  paddingBottom: 15,
+                  paddingHorizontal: 15,
+                }}
+              >
+                {colours.map((colour) => (
+                  <TouchableOpacity
+                    key={colour.hex}
+                    onPress={() => handleColourSelect(colour)}
+                  >
+                    <View className="flex-row items-center justify-between py-4">
+                      <View className="flex-row items-center gap-x-2">
+                        <View
+                          className="w-6 h-6 rounded-full"
+                          style={{ backgroundColor: colour.hex }}
+                        />
+                        <Text className="text-sm font-normal">
+                          {colour.name}
+                        </Text>
+                      </View>
+                      {values.colour.some((col) => col.hex === colour.hex) && (
+                        <Image
+                          source={icons.tickIcon}
+                          resizeMode="contain"
+                          className="w-6 h-6"
+                        />
+                      )}
+                    </View>
+                  </TouchableOpacity>
+                ))}
+              </ScrollView>
+              <View
+                className="w-full px-4 py-6 bg-white"
+                style={{
+                  shadowColor: "#000",
+                  shadowOffset: {
+                    width: 0,
+                    height: -4,
+                  },
+                  shadowOpacity: 0.04,
+                  shadowRadius: 3.7,
+                  elevation: 4,
+                }}
+              >
+                <CustomButton
+                  handlePress={handleDone}
+                  disabled={values.colour.length === 0}
+                  className="w-full bg-primary border border-primary group disabled:bg-grey disabled:border-grey"
+                >
+                  <Text className="text-sm text-white font-semibold group-disabled:text-grey-800">
+                    Done
+                  </Text>
+                </CustomButton>
+              </View>
             </View>
           </View>
-        </View>
-      </Modal>
+        </Modal>
+      )}
     </React.Fragment>
   );
 };

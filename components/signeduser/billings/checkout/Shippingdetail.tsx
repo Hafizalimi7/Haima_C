@@ -10,9 +10,13 @@ import { View, Text } from "react-native";
 
 interface ShippingdetailProps {
   data: ProductType;
+  type?: "user" | "checkout";
 }
 
-const Shippingdetail: React.FC<ShippingdetailProps> = ({ data }) => {
+const Shippingdetail: React.FC<ShippingdetailProps> = ({
+  data,
+  type = "checkout",
+}) => {
   const { push } = useRouter();
   const { shippingAddresses, selectedAddressId, selectedDelievryAddressId } =
     useShipping();
@@ -29,16 +33,18 @@ const Shippingdetail: React.FC<ShippingdetailProps> = ({ data }) => {
         <Text className="text-base font-medium text-primary">
           Shipping Details
         </Text>
-        <TouchableOpacity
-          onPress={() => {
-            push({
-              pathname: "/shipping-detail/info",
-              params: { productId: data.id },
-            });
-          }}
-        >
-          <Text className="text-secondary text-base font-bold">Change</Text>
-        </TouchableOpacity>
+        {type === "checkout" && (
+          <TouchableOpacity
+            onPress={() => {
+              push({
+                pathname: "/shipping-detail/info",
+                params: { productId: data.id },
+              });
+            }}
+          >
+            <Text className="text-secondary text-base font-bold">Change</Text>
+          </TouchableOpacity>
+        )}
       </View>
       <View className="flex-col items-start justify-start gap-y-1 w-full">
         {selectedAddress && (

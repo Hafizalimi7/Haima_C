@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { DetailHeader } from "@/components/signeduser/details";
 import { useLocalSearchParams } from "expo-router";
-import { ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { products, sampleReviews } from "@/data/products";
 import {

@@ -1,5 +1,12 @@
 import React from "react";
-import { View, Text, TouchableOpacity, Image, StyleProp, ViewStyle } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  StyleProp,
+  ViewStyle,
+} from "react-native";
 import { ProductType } from "@/types/product";
 import { useRouter } from "expo-router";
 import { formatCurrency } from "@/helpers/currency";
@@ -9,12 +16,14 @@ interface ProductItemProps {
   product: ProductType;
   className?: string;
   style?: StyleProp<ViewStyle>;
+  type?: "user" | "item";
 }
 
 const ProductItem: React.FC<ProductItemProps> = ({
   product,
   className = "first:ml-4 mx-2 pb-3 w-[164px]",
   style,
+  type = "item",
 }) => {
   const { push } = useRouter();
 
@@ -24,10 +33,18 @@ const ProductItem: React.FC<ProductItemProps> = ({
         accessible={true}
         accessibilityRole="button"
         accessibilityLabel={`Navigate to ${product.title} search`}
-        onPress={() => push(`/product/${product.id}/item`)}
+        onPress={() =>
+          push({
+            pathname: "/product/[slug]/item",
+            params: {
+              slug: product.id,
+              type: type,
+            },
+          })
+        }
         className="flex flex-col items-start justify-start gap-y-2 w-full"
       >
-        <View className="rounded-3xl w-[164px] aspect-square relative overflow-hidden">
+        <View className="rounded-3xl w-[164px] aspect-square relative">
           <Image
             source={product.productImage}
             resizeMode="cover"

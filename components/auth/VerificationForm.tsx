@@ -152,8 +152,8 @@ const VerificationForm: React.FC<VerificationFormProps> = ({
           );
         }}
       </Formik>
-      <ModalPopUp visible={successModal} className="">
-        <View className="items-center flex-col justify-center gap-y-6">
+      <ModalPopUp visible={successModal} className="py-10">
+        <View className="items-center flex-col justify-center gap-y-6 px-4">
           <Image
             source={icons.successIcon}
             resizeMode="contain"
