@@ -1,9 +1,9 @@
+import React from "react";
 import { RadioButton } from "@/components/ui/inputs";
 import { images } from "@/constants";
 import signeduser from "@/constants/icons/signeduser";
 import { usePayment } from "@/contexts/PaymentProvider";
 import { useRouter } from "expo-router";
-import React from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 
 const CreditCards: React.FC = () => {

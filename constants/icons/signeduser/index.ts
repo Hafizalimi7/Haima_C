@@ -4,6 +4,7 @@ const bikeIcon = require("@/assets/images/signeduser/billings/bike.png");
 const categoryIcon = require("@/assets/icons/signeduser/category.png");
 const chevronarrowIcon = require("@/assets/icons/signeduser/chevronarrow.png");
 const cvvIcon = require("@/assets/icons/signeduser/cvv.png");
+const declineTransactionIcon = require("@/assets/icons/signeduser/declineTransaction.png");
 const deleteIcon = require("@/assets/icons/signeduser/delete.png");
 const editIcon = require("@/assets/icons/signeduser/edit.png");
 const forwardIcon = require("@/assets/icons/signeduser/forward.png");
@@ -17,9 +18,12 @@ const logoutIcon = require("@/assets/icons/signeduser/logout.png");
 const messageIcon = require("@/assets/icons/signeduser/message.png");
 const modeIcon = require("@/assets/icons/signeduser/mode.png");
 const newMessageIcon = require("@/assets/icons/signeduser/newMessage.png");
+const noTransactionIcon = require("@/assets/icons/signeduser/noTransaction.png");
 const profileIcon = require("@/assets/icons/signeduser/profile.png");
 const pendingOfferIcon = require("@/assets/icons/signeduser/pendingOffer.png");
 const purchaseIcon = require("@/assets/icons/signeduser/purchase.png");
+const plusIcon = require("@/assets/icons/signeduser/plus.png");
+const reasonIcon = require("@/assets/icons/signeduser/reason.png");
 const searchIcon = require("@/assets/icons/signeduser/search.png");
 const sendIcon = require("@/assets/icons/signeduser/send.png");
 const starIcon = require("@/assets/icons/signeduser/star.png");
@@ -30,6 +34,7 @@ const soldIcon = require("@/assets/icons/signeduser/sold.png");
 const soldItemIcon = require("@/assets/icons/signeduser/soldItem.png");
 const sortIcon = require("@/assets/icons/signeduser/sort.png");
 const shieldIcon = require("@/assets/icons/signeduser/shield.png");
+const successTransactionIcon = require("@/assets/icons/signeduser/successTransaction.png");
 const termIcon = require("@/assets/icons/signeduser/term.png");
 const usersIcon = require("@/assets/icons/signeduser/users.png");
 const warningIcon = require("@/assets/icons/signeduser/warning.png");
@@ -41,6 +46,7 @@ export default {
   categoryIcon,
   chevronarrowIcon,
   cvvIcon,
+  declineTransactionIcon,
   deleteIcon,
   editIcon,
   filterIcon,
@@ -53,9 +59,12 @@ export default {
   messageIcon,
   modeIcon,
   newMessageIcon,
+  noTransactionIcon,
   profileIcon,
   pendingOfferIcon,
   purchaseIcon,
+  plusIcon,
+  reasonIcon,
   starIcon,
   searchIcon,
   settingIcon,
@@ -66,6 +75,7 @@ export default {
   soldIcon,
   soldItemIcon,
   shieldIcon,
+  successTransactionIcon,
   termIcon,
   warningIcon,
   usersIcon,

@@ -6,6 +6,7 @@ const checkboxIcon = require("@/assets/icons/checkbox.png");
 const checkedIcon = require("@/assets/icons/checked.png");
 const closeIcon = require("@/assets/icons/close.png");
 const checkedBoxIcon = require("@/assets/icons/checkedbox.png");
+const dateIcon = require("@/assets/icons/date.png");
 const deleteIcon = require("@/assets/icons/delete.png");
 const eyeIcon = require("@/assets/icons/eye.png");
 const emailIcon = require("@/assets/icons/email.png");
@@ -19,6 +20,7 @@ const offerIcon = require("@/assets/icons/offer.png");
 const phoneIcon = require("@/assets/icons/phone.png");
 const searchCloseIcon = require("@/assets/icons/searchClose.png");
 const successIcon = require("@/assets/icons/success.png");
+const showEyeIcon = require("@/assets/icons/showEye.png");
 const trashIcon = require("@/assets/icons/trash.png");
 const tickIcon = require("@/assets/icons/tick.png");
 const uploadIcon = require("@/assets/icons/upload.png");
@@ -34,6 +36,7 @@ export default {
   checkedIcon,
   closeIcon,
   checkedBoxIcon,
+  dateIcon,
   deleteIcon,
   eyeIcon,
   emailIcon,
@@ -47,6 +50,7 @@ export default {
   phoneIcon,
   searchCloseIcon,
   successIcon,
+  showEyeIcon,
   trashIcon,
   tickIcon,
   uploadIcon,

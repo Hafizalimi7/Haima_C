@@ -15,3 +15,9 @@ export interface ResetPasswordFormValues {
 export interface VerificationFormValue {
   otp: string;
 }
+
+export interface UpdatePasswordFormValues {
+  current_password: string;
+  new_password: string;
+  confirm_new_password: string;
+}

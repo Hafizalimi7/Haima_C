@@ -12,9 +12,18 @@ export const SignInSchema = yup.object().shape({
 export const ResetPasswordSchema = yup.object().shape({
   new_password: yup.string().required("New Password is required"),
   confirm_password: yup
-  .string()
-  .oneOf([yup.ref("new_password"), undefined], "Password does not match")
-  .required("Required"),
+    .string()
+    .oneOf([yup.ref("new_password"), undefined], "Password does not match")
+    .required("Required"),
+});
+
+export const UpdatePasswordSchema = yup.object().shape({
+  current_password: yup.string().required("Password is required"),
+  new_password: yup.string().required("New Password is required"),
+  confirm_new_password: yup
+    .string()
+    .oneOf([yup.ref("new_password"), undefined], "Password does not match")
+    .required("Required"),
 });
 
 export const CreateProfileSchema = yup.object().shape({
@@ -34,4 +43,12 @@ export const CreateProfileSchema = yup.object().shape({
 
 export const VerificationSchema = yup.object().shape({
   otp: yup.string().required("Required"),
+});
+
+export const DeleteAccountSchema = yup.object().shape({
+  reason: yup.string().required("Required"),
+  agreeToTerms: yup
+    .boolean()
+    .oneOf([true], "You must accept the terms and conditions")
+    .required("You must accept the terms and conditions"),
 });

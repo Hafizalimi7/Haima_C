@@ -58,3 +58,18 @@ export const settingsOptions: SettingsOption[] = [
     href: "/profile/settings/help-center",
   },
 ];
+
+export const accountSettingsOptions: SettingsOption[] = [
+  {
+    id: "01",
+    icon: require("@/assets/icons/lock.png"),
+    title: "Change Password",
+    href: "/profile/settings/account-settings/update-password",
+  },
+  {
+    id: "02",
+    icon: require("@/assets/icons/trash.png"),
+    title: "Delete Account",
+    href: "/profile/settings/account-settings/delete-account",
+  },
+];

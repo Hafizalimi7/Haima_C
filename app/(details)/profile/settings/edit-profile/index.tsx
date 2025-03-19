@@ -1,13 +1,13 @@
-import { DetailHeader } from "@/components/signeduser/details";
 import React from "react";
+import EditProfileForm from "@/components/signeduser/userprofile/edit/EditProfileForm";
 import { ScrollView } from "react-native";
-import { View, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { ProfileHeader } from "@/components/signeduser/userprofile";
 
 export default function EditProfileScreen() {
   return (
     <SafeAreaView className="flex-1 bg-white">
-      <DetailHeader
+      <ProfileHeader
         title="Edit Profile"
         showShareIcon={false}
         className="py-2 px-0"
@@ -18,7 +18,9 @@ export default function EditProfileScreen() {
           paddingVertical: 10,
           flex: 1,
         }}
-      ></ScrollView>
+      >
+        <EditProfileForm />
+      </ScrollView>
     </SafeAreaView>
   );
 }

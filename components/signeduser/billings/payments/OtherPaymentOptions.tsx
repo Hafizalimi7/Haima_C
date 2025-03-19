@@ -5,7 +5,13 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import { icons, images } from "@/constants";
 import { formatCurrency } from "@/helpers/currency";
 
-const OtherPaymentOptions: React.FC = () => {
+interface OtherPaymentOptionsProps {
+  showWalletBalance?: boolean;
+}
+
+const OtherPaymentOptions: React.FC<OtherPaymentOptionsProps> = ({
+  showWalletBalance = true,
+}) => {
   const { selectedCardId, setSelectedCardId } = usePayment();
 
   return (
@@ -14,22 +20,24 @@ const OtherPaymentOptions: React.FC = () => {
         More payment options
       </Text>
       <View className="w-full flex-col items-start justify-start bg-lightGrey2 rounded-xl px-4">
-        <View className="w-full border-b py-4 border-grey flex-row items-center justify-between">
-          <View className="flex-row items-center justify-start gap-x-4">
-            <Image
-              source={images.walletImage}
-              resizeMode="contain"
-              className="w-5 h-5"
-            />
-            <Text className="text-base font-normal text-primary">Wallet</Text>
-            <Text className="text-base font-bold text-secondary">
-              {formatCurrency(2000)}
-            </Text>
+        {showWalletBalance && (
+          <View className="w-full border-b py-4 border-grey flex-row items-center justify-between">
+            <View className="flex-row items-center justify-start gap-x-4">
+              <Image
+                source={images.walletImage}
+                resizeMode="contain"
+                className="w-5 h-5"
+              />
+              <Text className="text-base font-normal text-primary">Wallet</Text>
+              <Text className="text-base font-bold text-secondary">
+                {formatCurrency(2000)}
+              </Text>
+            </View>
+            <TouchableOpacity onPress={() => setSelectedCardId("WALLET")}>
+              <RadioButton selected={selectedCardId === "WALLET"} />
+            </TouchableOpacity>
           </View>
-          <TouchableOpacity onPress={() => setSelectedCardId("WALLET")}>
-            <RadioButton selected={selectedCardId === "WALLET"} />
-          </TouchableOpacity>
-        </View>
+        )}
         <View className="w-full border-b py-4 border-grey flex-row items-center justify-between">
           <View className="flex-row items-center justify-start gap-x-4">
             <Image

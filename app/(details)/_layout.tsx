@@ -89,7 +89,7 @@ export default function HaimaDetailLayout() {
                 options={{ headerShown: false }}
               />
               <Stack.Screen
-                name="profile/settings/user-wallet/transaction/index"
+                name="profile/settings/user-wallet/transactions/index"
                 options={{ headerShown: false }}
               />
               <Stack.Screen
