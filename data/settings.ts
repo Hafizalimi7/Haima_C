@@ -73,3 +73,2232 @@ export const accountSettingsOptions: SettingsOption[] = [
     href: "/profile/settings/account-settings/delete-account",
   },
 ];
+
+export type SubCategory = {
+  id: string;
+  title: string;
+  description: string;
+};
+
+export interface Category {
+  id: string;
+  title: string;
+  subCategories: SubCategory[];
+}
+
+export type HelpCenterCategory = {
+  id: string;
+  title: string;
+  categories: Category[];
+};
+
+export const helpCenterData: HelpCenterCategory[] = [
+  {
+    id: "get-started-haima",
+    title: "Get Started",
+    categories: [
+      {
+        id: "01",
+        title: "Selling step by step",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "02",
+        title: "What you can sell on HAIMA",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "03",
+        title: "How shipping works",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "04",
+        title: "What is item bump",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "05",
+        title: "HAIMA wallet - How it works",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "06",
+        title: "Paying through HAIMA",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "07",
+        title: "Buying step by step",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "08",
+        title: "Recommended content on HAIMA",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "09",
+        title: "Buyer protection",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "selling",
+    title: "Selling",
+    categories: [
+      {
+        id: "01",
+        title: "Selling step by step",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "02",
+        title: "What you can sell on HAIMA",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "03",
+        title: "How shipping works",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "04",
+        title: "What is item bump",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "05",
+        title: "HAIMA wallet - How it works",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "06",
+        title: "Paying through HAIMA",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "07",
+        title: "Buying step by step",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "08",
+        title: "Recommended content on HAIMA",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "09",
+        title: "Buyer protection",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "buying",
+    title: "Buying",
+    categories: [
+      {
+        id: "01",
+        title: "Selling step by step",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "02",
+        title: "What you can sell on HAIMA",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "03",
+        title: "How shipping works",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "04",
+        title: "What is item bump",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "05",
+        title: "HAIMA wallet - How it works",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "06",
+        title: "Paying through HAIMA",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "07",
+        title: "Buying step by step",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "08",
+        title: "Recommended content on HAIMA",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "09",
+        title: "Buyer protection",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "shipping",
+    title: "Shipping",
+    categories: [
+      {
+        id: "01",
+        title: "Selling step by step",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "02",
+        title: "What you can sell on HAIMA",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "03",
+        title: "How shipping works",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "04",
+        title: "What is item bump",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "05",
+        title: "HAIMA wallet - How it works",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "06",
+        title: "Paying through HAIMA",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "07",
+        title: "Buying step by step",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "08",
+        title: "Recommended content on HAIMA",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "09",
+        title: "Buyer protection",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "wallet",
+    title: "Wallet",
+    categories: [
+      {
+        id: "01",
+        title: "Selling step by step",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "02",
+        title: "What you can sell on HAIMA",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "03",
+        title: "How shipping works",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "04",
+        title: "What is item bump",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "05",
+        title: "HAIMA wallet - How it works",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "06",
+        title: "Paying through HAIMA",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "07",
+        title: "Buying step by step",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "08",
+        title: "Recommended content on HAIMA",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "09",
+        title: "Buyer protection",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "trust-Safety",
+    title: "Trust & Safety",
+    categories: [
+      {
+        id: "01",
+        title: "Selling step by step",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "02",
+        title: "What you can sell on HAIMA",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "03",
+        title: "How shipping works",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "04",
+        title: "What is item bump",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "05",
+        title: "HAIMA wallet - How it works",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "06",
+        title: "Paying through HAIMA",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "07",
+        title: "Buying step by step",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "08",
+        title: "Recommended content on HAIMA",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "09",
+        title: "Buyer protection",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "not-logged-in",
+    title: "Not logged in",
+    categories: [
+      {
+        id: "01",
+        title: "Selling step by step",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "02",
+        title: "What you can sell on HAIMA",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "03",
+        title: "How shipping works",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "04",
+        title: "What is item bump",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "05",
+        title: "HAIMA wallet - How it works",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "06",
+        title: "Paying through HAIMA",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "07",
+        title: "Buying step by step",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "08",
+        title: "Recommended content on HAIMA",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "09",
+        title: "Buyer protection",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "my-account-Settings",
+    title: "My Account & Settings",
+    categories: [
+      {
+        id: "01",
+        title: "Selling step by step",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "02",
+        title: "What you can sell on HAIMA",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "03",
+        title: "How shipping works",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "04",
+        title: "What is item bump",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "05",
+        title: "HAIMA wallet - How it works",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "06",
+        title: "Paying through HAIMA",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "07",
+        title: "Buying step by step",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "08",
+        title: "Recommended content on HAIMA",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+      {
+        id: "09",
+        title: "Buyer protection",
+        subCategories: [
+          {
+            id: "1",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "2",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "3",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+          {
+            id: "4",
+            title: "Lorem Ipsum Dolor",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisl at consequat efficitur, elit erat ullamcorper nisl, non accumsan tortor sapien eget metus.",
+          },
+        ],
+      },
+    ],
+  },
+];
