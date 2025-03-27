@@ -1,7 +1,6 @@
 import React from "react";
 import signeduser from "@/constants/icons/signeduser";
-import { Image } from "react-native";
-import { View, Text } from "react-native";
+import { Image, View, Text } from "react-native";
 import { ImageType } from "@/types/product";
 import CustomButton from "../CustomizeButton";
 import { useRouter } from "expo-router";

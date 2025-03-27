@@ -1,11 +1,9 @@
 import React from "react";
 import { useRouter } from "expo-router";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Image, FlatList } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ProfileHeader } from "@/components/signeduser/userprofile";
-import { Image } from "react-native";
 import signeduser from "@/constants/icons/signeduser";
-import { FlatList } from "react-native";
 import { accountSettingsOptions } from "@/data/settings";
 
 export default function AccountSettingsScreen() {

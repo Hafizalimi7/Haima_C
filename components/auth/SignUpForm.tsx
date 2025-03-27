@@ -1,10 +1,9 @@
 import { SignupSchema } from "@/schemas/auth.schema";
 import { SignUpFormValues } from "@/types/auth";
 import { Formik } from "formik";
-import { Text, View } from "react-native";
+import { Text, View, TouchableOpacity } from "react-native";
 import { FormFieldInput } from "../ui/inputs";
 import { CustomButton } from "../ui";
-import { TouchableOpacity } from "react-native";
 import { useRouter } from "expo-router";
 
 const SignUpForm: React.FC = () => {

@@ -8,11 +8,11 @@ import {
   KeyboardAvoidingView,
   Platform,
   Modal,
+  FlatList,
 } from "react-native";
 import { icons } from "@/constants";
 import { MessageContent } from "@/types/message";
 import signeduser from "@/constants/icons/signeduser";
-import { FlatList } from "react-native";
 import { EMOJIS } from "@/data/emojis";
 
 interface MessageInputProps {

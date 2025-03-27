@@ -1,6 +1,6 @@
 import { useLocalSearchParams } from "expo-router";
 import React from "react";
-import { View, Text, FlatList } from "react-native";
+import { FlatList } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { helpCenterData } from "@/data/settings";
 import { DetailHeader } from "@/components/signeduser/details";

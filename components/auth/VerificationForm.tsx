@@ -3,7 +3,14 @@ import { Formik } from "formik";
 import { VerificationSchema } from "@/schemas/auth.schema";
 import { VerificationFormValue } from "@/types/auth";
 import { useRouter } from "expo-router";
-import { View, Text, Image, Alert } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  Alert,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 import { CustomButton, ModalPopUp } from "../ui";
 import useBooleanControl from "@/hooks/useBooleanControl";
 import {
@@ -12,8 +19,6 @@ import {
   useBlurOnFulfill,
   useClearByFocusCell,
 } from "react-native-confirmation-code-field";
-import { TouchableOpacity } from "react-native";
-import { StyleSheet } from "react-native";
 import { icons } from "@/constants";
 
 interface VerificationFormProps {
@@ -42,7 +47,7 @@ const VerificationForm: React.FC<VerificationFormProps> = ({
   };
 
   const handleSubmit = (values: VerificationFormValue) => {
-    console.log("🚀 ~ handleSubmit ~ values:", values)
+    console.log("🚀 ~ handleSubmit ~ values:", values);
     try {
       if (type === "reset-password") {
         push("/auth/reset-password");

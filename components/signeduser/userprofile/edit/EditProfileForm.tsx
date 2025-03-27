@@ -1,24 +1,30 @@
 import React from "react";
 import { EditProfileFormValues } from "@/types/profile";
 import { useRouter } from "expo-router";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import { Formik } from "formik";
 import { CustomButton } from "@/components/ui";
 import { FormFieldInput } from "@/components/ui/inputs";
 import { icons } from "@/constants";
 import signeduser from "@/constants/icons/signeduser";
 
-interface EditProfileFormProps {}
+interface EditProfileFormProps {
+  email?: string;
+  phoneNumber?: string;
+}
 
-const EditProfileForm: React.FC<EditProfileFormProps> = () => {
+const EditProfileForm: React.FC<EditProfileFormProps> = ({
+  email,
+  phoneNumber,
+}) => {
   const { push } = useRouter();
 
   const initialValues: EditProfileFormValues = {
     first_name: "",
     last_name: "",
     username: "",
-    email: "",
-    phoneNumber: "",
+    email: email || "",
+    phoneNumber: phoneNumber || "",
     date_of_birth: "",
   };
 
@@ -27,12 +33,26 @@ const EditProfileForm: React.FC<EditProfileFormProps> = () => {
     push("/profile/settings");
   };
 
+  const handleEditEmail = (email: string) => {
+    push({
+      pathname: "/profile/settings/edit-profile/update",
+      params: {
+        email,
+      },
+    });
+  };
+
+  const handleEditPhoneNumber = (phoneNumber: string) => {
+    push({
+      pathname: "/profile/settings/edit-profile/update",
+      params: {
+        phoneNumber,
+      },
+    });
+  };
+
   return (
-    <Formik
-      initialValues={initialValues}
-      // validationSchema={CreateProfileSchema}
-      onSubmit={handleSubmit}
-    >
+    <Formik initialValues={initialValues} onSubmit={handleSubmit}>
       {({
         handleChange,
         handleBlur,
@@ -59,6 +79,8 @@ const EditProfileForm: React.FC<EditProfileFormProps> = () => {
           !!errors.username ||
           !values.email ||
           !!errors.email ||
+          !values.phoneNumber ||
+          !!errors.phoneNumber ||
           !values.date_of_birth ||
           !!errors.date_of_birth;
 
@@ -141,13 +163,18 @@ const EditProfileForm: React.FC<EditProfileFormProps> = () => {
                     getError("email") ? "border-danger" : "border-grey"
                   }`}
                 />
-                <View className="flex-row items-center justify-start absolute top-[13px] right-[20px]">
-                  <Image
-                    source={signeduser.chevronarrowIcon}
-                    resizeMode="contain"
-                    className="w-5 h-5"
-                  />
-                </View>
+                <TouchableOpacity
+                  onPress={() => handleEditEmail(values.email)}
+                  className="absolute top-[13px] right-[20px]"
+                >
+                  <View className="flex-row items-center justify-start">
+                    <Image
+                      source={signeduser.chevronarrowIcon}
+                      resizeMode="contain"
+                      className="w-5 h-5"
+                    />
+                  </View>
+                </TouchableOpacity>
                 <View className="flex-row items-center justify-start absolute top-[13px] left-[20px]">
                   <Image
                     source={icons.emailIcon}
@@ -169,13 +196,18 @@ const EditProfileForm: React.FC<EditProfileFormProps> = () => {
                     getError("phoneNumber") ? "border-danger" : "border-grey"
                   }`}
                 />
-                <View className="flex-row items-center justify-start absolute top-[13px] right-[20px]">
-                  <Image
-                    source={signeduser.chevronarrowIcon}
-                    resizeMode="contain"
-                    className="w-5 h-5"
-                  />
-                </View>
+                <TouchableOpacity
+                  onPress={() => handleEditPhoneNumber(values.phoneNumber)}
+                  className="absolute top-[13px] right-[20px]"
+                >
+                  <View className="flex-row items-center justify-start">
+                    <Image
+                      source={signeduser.chevronarrowIcon}
+                      resizeMode="contain"
+                      className="w-5 h-5"
+                    />
+                  </View>
+                </TouchableOpacity>
                 <View className="flex-row items-center justify-start absolute top-[13px] left-[20px]">
                   <Image
                     source={icons.phoneIcon}

@@ -2,7 +2,7 @@ import { ProfileHeader } from "@/components/signeduser/userprofile";
 import { EmptyUI } from "@/components/ui/emptyUi";
 import signeduser from "@/constants/icons/signeduser";
 import React from "react";
-import { View, Text, FlatList } from "react-native";
+import { FlatList } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function SoldItemsScreen() {

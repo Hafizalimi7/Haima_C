@@ -1,5 +1,5 @@
 import React from "react";
-import { View, ScrollView, TouchableOpacity } from "react-native";
+import { View, ScrollView, TouchableOpacity, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { products } from "@/data/products";
@@ -14,7 +14,6 @@ import {
 } from "@/components/signeduser/details/products";
 import { DetailHeader } from "@/components/signeduser/details";
 import { AuthOptionsSheet } from "@/components/onboarding/bottomsheet";
-import { Image } from "react-native";
 import { useBottomSheet } from "@/contexts/BottomSheetProvider";
 import { useAuth } from "@/contexts/AuthContext";
 import useBooleanControl from "@/hooks/useBooleanControl";

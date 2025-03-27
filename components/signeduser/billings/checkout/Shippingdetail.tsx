@@ -5,8 +5,7 @@ import { deliveryOption } from "@/data/products";
 import { ProductType } from "@/types/product";
 import { useRouter } from "expo-router";
 import React from "react";
-import { Image, TouchableOpacity } from "react-native";
-import { View, Text } from "react-native";
+import { Image, TouchableOpacity, View, Text } from "react-native";
 
 interface ShippingdetailProps {
   data: ProductType;

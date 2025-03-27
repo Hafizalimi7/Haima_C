@@ -1,8 +1,7 @@
 import React from "react";
 import { CreateShippingAddressForm } from "@/components/signeduser/billings";
 import { DetailHeader } from "@/components/signeduser/details";
-import { ScrollView } from "react-native";
-import { View } from "react-native";
+import { ScrollView, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function CreateShippingAddressScreen() {

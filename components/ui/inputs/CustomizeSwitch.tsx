@@ -1,12 +1,14 @@
-import { StyleSheet, TouchableOpacity } from "react-native";
-import { View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 
 interface CustomSwitchProps {
   isOn: boolean;
   onToggle?: () => void;
 }
 
-const CustomizeSwitch: React.FC<CustomSwitchProps> = ({ isOn=true, onToggle }) => {
+const CustomizeSwitch: React.FC<CustomSwitchProps> = ({
+  isOn = true,
+  onToggle,
+}) => {
   return (
     <TouchableOpacity
       onPress={onToggle}

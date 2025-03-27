@@ -4,13 +4,11 @@ import { CustomButton, ModalPopUp } from "@/components/ui";
 import { DetailHeader } from "@/components/signeduser/details";
 import { DeleteAccountFormValue } from "@/types/profile";
 import { useRouter } from "expo-router";
-import { View, Text, ScrollView } from "react-native";
+import { View, Text, ScrollView, TextInput, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import useBooleanControl from "@/hooks/useBooleanControl";
 import { DeleteAccountSchema } from "@/schemas/auth.schema";
-import { TextInput } from "react-native";
 import { Checkbox } from "@/components/ui/inputs";
-import { Image } from "react-native";
 import signeduser from "@/constants/icons/signeduser";
 
 export default function DeleteAccountScreen() {

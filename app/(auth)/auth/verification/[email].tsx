@@ -1,7 +1,6 @@
 import { AuthHeader, VerificationForm } from "@/components/auth";
 import { useLocalSearchParams } from "expo-router";
-import { ScrollView } from "react-native";
-import { View } from "react-native";
+import { ScrollView, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function VerificationScreen() {
@@ -9,7 +8,7 @@ export default function VerificationScreen() {
     email?: string;
     type?: string;
   }>();
-  
+
   return (
     <SafeAreaView className="flex-1 bg-white">
       <ScrollView

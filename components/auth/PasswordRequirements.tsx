@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { CustomButton } from "../ui";
-import { Text, View } from "react-native";
-import { Image } from "react-native";
+import { Text, View, Image } from "react-native";
 import { icons } from "@/constants";
 
 interface PasswordRequirementProps {

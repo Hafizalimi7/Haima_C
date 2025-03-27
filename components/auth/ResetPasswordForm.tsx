@@ -1,12 +1,11 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Image } from "react-native";
 import { CustomButton, ModalPopUp } from "../ui";
 import { Formik } from "formik";
 import { useRouter } from "expo-router";
 import { ResetPasswordFormValues } from "@/types/auth";
 import { ResetPasswordSchema } from "@/schemas/auth.schema";
 import { FormFieldInput } from "../ui/inputs";
-import { Image } from "react-native";
 import { icons } from "@/constants";
 import PasswordRequirements from "./PasswordRequirements";
 import useBooleanControl from "@/hooks/useBooleanControl";
@@ -27,7 +26,7 @@ const ResetPasswordForm: React.FC = () => {
   const handleSubmit = (values: ResetPasswordFormValues) => {
     // Handle form submission here
     console.log("Form values:", values);
-    setSuccessModalTrue()
+    setSuccessModalTrue();
   };
 
   return (

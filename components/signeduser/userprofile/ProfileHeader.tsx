@@ -1,7 +1,6 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Image } from "react-native";
 import { useRouter } from "expo-router";
-import { Image } from "react-native";
 import { icons } from "@/constants";
 
 interface ProfileHeaderProps {

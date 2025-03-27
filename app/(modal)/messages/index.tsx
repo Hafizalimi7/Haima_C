@@ -2,9 +2,8 @@ import React from "react";
 import { MessageHeading } from "@/components/signeduser/messages";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useMessages } from "@/contexts/MessageProvider";
-import { FlatList, Text, View } from "react-native";
+import { FlatList, Text, ActivityIndicator } from "react-native";
 import { ConversationItem } from "@/components/signeduser/messages/ConversationItem";
-import { ActivityIndicator } from "react-native";
 import { EmptyUI } from "@/components/ui/emptyUi";
 import signeduser from "@/constants/icons/signeduser";
 

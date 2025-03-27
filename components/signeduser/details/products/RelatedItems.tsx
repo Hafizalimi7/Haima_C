@@ -1,6 +1,5 @@
 import React from "react";
-import { View, Text } from "react-native";
-import { FlatList } from "react-native";
+import { View, Text, FlatList } from "react-native";
 import { products } from "@/data/products";
 import { ProductItem } from "../../products";
 

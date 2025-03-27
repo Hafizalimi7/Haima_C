@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Dimensions, Image, TouchableOpacity } from "react-native";
-import { View, Text } from "react-native";
+import { Dimensions, Image, TouchableOpacity, View, Text } from "react-native";
 import signeduser from "@/constants/icons/signeduser";
 import { useFilter } from "@/contexts/FilterProvider";
 import { icons } from "@/constants";

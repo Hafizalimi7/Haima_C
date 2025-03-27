@@ -1,7 +1,6 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Image } from "react-native";
 import { useRouter } from "expo-router";
-import { Image } from "react-native";
 import signeduser from "@/constants/icons/signeduser";
 import { getInitials } from "@/helpers/string";
 import { useAuth } from "@/contexts/AuthContext";

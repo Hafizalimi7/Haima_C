@@ -3,8 +3,14 @@ import EditProfileForm from "@/components/signeduser/userprofile/edit/EditProfil
 import { ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ProfileHeader } from "@/components/signeduser/userprofile";
+import { useLocalSearchParams } from "expo-router";
 
 export default function EditProfileScreen() {
+  const { email, phoneNumber } = useLocalSearchParams<{
+    email?: string;
+    phoneNumber?: string;
+  }>();
+
   return (
     <SafeAreaView className="flex-1 bg-white">
       <ProfileHeader
@@ -19,7 +25,7 @@ export default function EditProfileScreen() {
           flex: 1,
         }}
       >
-        <EditProfileForm />
+        <EditProfileForm email={email} phoneNumber={phoneNumber} />
       </ScrollView>
     </SafeAreaView>
   );

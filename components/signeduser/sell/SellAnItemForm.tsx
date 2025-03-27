@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { Formik } from "formik";
-import { View, TextInput, Text } from "react-native";
+import { View, TextInput, Text, ScrollView } from "react-native";
 import UploadProductImages from "./UploadProductImages";
 import { sellItemFormValue } from "@/types/sell";
 import { FormFieldInput } from "@/components/ui/inputs";
@@ -12,7 +12,6 @@ import ConditionOption from "./ConditionOption";
 import useBooleanControl from "@/hooks/useBooleanControl";
 import ProceedModal from "./ProceedModal";
 import { CustomButton } from "@/components/ui";
-import { ScrollView } from "react-native";
 
 const SellAnItemForm: React.FC = () => {
   const {
