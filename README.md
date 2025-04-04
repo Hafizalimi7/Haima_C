@@ -81,7 +81,7 @@ Follow these instructions to get the project up and running on your local machin
    ```
 2. Navigate into the project directory:
    ```bash
-   cd Client
+   cd Haima_C
    ```
 3. Install dependencies:
    ```bash
