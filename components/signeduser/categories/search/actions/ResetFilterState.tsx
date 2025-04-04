@@ -12,7 +12,7 @@ const ResetFilterState: React.FC<ResetFilterStateProps> = ({
   const {
     updatePriceRange,
     updateConditions,
-    updateSizes,
+    updateSize,
     updateColors,
     updateRating,
     filters,
@@ -26,7 +26,7 @@ const ResetFilterState: React.FC<ResetFilterStateProps> = ({
       case "Conditions":
         return filters.conditions.length === 0;
       case "Size":
-        return filters.sizes.length === 0;
+        return filters.size === "";
       case "Colour":
         return filters.colors.length === 0;
       case "Rating":
@@ -47,7 +47,7 @@ const ResetFilterState: React.FC<ResetFilterStateProps> = ({
             updateConditions([]);
             break;
           case "Size":
-            updateSizes([]);
+            updateSize("");
             break;
           case "Colour":
             updateColors([]);

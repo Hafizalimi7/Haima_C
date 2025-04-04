@@ -45,7 +45,7 @@ const LogoutModal: React.FC<LogoutModalProps> = ({ show, onClose }) => {
             </Text>
           </CustomButton>
           <CustomButton handlePress={handleLogout} className="bg-primary w-2/4">
-            <Text className="text-base text-white font-semibold">Delete</Text>
+            <Text className="text-base text-white font-semibold">Log out</Text>
           </CustomButton>
         </View>
       </View>

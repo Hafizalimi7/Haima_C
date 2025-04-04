@@ -81,7 +81,6 @@ export const FilterModal: React.FC<FilterModalProps> = ({
 
         <ScrollView className="flex-1">
           {!activeSection ? (
-            // Main Filter Menu
             <View className="p-4">
               <TouchableOpacity
                 className="flex-row justify-between items-center py-4"
@@ -132,12 +131,7 @@ export const FilterModal: React.FC<FilterModalProps> = ({
                 <Text className="text-base">Size</Text>
                 <View className="flex-row items-center justify-end gap-x-3">
                   <Text className="text-sm font-bold text-secondary truncate">
-                    {filters.sizes.length
-                      ? ` ${filters.sizes
-                          .slice(0, 3)
-                          .join(", ")
-                          .slice(0, 10)}...`
-                      : ""}
+                    {filters.size ? filters.size : ""}
                   </Text>
                   <Image
                     source={signeduser.chevronarrowIcon}
@@ -153,7 +147,12 @@ export const FilterModal: React.FC<FilterModalProps> = ({
                 <Text className="text-base">Colour</Text>
                 <View className="flex-row items-center justify-end gap-x-3">
                   <Text className="text-sm font-bold text-secondary truncate">
-                    {filters.colors.length ? filters.colors : ""}
+                    {filters.colors.length
+                      ? `${filters.colors
+                          .slice(0, 3)
+                          .join(", ")
+                          .slice(0, 38)}...`
+                      : ""}
                   </Text>
                   <Image
                     source={signeduser.chevronarrowIcon}
@@ -173,12 +172,15 @@ export const FilterModal: React.FC<FilterModalProps> = ({
                       ? `${filters.rating.toFixed(1)} and above`
                       : ""}
                   </Text>
-                  RenderSubCategory
+                  <Image
+                    source={signeduser.chevronarrowIcon}
+                    resizeMode="contain"
+                    className="w-6 h-6"
+                  />
                 </View>
               </TouchableOpacity>
             </View>
           ) : (
-            // Filter Section Content
             <View className="h-full p-4">
               {activeSection === "Price" && (
                 <PriceFilterSection onClose={() => setActiveSection(null)} />

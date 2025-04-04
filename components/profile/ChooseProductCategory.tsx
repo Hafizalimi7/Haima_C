@@ -3,6 +3,7 @@ import { Text, TouchableOpacity, View } from "react-native";
 import { CustomButton } from "../ui";
 import { useRouter } from "expo-router";
 import { useAuth } from "@/contexts/AuthContext";
+import { DUMMY_USERS } from "@/data/auth";
 
 const categories = [
   "Tops",
@@ -37,7 +38,16 @@ const brands = [
 const ChooseProductCategory: React.FC = () => {
   const { push } = useRouter();
   const { login } = useAuth();
+  const [selectedCategory, setSelectedCategory] = useState<string[]>([]);
   const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
+
+  const toggleCategorySelection = (category: string) => {
+    setSelectedCategory((prev) =>
+      prev.includes(category)
+        ? prev.filter((b) => b !== category)
+        : [...prev, category]
+    );
+  };
 
   const toggleBrandSelection = (brand: string) => {
     setSelectedBrands((prev) =>
@@ -45,10 +55,26 @@ const ChooseProductCategory: React.FC = () => {
     );
   };
 
+  const handleContinue = async () => {
+    try {
+      const user = DUMMY_USERS["buyer@example.com"];
+      await login(user.role);
+      push("/home");
+    } catch (error) {
+      console.log("🚀 ~ handleContinue ~ error:", error);
+    }
+  };
+
   return (
     <View className="w-full flex-grow gap-y-2 flex-col items-start justify-between">
       <View className="flex-col items-start justify-start gap-y-4">
-        <SelectableList title="Categories" items={categories} />
+        <SelectableList
+          title="Categories"
+          items={categories}
+          isSelectable
+          selectedItems={selectedCategory}
+          onSelect={toggleCategorySelection}
+        />
         <SelectableList
           title="Brands"
           items={brands}
@@ -59,10 +85,7 @@ const ChooseProductCategory: React.FC = () => {
       </View>
       <View className="w-full flex-col items-center justify-center gap-y-2">
         <CustomButton
-          handlePress={() => {
-            push("/home");
-            // login();
-          }}
+          handlePress={() => handleContinue()}
           className="w-full bg-primary"
         >
           <Text className="text-base text-white font-semibold">Continue</Text>
